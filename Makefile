@@ -203,18 +203,22 @@ export TopDIR ?= $(shell pwd)
 
 ########### COMMON  #################################
 ifeq ($(CONFIG_GSPI_HCI), y)
+EXTRA_CFLAGS += -DCONFIG_GSPI_HCI
 HCI_NAME = gspi
 endif
 
 ifeq ($(CONFIG_SDIO_HCI), y)
+EXTRA_CFLAGS += -DCONFIG_SDIO_HCI
 HCI_NAME = sdio
 endif
 
 ifeq ($(CONFIG_USB_HCI), y)
+EXTRA_CFLAGS += -DCONFIG_USB_HCI
 HCI_NAME = usb
 endif
 
 ifeq ($(CONFIG_PCI_HCI), y)
+EXTRA_CFLAGS += -DCONFIG_PCI_HCI
 HCI_NAME = pci
 endif
 
