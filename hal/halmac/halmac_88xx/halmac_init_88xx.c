@@ -320,8 +320,10 @@ mount_api_88xx(struct halmac_adapter *adapter)
 
 	if (adapter->intf == HALMAC_INTERFACE_SDIO) {
 #if HALMAC_SDIO_SUPPORT
+		api->halmac_init_sdio_cfg = init_sdio_cfg_88xx;
 		api->halmac_deinit_sdio_cfg = deinit_sdio_cfg_88xx;
 		api->halmac_cfg_rx_aggregation = cfg_sdio_rx_agg_88xx;
+		api->halmac_init_interface_cfg = init_sdio_cfg_88xx;
 		api->halmac_deinit_interface_cfg = deinit_sdio_cfg_88xx;
 		api->halmac_cfg_tx_agg_align = cfg_txagg_sdio_align_88xx;
 		api->halmac_set_bulkout_num = set_sdio_bulkout_num_88xx;
@@ -330,8 +332,6 @@ mount_api_88xx(struct halmac_adapter *adapter)
 		api->halmac_reg_sdio_cmd53_read_n = sdio_reg_rn_88xx;
 		api->halmac_sdio_cmd53_4byte = sdio_cmd53_4byte_88xx;
 		api->halmac_sdio_hw_info = sdio_hw_info_88xx;
-		api->halmac_en_ref_autok_pcie = en_ref_autok_sdio_88xx;
-
 #endif
 	} else if (adapter->intf == HALMAC_INTERFACE_USB) {
 #if HALMAC_USB_SUPPORT

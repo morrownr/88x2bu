@@ -359,8 +359,9 @@ mount_api_8822b(struct halmac_adapter *adapter)
 
 	if (adapter->intf == HALMAC_INTERFACE_SDIO) {
 #if HALMAC_SDIO_SUPPORT
-		api->halmac_init_interface_cfg = init_sdio_cfg_8822b;
-		api->halmac_init_sdio_cfg = init_sdio_cfg_8822b;
+		adapter->sdio_hw_info.tx_addr_format = HALMAC_SDIO_AGG_MODE;
+		api->halmac_init_interface_cfg = init_sdio_cfg_88xx;
+		api->halmac_init_sdio_cfg = init_sdio_cfg_88xx;
 		api->halmac_mac_power_switch = mac_pwr_switch_sdio_8822b;
 		api->halmac_phy_cfg = phy_cfg_sdio_8822b;
 		api->halmac_pcie_switch = pcie_switch_sdio_8822b;
