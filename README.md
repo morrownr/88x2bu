@@ -2,7 +2,7 @@
 
 ### Linux Driver for the RealTek RTL8812BU and RTL8822BU Chipsets.
 
-- Driver Version: 5.8.7.2.36899.20200819 (Realtek)
+- Driver Version: v5.8.7.4_37264.20200922 (Realtek)
 - Plus numerous updates from the Linux community
 
 ### Supported Features:
@@ -21,13 +21,13 @@
 
 ### Supported Kernels:
 
-- Kernels: 2.6.24 ~ 5.6 (Realtek)
-- Kernels: 5.7 - 5.9
+- Kernels: 2.6.24 ~ 5.8 (Realtek)
+- Kernel: 5.9
 
 ### Supported Linux Distributions:
 
-- Ubuntu - https://ubuntu.com/
-- Mint - https://linuxmint.com/
+- Ubuntu - https://linuxmint.com/
+- Mint - https://ubuntu.com/
 
 ### Tested Linux Distributions:
 
@@ -85,14 +85,14 @@ Get the latest version of the driver from: `https://github.com/morrownr/88x2bu`
 
 Download the driver by clicking on the green `Code` button.
 
-Click on `Download ZIP` and save `88x2bu-5.8.7.2.zip` in your `src` folder.
+Click on `Download ZIP` and save `88x2bu-5.8.7.4.zip` in your `src` folder.
 
-Upzip `88x2bu-5.8.7.2.zip`. A folder called `88x2bu-5.8.7.2` should be created.
+Upzip `88x2bu-5.8.7.4.zip`. A folder called `88x2bu-5.8.7.4` should be created.
 
-Open a terminal and enter the folder called `88x2bu-5.8.7.2`:
+Open a terminal and enter the folder called `88x2bu-5.8.7.4`:
 
 ```
-$ cd ~/src/88x2bu-5.8.7.2
+$ cd ~/src/88x2bu-5.8.7.4
 ```
 
 Execute the following commands:
