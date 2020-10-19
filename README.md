@@ -164,42 +164,51 @@ $ sudo iw dev
 
 ### USB 3 Support
 
-I have included a file called `88x2bu.conf` that
-will be installed in `/etc/modeprob.d` by default.
+I have included a file called `88x2bu.conf` that will be installed in `/etc/modeprob.d` by default.
 
-`88x2bu.conf` passes a parameter to the driver
-during boot that turns USB 3 mode on. The
-difference in performance can be large as can
-be seen in the data from the tests that I
-conducted:
+`88x2bu.conf` passes a parameter to the driver during boot that turns USB 3 mode on. The difference in performance can be large as can be seen in the data from the tests that I have conducted:
 
 ```
-88x2bu without `88x2bu.conf`
+88x2bu without `88x2bu.conf` and driver v 5.8.7.2
  (average Bitrate = 255 Mbits/sec)
 
-Interval           Transfer     Bitrate
-1.00-2.00   sec  30.9 MBytes   260 Mbits/sec
-2.00-3.00   sec  29.5 MBytes   247 Mbits/sec
-3.00-4.00   sec  32.6 MBytes   273 Mbits/sec
-4.00-5.00   sec  30.6 MBytes   256 Mbits/sec
-5.00-6.00   sec  30.4 MBytes   255 Mbits/sec
-6.00-7.00   sec  28.3 MBytes   238 Mbits/sec
+Transfer     Bitrate
+30.9 MBytes   260 Mbits/sec
+29.5 MBytes   247 Mbits/sec
+32.6 MBytes   273 Mbits/sec
+30.6 MBytes   256 Mbits/sec
+30.4 MBytes   255 Mbits/sec
+28.3 MBytes   238 Mbits/sec
 ```
 
 ```
-88x2bu with `88x2bu.conf`
+88x2bu with `88x2bu.conf` and driver v 5.8.7.2
  (average Bitrate = 411 Mbits/sec)
 
-Interval           Transfer     Bitrate
-1.00-2.00   sec  48.8 MBytes   409 Mbits/sec
-2.00-3.00   sec  47.5 MBytes   398 Mbits/sec
-3.00-4.00   sec  51.2 MBytes   430 Mbits/sec
-4.00-5.00   sec  48.8 MBytes   409 Mbits/sec
-5.00-6.00   sec  50.0 MBytes   419 Mbits/sec
-6.00-7.00   sec  47.5 MBytes   398 Mbits/sec
+Transfer     Bitrate
+48.8 MBytes   409 Mbits/sec
+47.5 MBytes   398 Mbits/sec
+51.2 MBytes   430 Mbits/sec
+48.8 MBytes   409 Mbits/sec
+50.0 MBytes   419 Mbits/sec
+47.5 MBytes   398 Mbits/sec
 ```
 
-That is a 62% increase in performance!
+```
+88x2bu with `88x2bu.conf` and driver v 5.8.7.4
+ (average Bitrate = 552 Mbits/sec)
+
+Transfer     Bitrate         Retr
+66.2 MBytes   556 Mbits/sec    0
+62.5 MBytes   524 Mbits/sec    0
+67.5 MBytes   566 Mbits/sec    0
+66.2 MBytes   556 Mbits/sec    0
+65.0 MBytes   545 Mbits/sec    0
+67.5 MBytes   566 Mbits/sec    0
+```
+
+That is over a 100% increase in performance by
+using the v 5.8.7.4 driver along with 88x2bu.conf!
 
 See what your USB mode is:
 
