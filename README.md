@@ -26,8 +26,8 @@
 
 ### Supported Linux Distributions:
 
-- Ubuntu - https://linuxmint.com/
-- Mint - https://ubuntu.com/
+- Ubuntu - https://ubuntu.com/
+- Mint - https://linuxmint.com/
 
 ### Tested Linux Distributions:
 
