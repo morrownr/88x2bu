@@ -558,7 +558,7 @@ static struct dvobj_priv *usb_dvobj_init(struct usb_interface *usb_intf, const s
 		if (phost_endp) {
 			pendp_desc = &phost_endp->desc;
 
-			RTW_INFO("\nusb_endpoint_descriptor(%d):\n", i);
+			RTW_INFO("usb_endpoint_descriptor(%d):\n", i);
 			RTW_INFO("bLength=%x\n", pendp_desc->bLength);
 			RTW_INFO("bDescriptorType=%x\n", pendp_desc->bDescriptorType);
 			RTW_INFO("bEndpointAddress=%x\n", pendp_desc->bEndpointAddress);
@@ -1084,7 +1084,7 @@ static int rtw_resume(struct usb_interface *pusb_intf)
 	#ifdef CONFIG_AUTOSUSPEND
 	if (pwrpriv->bInternalAutoSuspend)
 		ret = rtw_resume_process(padapter);
-	else 
+	else
 	#endif
 	{
 		if (pwrpriv->wowlan_mode || pwrpriv->wowlan_ap_mode) {
