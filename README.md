@@ -2,8 +2,8 @@
 
 ### Linux Driver for the RealTek RTL8812BU and RTL8822BU Chipsets.
 
-- Driver Version: v5.8.7.4_37264.20200922 (Realtek)
-- Plus numerous updates from the Linux community
+- Driver Version: v5.8.7.4 (Realtek)
+- Plus updates from the Linux community
 
 ### Supported Features:
 
@@ -22,7 +22,7 @@
 ### Supported Kernels:
 
 - Kernels: 2.6.24 ~ 5.8 (Realtek)
-- Kernel: 5.9
+- Kernels: 5.9
 
 ### Supported Linux Distributions:
 
