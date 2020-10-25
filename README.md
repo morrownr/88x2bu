@@ -31,10 +31,10 @@
 
 ### Tested Linux Distributions:
 
-- Ubuntu 20.10 Beta
 - Mint 20
-- Ubuntu 20.04
 - Mint 19.3
+- Ubuntu 20.10
+- Ubuntu 20.04
 - Ubuntu 18.04
 
 ### Tested Hardware:
