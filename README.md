@@ -168,9 +168,11 @@ I have included a file called `88x2bu.conf` that will be installed in `/etc/mode
 
 To make changes regarding USB 3 support, you will need to edit this file with a text editor. The options are as follows:
 
+```
  0: no switch
  1: switch from usb2.0 to usb 3.0
  2: switch from usb3.0 to usb 2.0
+```
 
 USB 3 support is off by default as there can be problems with older USB 3 ports but it is easy to turn USB 3 support on and the difference in performance can be large as can be seen in the data from the tests that I have conducted:
 
