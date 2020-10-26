@@ -64,7 +64,7 @@ This driver can be installed using DKMS. DKMS is a system utility which will aut
 $ sudo apt-get install dkms
 ```
 
-Note: The installation of `dkms` in Mint or Ubuntu will result in the installation of the various development tools and required headers, if not previously installed, so no addition action is necessary on these distros.
+Note: The installation of `dkms` in Mint or Ubuntu will result in the installation of the various development tools and required headers, if not previously installed, so no additional action is necessary on these distros.
 
 ### Installation of the Driver:
 
@@ -169,16 +169,16 @@ I have included a file called `88x2bu.conf` that will be installed in `/etc/mode
 To make changes regarding USB 3 support, you will need to edit this file with a text editor. The options are as follows:
 
 ```
- 0: no switch
+ 0: no switch (default)
  1: switch from usb2.0 to usb 3.0
  2: switch from usb3.0 to usb 2.0
 ```
 
-USB 3 support is off by default as there can be problems with older USB 3 ports but it is easy to turn USB 3 support on and the difference in performance can be large as can be seen in the data from the tests that I have conducted:
+USB 3 support is off by default as there can be problems with older USB 3 ports. It is easy to turn USB 3 support on and the difference in performance can be large as can be seen in the data from the tests that I have conducted:
 
 
 ```
-Without USB 3 support turned on and driver v5.8.7.2
+USB 3 support turned off (driver v5.8.7.2)
  (average Bitrate = 255 Mbits/sec)
 
 Transfer     Bitrate
@@ -191,7 +191,7 @@ Transfer     Bitrate
 ```
 
 ```
-With USB 3 support turned on and driver v5.8.7.2
+USB 3 support turned on (driver v5.8.7.2)
  (average Bitrate = 411 Mbits/sec)
 
 Transfer     Bitrate
@@ -204,7 +204,7 @@ Transfer     Bitrate
 ```
 
 ```
-With USB 3 support turned on and driver v 5.8.7.4
+USB 3 support turned on (driver v 5.8.7.4)
  (average Bitrate = 552 Mbits/sec)
 
 Transfer     Bitrate         Retr
