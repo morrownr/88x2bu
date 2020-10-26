@@ -166,10 +166,17 @@ $ sudo iw dev
 
 I have included a file called `88x2bu.conf` that will be installed in `/etc/modeprob.d` by default.
 
-`88x2bu.conf` passes a parameter to the driver during boot that turns USB 3 mode on. The difference in performance can be large as can be seen in the data from the tests that I have conducted:
+To make changes regarding USB 3 support, you will need to edit this file with a text editor. The options are as follows:
+
+ 0: no switch
+ 1: switch from usb2.0 to usb 3.0
+ 2: switch from usb3.0 to usb 2.0
+
+USB 3 support is off by default as there can be problems with older USB 3 ports but it is easy to turn USB 3 support on and the difference in performance can be large as can be seen in the data from the tests that I have conducted:
+
 
 ```
-88x2bu without `88x2bu.conf` and driver v 5.8.7.2
+Without USB 3 support turned on and driver v5.8.7.2
  (average Bitrate = 255 Mbits/sec)
 
 Transfer     Bitrate
@@ -182,7 +189,7 @@ Transfer     Bitrate
 ```
 
 ```
-88x2bu with `88x2bu.conf` and driver v 5.8.7.2
+With USB 3 support turned on and driver v5.8.7.2
  (average Bitrate = 411 Mbits/sec)
 
 Transfer     Bitrate
@@ -195,7 +202,7 @@ Transfer     Bitrate
 ```
 
 ```
-88x2bu with `88x2bu.conf` and driver v 5.8.7.4
+With USB 3 support turned on and driver v 5.8.7.4
  (average Bitrate = 552 Mbits/sec)
 
 Transfer     Bitrate         Retr
@@ -207,9 +214,6 @@ Transfer     Bitrate         Retr
 67.5 MBytes   566 Mbits/sec    0
 ```
 
-That is over a 100% increase in performance by
-using the v 5.8.7.4 driver along with 88x2bu.conf!
-
 See what your USB mode is:
 
 ```
@@ -220,7 +224,6 @@ USB 2 =  480M
 
 USB 3 = 5000M
 
-Note: If there is a problem, delete `88x2bu.conf`.
 
 
 ### Enjoy
