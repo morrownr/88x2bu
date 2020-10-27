@@ -112,6 +112,14 @@ $ sudo ./dkms-remove.sh
 $ sudo reboot
 ```
 
+### AP Mode (WiFi Hotspot Test):
+
+- Tested good.
+
+### Monitor Mode:
+
+- Tested good.
+
 ### Entering Monitor Mode with 'iw' and 'ip':
 Start by making sure the system recognizes the Wi-Fi interface:
 ```

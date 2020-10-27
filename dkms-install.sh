@@ -59,4 +59,3 @@ then
 else
 	echo "dkms install was successful."
 fi
-
