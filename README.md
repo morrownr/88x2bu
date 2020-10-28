@@ -174,7 +174,16 @@ $ sudo iw dev
 
 I have included a file called `88x2bu.conf` that will be installed in `/etc/modeprob.d` by default.
 
-To change driver options, you will need to edit `88x2bu.conf` with a text editor. The options are as follows:
+Location: `/etc/modprobe.d/88x2bu.conf`
+
+To change driver options, you will need to edit `88x2bu.conf` with a text editor.
+
+Example:
+```
+$ sudo nano /etc/modprobe.d/88x2bu.conf
+```
+
+The options are as follows:
 
 USB mode options: ( rtw_switch_usb_mode )
 ```
