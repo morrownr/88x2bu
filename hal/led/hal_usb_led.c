@@ -99,7 +99,7 @@ SwLedBlink(
 
 		case LED_BLINK_WPS: 
 			_set_timer(&(pLed->BlinkTimer), LED_BLINK_LONG_INTERVAL);
-		        break;
+			break;
 
 		default:
 			_set_timer(&(pLed->BlinkTimer), LED_BLINK_SLOWLY_INTERVAL);
@@ -1744,6 +1744,21 @@ void BlinkHandler(PLED_USB pLed)
 		, rtw_is_surprise_removed(padapter)?"True":"False" );*/
 		return;
 	}
+	
+	#ifdef CONFIG_SW_LED
+	if (padapter->registrypriv.led_ctrl != 1) {
+		if (padapter->registrypriv.led_ctrl == 0)
+		{
+			// Cause LED to be always off
+			pLed->BlinkingLedState = RTW_LED_OFF;
+		} else {
+			// Cause LED to be always on for led_ctrl 2 or greater
+			pLed->BlinkingLedState = RTW_LED_ON;
+		}
+		// Skip various switch cases where SwLedBlink*() called below
+		pLed->CurrLedState = LED_UNKNOWN;
+	}
+	#endif
 
 	switch (ledpriv->LedStrategy) {
 	#if CONFIG_RTW_SW_LED_TRX_DA_CLASSIFY
