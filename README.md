@@ -112,6 +112,14 @@ $ sudo ./dkms-remove.sh
 $ sudo reboot
 ```
 
+### Installation on Raspberry Pi:
+
+If installing on Rasberry Pi or other "armv71" devices, edit the Makefile and set `CONFIG_PLATFORM_ARM_RPI = y` and `CONFIG_PLATFORM_I386_PC = n`. For Kali Linux or other 64bit images on Raspberry Pi, set `CONFIG_PLATFORM_ARM_RPI = y` and blacklist the default 88XXau driver:
+
+```
+$ echo 'blacklist 88XXau' >> /etc/modprobe.d/blacklist.conf
+```
+
 ### AP Mode (WiFi Hotspot Test):
 
 - Tested good.
