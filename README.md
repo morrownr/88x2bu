@@ -170,19 +170,46 @@ Verify the mode has changed:
 $ sudo iw dev
 ```
 
-### USB 3 Support
+### Driver Options
 
 I have included a file called `88x2bu.conf` that will be installed in `/etc/modeprob.d` by default.
 
-To make changes regarding USB 3 support, you will need to edit this file with a text editor. The options are as follows:
+To change driver options, you will need to edit `88x2bu.conf` with a text editor. The options are as follows:
 
-```
- 0: no switch (default)
- 1: switch from usb2.0 to usb 3.0
- 2: switch from usb3.0 to usb 2.0
-```
+USB mode options: ( rtw_switch_usb_mode )
 
-USB 3 support is off by default as there can be problems with older USB 3 ports. It is easy to turn USB 3 support on and the difference in performance can be large as can be seen in the data from the tests that I have conducted:
+  0 = no switch (default)
+  1 = switch from usb2.0 to usb 3.0
+  2 = switch from usb3.0 to usb 2.0
+
+  Note: When changing USB options, a cold boot is recommended.
+
+
+Log level options: ( rtw_drv_log_level )
+
+  0 = _DRV_NONE_ (default)
+  1 = _DRV_ALWAYS_
+  2 = _DRV_ERR_
+  3 = _DRV_WARNING_
+  4 = _DRV_INFO_
+  5 = _DRV_DEBUG_
+  6 = _DRV_MAX_
+
+  Note: You can view RTW log entries by running the following in a terminal:
+  ```
+  $ sudo dmesg
+  ```
+
+LED control options: ( rtw_led_ctrl )
+
+  0 = Always off
+  1 = Normal blink (default)
+  2 = Always on
+
+
+### Notes about USB 3 support:
+
+USB 3 support is off by default as there can be problems with older USB 3 ports, however, almost all USB 3 ports on modern systems work well so turning USB 3 support should work fine for almost everyone and the difference in performance can be large as can be seen in the data from the tests that I have conducted:
 
 
 ```
