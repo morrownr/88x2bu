@@ -776,9 +776,9 @@ struct rtw_traffic_statistics {
 };
 
 #define SEC_CAP_CHK_BMC	BIT0
+
 #define MACID_DROP BIT0
 #define MACID_DROP_INDIRECT BIT1
-
 
 #define SEC_STATUS_STA_PK_GK_CONFLICT_DIS_BMC_SEARCH	BIT0
 

@@ -185,6 +185,7 @@ $ sudo nano /etc/modprobe.d/88x2bu.conf
 
 The options are as follows:
 
+
 USB mode options: ( rtw_switch_usb_mode )
 ```
   0 = no switch (default)
@@ -208,6 +209,7 @@ Log level options: ( rtw_drv_log_level )
   ```
   $ sudo dmesg
   ```
+
 
 LED control options: ( rtw_led_ctrl )
 ```
