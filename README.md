@@ -80,14 +80,15 @@ In the terminal, create the folder to hold the driver file:
 ```
 $ mkdir src
 ```
+With your browser:
 
 Get the latest version of the driver from: `https://github.com/morrownr/88x2bu`
 
-Download the driver by clicking on the green `Code` button.
+Download the driver by clicking on the green `Code` button then click on `Download ZIP` and save `88x2bu-5.8.7.4.zip` in your `src` folder.
 
-Click on `Download ZIP` and save `88x2bu-5.8.7.4.zip` in your `src` folder.
+Unzip `88x2bu-5.8.7.4.zip` by double clicking on it followed by selecting `Extract` twice in the archiver utility.
 
-Upzip `88x2bu-5.8.7.4.zip`. A folder called `88x2bu-5.8.7.4` should be created.
+A folder called `88x2bu-5.8.7.4` should be created.
 
 Open a terminal and enter the folder called `88x2bu-5.8.7.4`:
 
