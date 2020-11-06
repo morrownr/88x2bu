@@ -64,6 +64,7 @@
 ### DKMS:
 This driver can be installed using DKMS. DKMS is a system utility which will automatically recompile and install a kernel module when a new kernel is installed. To make use of DKMS, install the `dkms` package. On Debian (based) systems, such as Ubuntu and Mint, installation is accomplished like this:
 ```
+$ sudo apt-get update
 $ sudo apt-get install dkms
 ```
 
