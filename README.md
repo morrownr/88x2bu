@@ -15,9 +15,12 @@
 - Site survey scan and manual connect
 - WPA/WPA2 TLS client
 - Power saving mode
+- LED control
+- USB mode control
 - AP Mode (WiFi Hotspot)
-- Monitor mode
 - WiFi-Direct
+- Monitor mode
+- Packet Injection (needs testing, please report results in `Issues`)
 
 ### Supported Kernels:
 
@@ -198,13 +201,13 @@ USB mode options: ( rtw_switch_usb_mode )
 
 Log level options: ( rtw_drv_log_level )
 ```
-  0 = _DRV_NONE_ (default)
-  1 = _DRV_ALWAYS_
-  2 = _DRV_ERR_
-  3 = _DRV_WARNING_
-  4 = _DRV_INFO_
-  5 = _DRV_DEBUG_
-  6 = _DRV_MAX_
+  0 = NONE (default)
+  1 = ALWAYS
+  2 = ERRORS
+  3 = WARNINGS
+  4 = INFO
+  5 = DEBUG
+  6 = MAX
 ```
   Note: You can view RTW log entries by running the following in a terminal:
   ```
