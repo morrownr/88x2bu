@@ -65,6 +65,8 @@
 This driver can be installed using DKMS. DKMS is a system utility which will automatically recompile and install a kernel module when a new kernel is installed. To make use of DKMS, install the `dkms` package. On Debian (based) systems, such as Ubuntu and Mint, installation is accomplished like this:
 ```
 $ sudo apt-get update
+```
+```
 $ sudo apt-get install dkms
 ```
 
@@ -126,6 +128,9 @@ $ sudo reboot
 - Tested good.
 
 ### Entering Monitor Mode with 'iw' and 'ip':
+
+Note: Do not use `airmon-ng` to enter Monitor Mode as it appears to be broken.
+
 Start by making sure the system recognizes the Wi-Fi interface:
 ```
 $ sudo iw dev
@@ -175,7 +180,28 @@ Verify the mode has changed:
 $ sudo iw dev
 ```
 
-### Driver Options
+### Testing Packet Injection:
+
+Install the `aircrack-ng` package:
+
+```
+$ sudo apt-get install aircrack-ng
+```
+Determine the interface name:
+
+```
+$ sudo iw dev
+```
+Run a test: (note: remember to replace `wlan0` with your interface name)
+```
+$ sudo airplay-ng --test wlan0
+```
+What you will see if the test is a success:
+
+One of the lines of output will say "Injection is working"
+
+
+### Driver Options:
 
 I have included a file called `88x2bu.conf` that will be installed in `/etc/modeprob.d` by default.
 
@@ -277,6 +303,8 @@ USB 2 =  480M
 
 USB 3 = 5000M
 
+### In progress:
 
+- I have added the necessary code to support all versions of Raspberry Pi. I will try to document it here over the next few days.
 
 ### Enjoy
