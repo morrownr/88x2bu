@@ -180,7 +180,8 @@ Verify the mode has changed:
 $ sudo iw dev
 ```
 
-### Testing Packet Injection:
+
+### Testing Packet Injection: (note: you must be in Monitor Mode to test Packet Injection, see above)
 
 Install the `aircrack-ng` package:
 
@@ -198,7 +199,7 @@ $ sudo airplay-ng --test wlan0
 ```
 What you will see if the test is a success:
 
-One of the lines of output will say "Injection is working"
+One of the lines of output will say `Injection is working!`
 
 
 ### Driver Options:
@@ -220,8 +221,8 @@ The options are as follows:
 USB mode options: ( rtw_switch_usb_mode )
 ```
   0 = no switch (default)
-  1 = switch from usb2.0 to usb 3.0
-  2 = switch from usb3.0 to usb 2.0
+  1 = switch from usb 2.0 to usb 3.0
+  2 = switch from usb 3.0 to usb 2.0
 ```
   Note: When changing USB options, a cold boot is recommended.
 
@@ -248,6 +249,7 @@ LED control options: ( rtw_led_ctrl )
   1 = Normal blink (default)
   2 = Always on
 ```
+
 
 ### Notes about USB 3 support:
 
