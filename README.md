@@ -62,6 +62,7 @@
 * Numerous additional products that are based on the supported chipsets
 
 ### DKMS:
+
 This driver can be installed using DKMS. DKMS is a system utility which will automatically recompile and install a kernel module when a new kernel is installed. To make use of DKMS, install the `dkms` package. On Debian (based) systems, such as Ubuntu and Mint, installation is accomplished like this:
 ```
 $ sudo apt-get update
@@ -109,6 +110,7 @@ $ sudo ./dkms-install.sh
 ```
 $ sudo reboot
 ```
+
 ### Removal of the Driver:
 
 Open a terminal in the directory with the source code and execute the following commands:
@@ -123,9 +125,11 @@ $ sudo reboot
 
 - Tested good.
 
+
 ### Monitor Mode:
 
 - Tested good.
+
 
 ### Entering Monitor Mode with 'iw' and 'ip':
 
@@ -181,15 +185,15 @@ $ sudo iw dev
 ```
 
 
-### Testing Packet Injection: (note: you must be in Monitor Mode to test Packet Injection, see above)
+### Testing Packet Injection:
+
+Note: you must be in Monitor Mode to test Packet Injection.
 
 Install the `aircrack-ng` package:
-
 ```
 $ sudo apt-get install aircrack-ng
 ```
 Determine the interface name:
-
 ```
 $ sudo iw dev
 ```
@@ -300,14 +304,12 @@ See what your USB mode is:
 ```
 $ lsusb -t
 ```
-
+```
 USB 2 =  480M
-
 USB 3 = 5000M
-
+```
 
 ### --- Items below are in progress and should be used with caution ---
-
 
 
 ### Raspberry Pi Installation for the Raspberry PI OS:
