@@ -306,11 +306,11 @@ USB 2 =  480M
 USB 3 = 5000M
 
 
-### In progress: (items from here on down are in progress and should be used with caution)
+###--- Items below are in progress and should be used with caution ---
 
 
 
-### Raspberry PI Installation for the Raspberry PI OS: (this has not been tested locally, but has been reported to work)
+### Raspberry Pi Installation for the Raspberry PI OS:
 
 Install the Raspberry Pi Kernel Headers:
 ```
@@ -318,15 +318,15 @@ $ sudo apt-get install raspberrypi-kernel-headers
 ```
 
 For ARM processors, RPI 1/2/ & 0/Zero, run the following in a terminal to change the platform in the Makefile:
-
+```
 $ sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
 $ sed -i 's/CONFIG_PLATFORM_ARM_RPI = n/CONFIG_PLATFORM_ARM_RPI = y/g' Makefile
-
+```
 For ARM64 processors, RPI 3B, 3B+ & 4B, run the following in a terminal to change the platform in the Makefile:
-
+```
 $ sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
 $ sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makefile
-
+```
 Now you can follow the normal installation instructions above.
 
 Note: I will be testing ARM64 Raspberry Pi support as I have time over the next few weeks but I do have a Raspberry Pi that is earlier than the 3B so I have no way to test ARM support so I am asking those who do have Raspberrypi's earlier than 3b to test and report on ARM support. Thank you.
