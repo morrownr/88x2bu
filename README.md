@@ -329,5 +329,5 @@ $ sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makef
 ```
 Now you can follow the normal installation instructions above.
 
-Note: I will be testing ARM64 Raspberry Pi support as I have time over the next few weeks but I do not have a Raspberry Pi that is earlier than the 3B so I have no way to test ARM support so I am asking those who do have Raspberry Pi's earlier than 3b to test and report on ARM support. Thank you.
+Note: I will be testing ARM64 Raspberry Pi support as I have time over the next few weeks but I do not have a Raspberry Pi that is earlier than the 3B so I have no way to test ARM support so I am asking those who do have Raspberry Pi's earlier than 3B to test and report on ARM support. Thank you.
 
