@@ -133,8 +133,6 @@ $ sudo reboot
 
 ### Entering Monitor Mode with 'iw' and 'ip':
 
-Note: Do not use `airmon-ng` to enter Monitor Mode as it appears to be broken.
-
 Start by making sure the system recognizes the Wi-Fi interface:
 ```
 $ sudo iw dev
@@ -187,23 +185,55 @@ $ sudo iw dev
 
 ### Packet Injection:
 
-Note: you must be in Monitor Mode to test Packet Injection.
-
 Install the `aircrack-ng` package:
 ```
 $ sudo apt-get install aircrack-ng
+```
+Open a terminal and execute the following:
+```
+$ sudo airmon-ng check kill
 ```
 Determine the interface name:
 ```
 $ sudo iw dev
 ```
-Run a test: (note: remember to replace `wlan0` with your interface name)
+Note: Do not use `airmon-ng` to enter Monitor Mode as it appears to be broken.
+
+Note: Replace `wlan0` with your interface name.
+
+Take the interface down:
+```
+$ sudo ip link set wlan0 down
+```
+Set monitor mode:
+```
+$ sudo iw wlan0 set monitor control
+```
+Bring the interface up:
+```
+$ sudo ip link set wlan0 up
+```
+Verify the mode has changed:
+```
+$ sudo iw dev
+```
+Run a test:
 ```
 $ sudo airplay-ng --test wlan0
 ```
-What you will see if the test is a success:
 
-One of the lines of output will say `Injection is working!`
+Example of a successful test:
+```
+15:38:31  ... $ sudo aireplay-ng --test wlan0
+15:38:31  Trying broadcast probe requests...
+15:38:31  Injection is working!
+15:38:32  Found 1 AP
+
+15:38:32  Trying directed probe requests...
+15:38:32  8C:59:73:FE:8B:F5 - channel: 36 - 'myAPname'
+15:38:32  Ping (min/avg/max): 0.826ms/4.058ms/6.667ms Power: -35.77
+15:38:32  30/30: 100%
+```
 
 
 ### Driver Options:
