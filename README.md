@@ -185,7 +185,7 @@ $ sudo iw dev
 ```
 
 
-### Testing Packet Injection:
+### Packet Injection:
 
 Note: you must be in Monitor Mode to test Packet Injection.
 
@@ -255,7 +255,7 @@ LED control options: ( rtw_led_ctrl )
 ```
 
 
-### Notes about USB 3 support:
+### Information about USB 3 support:
 
 USB 3 support is off by default as there can be problems with older USB 3 ports, however, almost all USB 3 ports on modern systems work well so turning USB 3 support on should work fine for almost everyone and the difference in performance can be large as can be seen in the data from the tests that I have conducted:
 
@@ -314,22 +314,23 @@ USB 3 = 5000M
 
 ### Raspberry Pi Installation for the Raspberry PI OS:
 
-Install the Raspberry Pi Kernel Headers:
+Open a terminal in the driver folder and install the following:
 ```
-$ sudo apt-get install raspberrypi-kernel-headers
+$ sudo apt-get install -y raspberrypi-kernel-headers bc build-essential
 ```
-
-For ARM processors, RPI 1/2/ & 0/Zero, run the following in a terminal to change the platform in the Makefile:
+Turn off I386 support:
 ```
 $ sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
+```
+For ARM processors, RPI 1,2 & Zero, run the following in a terminal to change the platform in the Makefile:
+```
 $ sed -i 's/CONFIG_PLATFORM_ARM_RPI = n/CONFIG_PLATFORM_ARM_RPI = y/g' Makefile
 ```
 For ARM64 processors, RPI 3B, 3B+ & 4B, run the following in a terminal to change the platform in the Makefile:
 ```
-$ sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
 $ sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makefile
 ```
-Now you can follow the normal installation instructions above.
+Now you can follow the normal installation instructions.
 
-Note: I will be testing ARM64 Raspberry Pi support as I have time over the next few weeks but I do not have a Raspberry Pi that is earlier than the 3B so I have no way to test ARM support so I am asking those who do have Raspberry Pi's earlier than 3B to test and report on ARM support. Thank you.
+Note: I will be testing Raspberry Pi support as I have time over the next few weeks but I do not have a Raspberry Pi that is earlier than the 3B so I have no way to test early model support so I am asking those who do have Raspberry Pi's earlier than 3B to test and report. Thank you.
 
