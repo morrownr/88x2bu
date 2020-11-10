@@ -31,6 +31,7 @@
 
 - Ubuntu - https://ubuntu.com/
 - Mint - https://linuxmint.com/
+- Raspberry Pi OS - https://www.raspberrypi.org/
 
 ### Tested Linux Distributions:
 
@@ -39,6 +40,7 @@
 - Ubuntu 20.10
 - Ubuntu 20.04
 - Ubuntu 18.04
+- Raspberry Pi OS (08-20-2020) (32 bit and 64 bit)
 
 ### Tested Hardware:
 
@@ -102,6 +104,7 @@ Open a terminal and enter the folder called `88x2bu-5.8.7.4`:
 ```
 $ cd ~/src/88x2bu-5.8.7.4
 ```
+Note: The Raspberry PI OS running on Raspberry Pi hardware requires additional steps. See Raspberry Pi section further down.
 
 Execute the following commands:
 ```
@@ -339,28 +342,30 @@ USB 2 =  480M
 USB 3 = 5000M
 ```
 
-### --- Items below are in progress and should be used with caution ---
+### Raspberry Pi - Additional Installation Instructions for the Raspberry PI OS:
 
-
-### Raspberry Pi Installation for the Raspberry PI OS:
-
-Open a terminal in the driver folder and install the following:
+Install the following:
 ```
 $ sudo apt-get install -y raspberrypi-kernel-headers bc build-essential
 ```
+In the driver folder:
+
 Turn off I386 support:
 ```
 $ sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
 ```
-For ARM processors, RPI 1,2 & Zero, run the following in a terminal to change the platform in the Makefile:
+For Raspberry Pi OS (32 bit), run the following in a terminal to change the platform in the Makefile:
 ```
 $ sed -i 's/CONFIG_PLATFORM_ARM_RPI = n/CONFIG_PLATFORM_ARM_RPI = y/g' Makefile
 ```
-For ARM64 processors, RPI 3B, 3B+ & 4B, run the following in a terminal to change the platform in the Makefile:
+For Raspberry Pi OS (64 bit), run the following in a terminal to change the platform in the Makefile:
 ```
 $ sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makefile
 ```
-Now you can follow the normal installation instructions.
-
-Note: I will be testing Raspberry Pi support as I have time over the next few weeks but I do not have a Raspberry Pi that is earlier than the 3B so I have no way to test early model support so I am asking those who do have Raspberry Pi's earlier than 3B to test and report. Thank you.
-
+Execute the following commands:
+```
+$ sudo ./dkms-install.sh
+```
+```
+$ sudo reboot
+```
