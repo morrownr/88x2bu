@@ -219,7 +219,7 @@ $ sudo iw dev
 ```
 Run a test:
 ```
-$ sudo airplay-ng --test wlan0
+$ sudo aireplay-ng --test wlan0
 ```
 
 Example of a successful test:
