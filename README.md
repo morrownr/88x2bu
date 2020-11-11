@@ -99,8 +99,7 @@ Unzip `88x2bu-5.8.7.4.zip` by double clicking on it followed by selecting `Extra
 
 A folder called `88x2bu-5.8.7.4` should be created.
 
-Open a terminal and enter the folder called `88x2bu-5.8.7.4`:
-
+Open a terminal (Ctrl+Alt+T) and enter the driver folder:
 ```
 $ cd ~/src/88x2bu-5.8.7.4
 ```
@@ -241,11 +240,11 @@ Example of a successful test:
 
 ### Driver Options:
 
-I have included a file called `88x2bu.conf` that will be installed in `/etc/modeprob.d` by default.
+A file called `88x2bu.conf` will be installed in `/etc/modeprob.d` by default.
 
 Location: `/etc/modprobe.d/88x2bu.conf`
 
-To change driver options, you will need to edit `88x2bu.conf` with a text editor.
+To change driver options, edit `88x2bu.conf` with a text editor.
 
 Example:
 ```
@@ -274,7 +273,7 @@ Log level options: ( rtw_drv_log_level )
   5 = DEBUG
   6 = MAX
 ```
-  Note: You can view RTW log entries by running the following in a terminal:
+  Note: View RTW log entries by running the following in a terminal:
   ```
   $ sudo dmesg
   ```
@@ -342,23 +341,25 @@ USB 2 =  480M
 USB 3 = 5000M
 ```
 
-### Raspberry Pi - Additional Installation Instructions for the Raspberry PI OS:
+### Raspberry Pi OS - Additional Installation Instructions:
 
-Install the following:
+Install the required packages:
 ```
 $ sudo apt-get install -y raspberrypi-kernel-headers bc build-essential
 ```
-In the driver folder:
-
+Open a terminal (Ctrl+Alt+T) and enter the driver folder:
+```
+$ cd ~/src/88x2bu-5.8.7.4
+```
 Turn off I386 support:
 ```
 $ sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
 ```
-For Raspberry Pi OS (32 bit), run the following in a terminal to change the platform in the Makefile:
+For Raspberry Pi OS (32 bit), turn on ARM support:
 ```
 $ sed -i 's/CONFIG_PLATFORM_ARM_RPI = n/CONFIG_PLATFORM_ARM_RPI = y/g' Makefile
 ```
-For Raspberry Pi OS (64 bit), run the following in a terminal to change the platform in the Makefile:
+For Raspberry Pi OS (64 bit), turn on ARM64 support:
 ```
 $ sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makefile
 ```
