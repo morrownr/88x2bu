@@ -71,11 +71,11 @@
 
 Note: The installation instructions that I am providing are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
 
-Note: This installation instructions require that your system has access to the internet. I realize that you expect the adapter supported by this driver to provide your internet access but there are many ways to enable temporary internet access depending on your hardware and situation.
+Note: The installation instructions require that your system has access to the internet. I realize that you expect the adapter supported by this driver to provide your internet access but there are many ways to enable temporary internet access depending on your hardware and situation.
 
-Note: This installation instructions require the use of the terminal. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key.)
+Note: The installation instructions require the use of the terminal. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key.)
 
-Note: This installation instructions make use of DKMS. DKMS is a system utility which will automatically recompile and install a kernel module when a new kernel is installed. DKMS is provided by and maintained by Dell.
+Note: The installation instructions make use of DKMS. DKMS is a system utility which will automatically recompile and install a kernel module when a new kernel is installed. DKMS is provided by and maintained by Dell.
 
 Note: It is recommended that you do not delete the driver directory after installation as the directory contains documentation (README.md) and scripts that you may need in the future.
 
@@ -142,7 +142,7 @@ For Raspberry Pi OS (64 bit), turn on ARM64 support:
 ```
 $ sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makefile
 ```
-Execute the following commands:
+Run installation script:
 ```
 $ sudo ./dkms-install.sh
 ```
@@ -168,14 +168,6 @@ Reboot:
 ```
 $ sudo reboot
 ```
-
-### AP Mode (WiFi Hotspot Test):
-
-- Tested good.
-
-### Monitor Mode:
-
-- Tested good.
 
 ### Entering Monitor Mode with 'iw' and 'ip':
 
