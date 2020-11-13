@@ -5,7 +5,7 @@
 - Driver Version: v5.8.7.4 (Realtek)
 - Plus updates from the Linux community
 
-### Supported Features:
+### Features:
 
 - IEEE 802.11 b/g/n/ac WiFi compliant
 - 802.1x, WEP, WPA TKIP and WPA2 AES/Mixed mode for PSK and TLS (Radius)
@@ -27,12 +27,6 @@
 - Kernels: 2.6.24 ~ 5.8 (Realtek)
 - Kernels: 5.9
 
-### Supported Linux Distributions:
-
-- Ubuntu - https://ubuntu.com/
-- Mint - https://linuxmint.com/
-- Raspberry Pi OS - https://www.raspberrypi.org/
-
 ### Tested Linux Distributions:
 
 - Mint 20
@@ -40,12 +34,21 @@
 - Ubuntu 20.10
 - Ubuntu 20.04
 - Ubuntu 18.04
-- Raspberry Pi OS (08-20-2020) (32 bit and 64 bit)
+- Raspberry Pi OS (08-20-2020) (ARM 32 bit and ARM 64 bit)
+
+### Download Locations for Tested Linux Distributions:
+
+- Ubuntu - https://ubuntu.com/
+- Mint - https://linuxmint.com/
+- Raspberry Pi OS - https://www.raspberrypi.org/
 
 ### Tested Hardware:
 
 - EDUP EP-AC1605GS WiFi Adapter 1300Mbps USB 3.0 High Gain Wireless Adapter:
   https://www.amazon.com/gp/product/B07Q56K68T
+
+- FIDECO 6B21-AC1200M WiFi Adapter - AC1200 Dual Band:
+  https://www.amazon.co.uk/gp/product/B08523KPP9
 
 ## Supported Devices:
 
@@ -56,6 +59,7 @@
 * Edimax EW-7822ULC
 * Edimax EW-7822UTC
 * EDUP EP-AC1605GS
+* FIDECO 6B21-AC1200M
 * NetGear A6150
 * TP-Link Archer T3U
 * TP-Link Archer T3U Plus
@@ -63,62 +67,104 @@
 * TRENDnet TEW-808UBM
 * Numerous additional products that are based on the supported chipsets
 
-### DKMS:
-
-This driver can be installed using DKMS. DKMS is a system utility which will automatically recompile and install a kernel module when a new kernel is installed. To make use of DKMS, install the `dkms` package. On Debian (based) systems, such as Ubuntu and Mint, installation is accomplished like this:
-```
-$ sudo apt-get update
-```
-```
-$ sudo apt-get install dkms
-```
-
-Note: The installation of `dkms` in Mint or Ubuntu will result in the installation of the various development tools and required headers, if not previously installed, so no additional action is necessary on these distros.
-
 ### Installation of the Driver:
 
-Note: The installation instructions I am providing are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
+Note: The installation instructions that I am providing are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
 
-Note: The quick way to open a terminal in Mint or Ubuntu: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key.)
+Note: This installation instructions require that your system has access to the internet. I realize that you expect the adapter supported by this driver to provide your internet access but there are many ways to enable temporary internet access depending on your hardware and situation.
 
-Note: My technique is to create a folder in my home directory to hold source packages. I call it `src`.
+Note: This installation instructions require the use of the terminal. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key.)
 
-Create a folder to hold the downloaded driver file by first opening a terminal (Ctrl+Alt+T).
+Note: This installation instructions make use of DKMS. DKMS is a system utility which will automatically recompile and install a kernel module when a new kernel is installed. DKMS is provided by and maintained by Dell.
 
-In the terminal, create the folder to hold the driver file:
+Note: It is recommended that you do not delete the driver directory after installation as the directory contains documentation (README.md) and scripts that you may need in the future.
+
+Step 1: Open a terminal (Ctrl+Alt+T)
+
+Step 2: Update and upgrade the system:
+```
+$ sudo apt-get update
+$ sudo apt-get upgrade
+```
+Step 3: Install the required packages: (select the option for the OS you are using)
+
+For Ubuntu or Linux Mint:
+```
+$ sudo apt-get install -y dkms git
+```
+For Raspberry Pi OS:
+```
+$ sudo apt-get install -y raspberrypi-kernel-headers bc build-essential dkms git
+```
+Step 4: Create a directory to hold the downloaded driver:
+
+Note: My technique is to create a directory in my home directory to hold source packages. I call it `src`.
 ```
 $ mkdir src
 ```
-With your browser:
-
-Get the latest version of the driver from: `https://github.com/morrownr/88x2bu`
-
-Download the driver by clicking on the green `Code` button then click on `Download ZIP` and save `88x2bu-5.8.7.4.zip` in your `src` folder.
-
-Unzip `88x2bu-5.8.7.4.zip` by double clicking on it followed by selecting `Extract` twice in the archiver utility.
-
-A folder called `88x2bu-5.8.7.4` should be created.
-
-Open a terminal (Ctrl+Alt+T) and enter the driver folder:
+Step 5: Move to the newly created directory:
 ```
-$ cd ~/src/88x2bu-5.8.7.4
+$ cd ~/src
 ```
-Note: The Raspberry PI OS running on Raspberry Pi hardware requires additional steps. See Raspberry Pi section further down.
+Step 6: Download the driver:
+```
+$ git clone https://github.com/morrownr/88x2bu.git
+```
+Step 7: Move to the newly created driver directory:
+```
+$ cd ~/src/88x2bu
+```
+Step 8: Run the installation script and reboot: (select the option for the OS you are using)
 
+For Ubuntu or Linux Mint:
+
+Run installation script:
+```
+$ sudo ./dkms-install.sh
+```
+Reboot:
+```
+$ sudo reboot
+```
+Note: The installation for Ubuntu or Linux Mint is complete
+
+For Raspberry Pi OS: (select either the seond or third command but not both)
+
+Turn off I386 support:
+```
+$ sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
+```
+For Raspberry Pi OS (32 bit), turn on ARM support:
+```
+$ sed -i 's/CONFIG_PLATFORM_ARM_RPI = n/CONFIG_PLATFORM_ARM_RPI = y/g' Makefile
+```
+For Raspberry Pi OS (64 bit), turn on ARM64 support:
+```
+$ sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makefile
+```
 Execute the following commands:
 ```
 $ sudo ./dkms-install.sh
 ```
+Reboot:
 ```
 $ sudo reboot
 ```
+Note: The installation for Raspberry Pi OS is complete
 
 ### Removal of the Driver:
 
-Open a terminal in the directory with the source code and execute the following commands:
+Step 1: Open a terminal (Ctrl+Alt+T)
+
+Step 2: Move to the driver directory:
+```
+$ cd ~/src/88x2bu
+```
+Step 3: Run the removal script and reboot:
 ```
 $ sudo ./dkms-remove.sh
 ```
+Reboot:
 ```
 $ sudo reboot
 ```
@@ -127,11 +173,9 @@ $ sudo reboot
 
 - Tested good.
 
-
 ### Monitor Mode:
 
 - Tested good.
-
 
 ### Entering Monitor Mode with 'iw' and 'ip':
 
@@ -184,7 +228,6 @@ Verify the mode has changed:
 $ sudo iw dev
 ```
 
-
 ### Packet Injection:
 
 Install the `aircrack-ng` package:
@@ -226,17 +269,16 @@ $ sudo aireplay-ng --test wlan0
 
 Example of a successful test:
 ```
-15:38:31  ... $ sudo aireplay-ng --test wlan0
+15:38:31  $ sudo aireplay-ng --test wlan0
 15:38:31  Trying broadcast probe requests...
 15:38:31  Injection is working!
 15:38:32  Found 1 AP
 
 15:38:32  Trying directed probe requests...
-15:38:32  8C:59:73:FE:8B:F5 - channel: 36 - 'myAPname'
+15:38:32  8C:59:73:FE:8B:F5 - channel: 36 - 'APname'
 15:38:32  Ping (min/avg/max): 0.826ms/4.058ms/6.667ms Power: -35.77
 15:38:32  30/30: 100%
 ```
-
 
 ### Driver Options:
 
@@ -285,7 +327,6 @@ LED control options: ( rtw_led_ctrl )
   1 = Normal blink (default)
   2 = Always on
 ```
-
 
 ### Information about USB 3 support:
 
@@ -339,34 +380,4 @@ $ lsusb -t
 ```
 USB 2 =  480M
 USB 3 = 5000M
-```
-
-### Raspberry Pi OS - Additional Installation Instructions:
-
-Install the required packages:
-```
-$ sudo apt-get install -y raspberrypi-kernel-headers bc build-essential
-```
-Open a terminal (Ctrl+Alt+T) and enter the driver folder:
-```
-$ cd ~/src/88x2bu-5.8.7.4
-```
-Turn off I386 support:
-```
-$ sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
-```
-For Raspberry Pi OS (32 bit), turn on ARM support:
-```
-$ sed -i 's/CONFIG_PLATFORM_ARM_RPI = n/CONFIG_PLATFORM_ARM_RPI = y/g' Makefile
-```
-For Raspberry Pi OS (64 bit), turn on ARM64 support:
-```
-$ sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makefile
-```
-Execute the following commands:
-```
-$ sudo ./dkms-install.sh
-```
-```
-$ sudo reboot
 ```
