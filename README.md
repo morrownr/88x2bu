@@ -373,3 +373,52 @@ $ lsusb -t
 USB 2 =  480M
 USB 3 = 5000M
 ```
+
+### Various Tidbits of Information
+
+- Disable onboard WiFi on Raspberry Pi 3B, 3B+, 3A+, 4B and Zero W.
+
+Add the following line to /boot/config.txt:
+```
+dtoverlay=disable-wifi
+```
+
+- Recommended Router Settings for WiFi:
+
+Security: Use WPA2-AES. Do not use WPA or WPA2 mixed mode or TKIP.
+
+Channel Width for 2.4G: Use 20 MHz. Do not use 40 MHz or 20/40 automatic.
+
+Channels for 2.4G: Use 1 or 6 or 11. Do not use automatic channel selection.
+
+Mode for 2.4G: Use G/N or B/G/N. Do not use N only.
+
+Do not set the 2.4G Network and the 5G Network to the same name. Many routers come with both networks set to the same name.
+
+After making these changes, reboot the router.
+
+
+- Set regulatory domain to correct setting:
+
+Check the current setting:
+```
+$ sudo iw reg get
+```
+
+If you get 00, that is the default and may not provide optimal performance.
+
+Find the correct setting here: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+
+Set it temporarily:
+```
+$ sudo iw reg set US
+```
+Note: Substitute your country code if not the United States.
+
+Set it permanently:
+```
+$ sudo nano /etc/default/crda
+
+Change the last line to read:
+
+REGDOMAIN=US
