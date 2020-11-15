@@ -81,18 +81,17 @@ Note: It is recommended that you do not delete the driver directory after instal
 
 Step 1: Open a terminal (Ctrl+Alt+T)
 
-Step 2: Update and upgrade the system:
+Step 2: Update the system:
 ```
 $ sudo apt-get update
-$ sudo apt-get upgrade
 ```
 Step 3: Install the required packages: (select the option for the OS you are using)
 
-For Ubuntu or Linux Mint:
+Option for Ubuntu or Linux Mint:
 ```
 $ sudo apt-get install -y dkms git
 ```
-For Raspberry Pi OS:
+Option for Raspberry Pi OS:
 ```
 $ sudo apt-get install -y raspberrypi-kernel-headers bc build-essential dkms git
 ```
@@ -116,7 +115,7 @@ $ cd ~/src/88x2bu
 ```
 Step 8: Run the installation script and reboot: (select the option for the OS you are using)
 
-For Ubuntu or Linux Mint:
+Option for Ubuntu or Linux Mint:
 
 Run installation script:
 ```
@@ -128,17 +127,17 @@ $ sudo reboot
 ```
 Note: The installation for Ubuntu or Linux Mint is complete
 
-For Raspberry Pi OS: (select either the seond or third command but not both)
+Option for Raspberry Pi OS: (select either the seond or third option but not both)
 
 Turn off I386 support:
 ```
 $ sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
 ```
-For Raspberry Pi OS (32 bit), turn on ARM support:
+Option for Raspberry Pi OS (32 bit), turn on ARM support:
 ```
 $ sed -i 's/CONFIG_PLATFORM_ARM_RPI = n/CONFIG_PLATFORM_ARM_RPI = y/g' Makefile
 ```
-For Raspberry Pi OS (64 bit), turn on ARM64 support:
+Option for Raspberry Pi OS (64 bit), turn on ARM64 support:
 ```
 $ sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makefile
 ```
