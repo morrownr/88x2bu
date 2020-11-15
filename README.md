@@ -117,17 +117,14 @@ Step 8: Run the installation script and reboot: (select the option for the OS yo
 
 Option for Ubuntu or Linux Mint:
 
-Run installation script:
+Run installation script and reboot:
 ```
 $ sudo ./install-driver.sh
-```
-Reboot:
-```
 $ sudo reboot
 ```
 Note: The installation for Ubuntu or Linux Mint is complete
 
-Option for Raspberry Pi OS: (select either the seond or third option but not both)
+Option for Raspberry Pi OS: (select either the second or third option but not both)
 
 Turn off I386 support:
 ```
@@ -141,12 +138,9 @@ Option for Raspberry Pi OS (64 bit), turn on ARM64 support:
 ```
 $ sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makefile
 ```
-Run installation script:
+Run installation script and reboot:
 ```
 $ sudo ./install-driver.sh
-```
-Reboot:
-```
 $ sudo reboot
 ```
 Note: The installation for Raspberry Pi OS is complete
@@ -162,9 +156,6 @@ $ cd ~/src/88x2bu
 Step 3: Run the removal script and reboot:
 ```
 $ sudo ./remove-driver.sh
-```
-Reboot:
-```
 $ sudo reboot
 ```
 
