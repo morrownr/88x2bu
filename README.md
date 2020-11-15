@@ -395,7 +395,7 @@ Mode for 2.4G: Use G/N or B/G/N. Do not use N only.
 
 Do not set the 2.4G Network and the 5G Network to the same name. Many routers come with both networks set to the same name.
 
-Set Power Saving: off. This can help in some situation.
+Set Power Saving: off. This can help in some situations.
 
 After making these changes, reboot the router.
 
