@@ -371,10 +371,9 @@ USB 2 =  480M
 USB 3 = 5000M
 ```
 
-### Various Tidbits of Information
-### ------------------------------
+### ------------------------------ Various Tidbits of Information ------------------------------
 
-# Disable onboard WiFi on Raspberry Pi 3B, 3B+, 3A+, 4B and Zero W.
+### How to disable onboard WiFi on Raspberry Pi 3B, 3B+, 3A+, 4B and Zero W.
 
 Add the following line to /boot/config.txt:
 ```
@@ -382,9 +381,9 @@ dtoverlay=disable-wifi
 ```
 
 
-# Recommended Router Settings for WiFi:
+### Recommended Router Settings for WiFi:
 
-Note: These are general recommendations based on years of experience but may not apply to your situation so testing to see what works is recommended.
+Note: These are general recommendations based on years of experience but may not apply to your situation so testing to see if any help fix your problem is recommended.
 
 Security: Use WPA2-AES. Do not use WPA or WPA2 mixed mode or TKIP.
 
@@ -396,11 +395,13 @@ Mode for 2.4G: Use G/N or B/G/N. Do not use N only.
 
 Do not set the 2.4G Network and the 5G Network to the same name. Many routers come with both networks set to the same name.
 
+Set Power Saving: off. This can help in some situation.
+
 After making these changes, reboot the router.
 
 
 
-# Set regulatory domain to correct setting:
+### Set regulatory domain to correct setting in OS:
 
 Check the current setting:
 ```
