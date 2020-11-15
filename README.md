@@ -98,7 +98,7 @@ $ sudo apt-get install -y raspberrypi-kernel-headers bc build-essential dkms git
 ```
 Step 4: Create a directory to hold the downloaded driver:
 
-Note: My technique is to create a directory in my home directory to hold source packages. I call it `src`.
+Note: My technique is to create a directory in my home directory called `src`.
 ```
 $ mkdir src
 ```
@@ -120,7 +120,7 @@ For Ubuntu or Linux Mint:
 
 Run installation script:
 ```
-$ sudo ./dkms-install.sh
+$ sudo ./install-driver.sh
 ```
 Reboot:
 ```
@@ -144,7 +144,7 @@ $ sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makef
 ```
 Run installation script:
 ```
-$ sudo ./dkms-install.sh
+$ sudo ./install-driver.sh
 ```
 Reboot:
 ```
@@ -162,7 +162,7 @@ $ cd ~/src/88x2bu
 ```
 Step 3: Run the removal script and reboot:
 ```
-$ sudo ./dkms-remove.sh
+$ sudo ./remove-driver.sh
 ```
 Reboot:
 ```
@@ -278,14 +278,21 @@ A file called `88x2bu.conf` will be installed in `/etc/modeprob.d` by default.
 
 Location: `/etc/modprobe.d/88x2bu.conf`
 
-To change driver options, edit `88x2bu.conf` with a text editor.
+This file will be read and applied to the driver on each system boot.
+
+To change the driver options, there are two options:
+
+Option 1: Edit `88x2bu.conf` with a text editor using a terminal interface.
 
 Example:
 ```
 $ sudo nano /etc/modprobe.d/88x2bu.conf
 ```
-
-The options are as follows:
+Option 2: From the driver directory, run the `./edit-options.sh` script:
+```
+$ sudo ./edit-options.sh
+```
+The driver options are as follows:
 
 
 USB mode options: ( rtw_switch_usb_mode )
@@ -375,15 +382,19 @@ USB 3 = 5000M
 ```
 
 ### Various Tidbits of Information
+### ------------------------------
 
-- Disable onboard WiFi on Raspberry Pi 3B, 3B+, 3A+, 4B and Zero W.
+# Disable onboard WiFi on Raspberry Pi 3B, 3B+, 3A+, 4B and Zero W.
 
 Add the following line to /boot/config.txt:
 ```
 dtoverlay=disable-wifi
 ```
 
-- Recommended Router Settings for WiFi:
+
+# Recommended Router Settings for WiFi:
+
+Note: These are general recommendations based on years of experience but may not apply to your situation so testing to see what works is recommended.
 
 Security: Use WPA2-AES. Do not use WPA or WPA2 mixed mode or TKIP.
 
@@ -398,7 +409,8 @@ Do not set the 2.4G Network and the 5G Network to the same name. Many routers co
 After making these changes, reboot the router.
 
 
-- Set regulatory domain to correct setting:
+
+# Set regulatory domain to correct setting:
 
 Check the current setting:
 ```
@@ -422,3 +434,4 @@ $ sudo nano /etc/default/crda
 Change the last line to read:
 
 REGDOMAIN=US
+```
