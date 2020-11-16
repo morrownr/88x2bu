@@ -371,7 +371,8 @@ USB 2 =  480M
 USB 3 = 5000M
 ```
 
-### ------------------------------ Various Tidbits of Information ------------------------------
+### ----------------------------- Various Tidbits of Information -----------------------------
+
 
 ### How to disable onboard WiFi on Raspberry Pi 3B, 3B+, 3A+, 4B and Zero W.
 
@@ -379,6 +380,19 @@ Add the following line to /boot/config.txt:
 ```
 dtoverlay=disable-wifi
 ```
+
+
+### How to forget a saved wifi network on a Raspberry Pi
+
+1. Edit wpa_supplicant.conf:
+```
+$ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+```
+2. Delete the relevant wifi network block (including the 'network=' and opening/closing braces.
+
+3. Press ctrl-x followed by 'y' and enter to save the file.
+
+4. Reboot
 
 
 ### Recommended Router Settings for WiFi:
@@ -393,12 +407,11 @@ Channels for 2.4G: Use 1 or 6 or 11. Do not use automatic channel selection.
 
 Mode for 2.4G: Use G/N or B/G/N. Do not use N only.
 
-Do not set the 2.4G Network and the 5G Network to the same name. Many routers come with both networks set to the same name.
+Network names: Do not set the 2.4G Network and the 5G Network to the same name. Many routers come with both networks set to the same name.
 
-Set Power Saving: off. This can help in some situations.
+Power Saving: Set to off. This can help in some situations. If you try turning it off and you see no improvement then set it back to on so as to save electricity.
 
 After making these changes, reboot the router.
-
 
 
 ### Set regulatory domain to correct setting in OS:
