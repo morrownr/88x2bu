@@ -94,7 +94,7 @@ void _ips_enter(_adapter *padapter)
 		if (pwrpriv->ips_mode == IPS_LEVEL_2)
 			pwrpriv->bkeepfwalive = _TRUE;
 
-#ifdef CONFIG_RTW_CFGVEDNOR_LLSTATS		
+#ifdef CONFIG_RTW_CFGVEDNOR_LLSTATS
 		pwrpriv->pwr_saving_start_time = rtw_get_current_time();
 #endif /* CONFIG_RTW_CFGVEDNOR_LLSTATS */
 
@@ -137,8 +137,8 @@ int _ips_leave(_adapter *padapter)
 		result = rtw_ips_pwr_up(padapter);
 		if (result == _SUCCESS)
 			pwrpriv->rf_pwrstate = rf_on;
-		
-#ifdef CONFIG_RTW_CFGVEDNOR_LLSTATS	
+
+#ifdef CONFIG_RTW_CFGVEDNOR_LLSTATS
 		pwrpriv->pwr_saving_time += rtw_get_passing_time_ms(pwrpriv->pwr_saving_start_time);
 #endif /* CONFIG_RTW_CFGVEDNOR_LLSTATS */
 
@@ -237,6 +237,7 @@ bool rtw_pwr_unassociated_idle(_adapter *adapter)
 				|| MLME_IS_AP(iface)
 				|| MLME_IS_MESH(iface)
 				|| check_fwstate(pmlmepriv, WIFI_ADHOC_MASTER_STATE | WIFI_ADHOC_STATE)
+				|| check_fwstate(pmlmepriv, WIFI_MONITOR_STATE)
 				#if defined(CONFIG_P2P) && defined(CONFIG_IOCTL_CFG80211)
 				|| rtw_cfg80211_get_is_roch(iface) == _TRUE
 				|| (rtw_cfg80211_is_ro_ch_once(adapter)
@@ -718,6 +719,7 @@ u8 PS_RDY_CHECK(_adapter *padapter)
 		|| MLME_IS_MESH(padapter)
 		|| MLME_IS_MONITOR(padapter)
 		|| check_fwstate(pmlmepriv, WIFI_ADHOC_MASTER_STATE | WIFI_ADHOC_STATE)
+		|| check_fwstate(pmlmepriv, WIFI_MONITOR_STATE)
 		#if defined(CONFIG_P2P) && defined(CONFIG_IOCTL_CFG80211)
 		|| rtw_cfg80211_get_is_roch(padapter) == _TRUE
 		#endif
@@ -876,7 +878,7 @@ void rtw_leave_lps_and_chk(_adapter *padapter, u8 ps_mode)
 #ifdef CONFIG_LPS_ACK
 			_exit_critical_mutex(&pwrpriv->lps_ack_mutex, NULL);
 #endif /* CONFIG_LPS_ACK */
-			
+
 }
 
 void rtw_set_ps_mode(PADAPTER padapter, u8 ps_mode, u8 smart_ps, u8 bcn_ant_mode, const char *msg)
@@ -887,7 +889,7 @@ void rtw_set_ps_mode(PADAPTER padapter, u8 ps_mode, u8 smart_ps, u8 bcn_ant_mode
 	struct dvobj_priv *psdpriv = padapter->dvobj;
 	struct debug_priv *pdbgpriv = &psdpriv->drv_dbg;
 #endif
-#ifdef CONFIG_WMMPS_STA	
+#ifdef CONFIG_WMMPS_STA
 	struct registry_priv *pregistrypriv = &padapter->registrypriv;
 #endif
 #ifdef CONFIG_P2P
@@ -915,7 +917,7 @@ void rtw_set_ps_mode(PADAPTER padapter, u8 ps_mode, u8 smart_ps, u8 bcn_ant_mode
 			return;
 
 #ifndef CONFIG_BT_COEXIST
-#ifdef CONFIG_WMMPS_STA	
+#ifdef CONFIG_WMMPS_STA
 		if (!rtw_is_wmmps_mode(padapter))
 #endif /* CONFIG_WMMPS_STA */
 			if ((pwrpriv->smart_ps == smart_ps) &&
@@ -1101,11 +1103,11 @@ void rtw_set_ps_mode(PADAPTER padapter, u8 ps_mode, u8 smart_ps, u8 bcn_ant_mode
 			}
 #endif
 
-#ifdef CONFIG_WMMPS_STA	
+#ifdef CONFIG_WMMPS_STA
 			pwrpriv->wmm_smart_ps = pregistrypriv->wmm_smart_ps;
 #endif /* CONFIG_WMMPS_STA */
-			
-			
+
+
 			if (check_fwstate(pmlmepriv, _FW_LINKED))
 				rtw_hal_set_hwreg(padapter, HW_VAR_H2C_FW_PWRMODE, (u8 *)(&ps_mode));
 #ifdef CONFIG_WOWLAN
@@ -1216,10 +1218,10 @@ void LPS_Enter(PADAPTER padapter, const char *msg)
 				if (rtw_is_wmmps_mode(padapter))
 					msg = "WMMPS_IDLE";
 #endif /* CONFIG_WMMPS_STA */
-				
+
 				sprintf(buf, "WIFI-%s", msg);
 				pwrpriv->bpower_saving = _TRUE;
-				
+
 #ifdef CONFIG_RTW_CFGVEDNOR_LLSTATS
 				pwrpriv->pwr_saving_start_time = rtw_get_current_time();
 #endif /* CONFIG_RTW_CFGVEDNOR_LLSTATS */
@@ -1272,11 +1274,11 @@ void LPS_Leave(PADAPTER padapter, const char *msg)
 			if (rtw_is_wmmps_mode(padapter))
 				msg = "WMMPS_BUSY";
 #endif /* CONFIG_WMMPS_STA */
-			
+
 			sprintf(buf, "WIFI-%s", msg);
 			rtw_set_ps_mode(padapter, PS_MODE_ACTIVE, 0, 0, buf);
 
-#ifdef CONFIG_RTW_CFGVEDNOR_LLSTATS	
+#ifdef CONFIG_RTW_CFGVEDNOR_LLSTATS
 			pwrpriv->pwr_saving_time += rtw_get_passing_time_ms(pwrpriv->pwr_saving_start_time);
 #endif /* CONFIG_RTW_CFGVEDNOR_LLSTATS */
 		}
@@ -1589,7 +1591,7 @@ static void dma_event_callback(struct work_struct *work)
 #ifdef CONFIG_LPS_RPWM_TIMER
 
 #define DBG_CPWM_CHK_FAIL
-#if defined(DBG_CPWM_CHK_FAIL) && (defined(CONFIG_RTL8822B) || defined(CONFIG_RTL8821C) || defined(CONFIG_RTL8822C)) 
+#if defined(DBG_CPWM_CHK_FAIL) && (defined(CONFIG_RTL8822B) || defined(CONFIG_RTL8821C) || defined(CONFIG_RTL8822C))
 #define CPU_EXCEPTION_CODE 0xFAFAFAFA
 static void rtw_cpwm_chk_fail_debug(_adapter *padapter)
 {
@@ -2226,7 +2228,7 @@ void rtw_init_pwrctrl_priv(PADAPTER padapter)
 	pwrctrlpriv->tog = 0x80;
 	pwrctrlpriv->rpwm_retry = 0;
 
-	RTW_INFO("%s: IPS_mode=%d, LPS_mode=%d, LPS_level=%d"LPS_1T1R_FMT"\n", 
+	RTW_INFO("%s: IPS_mode=%d, LPS_mode=%d, LPS_level=%d"LPS_1T1R_FMT"\n",
 		__func__, pwrctrlpriv->ips_mode, pwrctrlpriv->power_mgnt, pwrctrlpriv->lps_level
 		LPS_1T1R_ARG
 	);
@@ -2800,7 +2802,7 @@ int rtw_pm_set_wow_lps(_adapter *padapter, u8 mode)
 	struct pwrctrl_priv *pwrctrlpriv = adapter_to_pwrctl(padapter);
 
 	if (mode < PS_MODE_NUM) {
-		if (pwrctrlpriv->wowlan_power_mgmt != mode) 
+		if (pwrctrlpriv->wowlan_power_mgmt != mode)
 			pwrctrlpriv->wowlan_power_mgmt = mode;
 	} else
 		ret = -EINVAL;
