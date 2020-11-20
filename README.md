@@ -159,109 +159,6 @@ $ sudo ./remove-driver.sh
 $ sudo reboot
 ```
 
-### Entering Monitor Mode with 'iw' and 'ip':
-
-Start by making sure the system recognizes the Wi-Fi interface:
-```
-$ sudo iw dev
-```
-
-The output shows the Wi-Fi interface name and the current mode among other things. The interface name will be something like `wlx00c0cafre8ba` and is required for the below commands. I will use `wlan0` as the interface name but you need to substitute your interface name.
-
-Take the interface down:
-```
-$ sudo ip link set wlan0 down
-```
-
-Set monitor mode:
-```
-$ sudo iw wlan0 set monitor control
-```
-
-Bring the interface up:
-```
-$ sudo ip link set wlan0 up
-```
-
-Verify the mode has changed:
-```
-$ sudo iw dev
-```
-
-### Reverting to Managed Mode with 'iw' and 'ip':
-
-Take the interface down:
-```
-$ sudo ip link set wlan0 down
-```
-
-Set managed mode:
-```
-$ sudo iw wlan0 set type managed
-```
-
-Bring the interface up:
-```
-$ sudo ip link set wlan0 up
-```
-
-Verify the mode has changed:
-```
-$ sudo iw dev
-```
-
-### Packet Injection:
-
-Install the `aircrack-ng` package:
-```
-$ sudo apt-get install aircrack-ng
-```
-Open a terminal and execute the following:
-```
-$ sudo airmon-ng check kill
-```
-Determine the interface name:
-```
-$ sudo iw dev
-```
-Note: Do not use `airmon-ng` to enter Monitor Mode as it appears to be broken.
-
-Note: Replace `wlan0` with your interface name.
-
-Take the interface down:
-```
-$ sudo ip link set wlan0 down
-```
-Set monitor mode:
-```
-$ sudo iw wlan0 set monitor control
-```
-Bring the interface up:
-```
-$ sudo ip link set wlan0 up
-```
-Verify the mode has changed:
-```
-$ sudo iw dev
-```
-Run a test:
-```
-$ sudo aireplay-ng --test wlan0
-```
-
-Example of a successful test:
-```
-15:38:31  $ sudo aireplay-ng --test wlan0
-15:38:31  Trying broadcast probe requests...
-15:38:31  Injection is working!
-15:38:32  Found 1 AP
-
-15:38:32  Trying directed probe requests...
-15:38:32  8C:59:73:FE:8B:F5 - channel: 36 - 'APname'
-15:38:32  Ping (min/avg/max): 0.826ms/4.058ms/6.667ms Power: -35.77
-15:38:32  30/30: 100%
-```
-
 ### Driver Options:
 
 A file called `88x2bu.conf` will be installed in `/etc/modeprob.d` by default.
@@ -369,6 +266,109 @@ $ lsusb -t
 ```
 USB 2 =  480M
 USB 3 = 5000M
+```
+
+### Entering Monitor Mode with 'iw' and 'ip':
+
+Start by making sure the system recognizes the Wi-Fi interface:
+```
+$ sudo iw dev
+```
+
+The output shows the Wi-Fi interface name and the current mode among other things. The interface name will be something like `wlx00c0cafre8ba` and is required for the below commands. I will use `wlan0` as the interface name but you need to substitute your interface name.
+
+Take the interface down:
+```
+$ sudo ip link set wlan0 down
+```
+
+Set monitor mode:
+```
+$ sudo iw wlan0 set monitor control
+```
+
+Bring the interface up:
+```
+$ sudo ip link set wlan0 up
+```
+
+Verify the mode has changed:
+```
+$ sudo iw dev
+```
+
+### Reverting to Managed Mode with 'iw' and 'ip':
+
+Take the interface down:
+```
+$ sudo ip link set wlan0 down
+```
+
+Set managed mode:
+```
+$ sudo iw wlan0 set type managed
+```
+
+Bring the interface up:
+```
+$ sudo ip link set wlan0 up
+```
+
+Verify the mode has changed:
+```
+$ sudo iw dev
+```
+
+### Packet Injection:
+
+Install the `aircrack-ng` package:
+```
+$ sudo apt-get install aircrack-ng
+```
+Open a terminal and execute the following:
+```
+$ sudo airmon-ng check kill
+```
+Determine the interface name:
+```
+$ sudo iw dev
+```
+Note: Do not use `airmon-ng` to enter Monitor Mode as it appears to be broken.
+
+Note: Replace `wlan0` with your interface name.
+
+Take the interface down:
+```
+$ sudo ip link set wlan0 down
+```
+Set monitor mode:
+```
+$ sudo iw wlan0 set monitor control
+```
+Bring the interface up:
+```
+$ sudo ip link set wlan0 up
+```
+Verify the mode has changed:
+```
+$ sudo iw dev
+```
+Run a test:
+```
+$ sudo aireplay-ng --test wlan0
+```
+
+Example of a successful test:
+```
+15:38:31  $ sudo aireplay-ng --test wlan0
+15:38:31  Trying broadcast probe requests...
+15:38:31  Injection is working!
+15:38:32  Found 1 AP
+
+15:38:32  Trying directed probe requests...
+15:38:32  8C:59:73:FE:8B:F5 - channel: 36 - 'APname'
+15:38:32  Ping (min/avg/max): 0.826ms/4.058ms/6.667ms Power: -35.77
+15:38:32  30/30: 100%
 ```
 
 ### ----------------------------- Various Tidbits of Information -----------------------------
