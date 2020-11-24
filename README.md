@@ -22,7 +22,7 @@
 - Monitor mode
 - Packet Injection (needs testing, please report results in `Issues`)
 
-### Supported Kernels:
+### Compatible Kernels:
 
 - Kernels: 2.6.24 ~ 5.8 (Realtek)
 - Kernels: 5.9
@@ -50,7 +50,7 @@
 - FIDECO 6B21-AC1200M WiFi Adapter - AC1200 Dual Band:
   https://www.amazon.co.uk/gp/product/B08523KPP9
 
-## Supported Devices:
+## Compatible Devices:
 
 * ASUS AC1300 USB-AC55 B1
 * ASUS U2
