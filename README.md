@@ -16,10 +16,14 @@
 - WPA/WPA2 TLS client
 - Power saving mode
 - LED control
-- USB mode control
 - AP Mode (WiFi Hotspot)
 - WiFi-Direct
+- Miracast
+- MU-MIMO
+- Mesh
+- Wake on LAN
 - Monitor mode
+- USB mode control
 - Packet Injection (needs testing, please report results in `Issues`)
 
 ### Compatible Kernels:
@@ -29,18 +33,22 @@
 
 ### Tested Linux Distributions:
 
-- Mint 20
-- Mint 19.3
+- Raspberry Pi OS (08-20-2020) (ARM 32 bit and ARM 64 bit)
+
+- LMDE 4 (Linux Mint based on Debian)
+
+- Linux Mint 20 (Linux Mint based on Ubuntu)
+- Linux Mint 19.3 (Linux Mint based on Ubuntu)
+
 - Ubuntu 20.10
 - Ubuntu 20.04
 - Ubuntu 18.04
-- Raspberry Pi OS (08-20-2020) (ARM 32 bit and ARM 64 bit)
 
 ### Download Locations for Tested Linux Distributions:
 
-- Ubuntu - https://ubuntu.com/
-- Mint - https://linuxmint.com/
 - Raspberry Pi OS - https://www.raspberrypi.org/
+- Linux Mint - https://linuxmint.com/
+- Ubuntu - https://ubuntu.com/
 
 ### Tested Hardware:
 
@@ -87,13 +95,17 @@ $ sudo apt-get update
 ```
 Step 3: Install the required packages: (select the option for the OS you are using)
 
-Option for Ubuntu or Linux Mint:
-```
-$ sudo apt-get install -y dkms git
-```
 Option for Raspberry Pi OS:
 ```
 $ sudo apt-get install -y raspberrypi-kernel-headers bc build-essential dkms git
+```
+Option for LMDE (Debian based):
+```
+$ sudo apt-get install -y linux-headers-$(uname -r) build-essential dkms git
+```
+Option for Linux Mint or Ubuntu:
+```
+$ sudo apt-get install -y dkms git
 ```
 Step 4: Create a directory to hold the downloaded driver:
 
@@ -115,14 +127,14 @@ $ cd ~/src/88x2bu
 ```
 Step 8: Run the installation script and reboot: (select the option for the OS you are using)
 
-Option for Ubuntu or Linux Mint:
+Option for LMDE, Linux Mint or Ubuntu:
 
 Run installation script and reboot:
 ```
 $ sudo ./install-driver.sh
 $ sudo reboot
 ```
-Note: The installation for Ubuntu or Linux Mint is complete
+Note: The installation for LMDE, Linux Mint or Ubuntu complete
 
 Option for Raspberry Pi OS: (select either the second or third option but not both)
 
