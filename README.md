@@ -77,13 +77,13 @@
 
 ### Installation of the Driver:
 
-Note: The installation instructions that I am providing are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
+Note: The installation instructions that are provided are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
 
-Note: The installation instructions require that your system has access to the internet. I realize that you expect the adapter supported by this driver to provide your internet access but there are many ways to enable temporary internet access depending on your hardware and situation.
+Note: The installation instructions require that your system has access to the internet. There are numerous ways to enable temporary internet access depending on your hardware and situation.
 
 Note: The installation instructions require the use of the terminal. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key.)
 
-Note: The installation instructions make use of DKMS. DKMS is a system utility which will automatically recompile and install a kernel module when a new kernel is installed. DKMS is provided by and maintained by Dell.
+Note: The installation instructions make use of DKMS. DKMS is a system utility which will automatically recompile and install this kernel module when a new kernel is installed. DKMS is provided by and maintained by Dell.
 
 Note: It is recommended that you do not delete the driver directory after installation as the directory contains documentation (README.md) and scripts that you may need in the future.
 
@@ -109,7 +109,7 @@ $ sudo apt-get install -y dkms git
 ```
 Step 4: Create a directory to hold the downloaded driver:
 
-Note: My technique is to create a directory in my home directory called `src`.
+Note: The technique used in this document is to create a directory in the home directory called `src`.
 ```
 $ mkdir src
 ```
@@ -134,19 +134,19 @@ Run installation script and reboot:
 $ sudo ./install-driver.sh
 $ sudo reboot
 ```
-Note: The installation for LMDE, Linux Mint or Ubuntu complete
+Note: The installation for LMDE, Linux Mint or Ubuntu is complete.
 
-Option for Raspberry Pi OS: (select either the second or third option but not both)
+Option for Raspberry Pi OS: (select either Option 1 or Option 2 but not both)
 
 Turn off I386 support:
 ```
 $ sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
 ```
-Option for Raspberry Pi OS (32 bit), turn on ARM support:
+Option 1: for Raspberry Pi OS (32 bit), turn on ARM support:
 ```
 $ sed -i 's/CONFIG_PLATFORM_ARM_RPI = n/CONFIG_PLATFORM_ARM_RPI = y/g' Makefile
 ```
-Option for Raspberry Pi OS (64 bit), turn on ARM64 support:
+Option 2: for Raspberry Pi OS (64 bit), turn on ARM64 support:
 ```
 $ sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makefile
 ```
@@ -155,7 +155,7 @@ Run installation script and reboot:
 $ sudo ./install-driver.sh
 $ sudo reboot
 ```
-Note: The installation for Raspberry Pi OS is complete
+Note: The installation for Raspberry Pi OS is complete.
 
 ### Removal of the Driver:
 
@@ -287,7 +287,7 @@ Start by making sure the system recognizes the Wi-Fi interface:
 $ sudo iw dev
 ```
 
-The output shows the Wi-Fi interface name and the current mode among other things. The interface name will be something like `wlx00c0cafre8ba` and is required for the below commands. I will use `wlan0` as the interface name but you need to substitute your interface name.
+Note: The output shows the Wi-Fi interface name and the current mode among other things. The interface name may be something like `wlx00c0cafre8ba` and is required for the below commands. The interface name `wlan0` will be used in the instructions below but you need to substitute your interface name.
 
 Take the interface down:
 ```
