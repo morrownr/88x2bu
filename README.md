@@ -58,7 +58,7 @@
 - FIDECO 6B21-AC1200M WiFi Adapter - AC1200 Dual Band:
   https://www.amazon.co.uk/gp/product/B08523KPP9
 
-## Compatible Devices:
+### Compatible Devices:
 
 * ASUS AC1300 USB-AC55 B1
 * ASUS U2
