@@ -15,9 +15,9 @@ SCRIPT_NAME=edit-options.sh
 #
 if [ $EUID -ne 0 ]
 then
-	echo "You must run $(SCRIPT_NAME) with superuser priviliges."
-	echo "Try: \"sudo ./$(SCRIPT_NAME)\""
+	echo "You must run ${SCRIPT_NAME} with superuser priviliges."
+	echo "Try: \"sudo ./${SCRIPT_NAME}\""
 	exit 1
 fi
 
-nano /etc/modprobe.d/$(OPTIONS_FILE)
+nano /etc/modprobe.d/${OPTIONS_FILE}
