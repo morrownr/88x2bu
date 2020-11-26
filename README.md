@@ -2,7 +2,7 @@
 
 ### Linux Driver for the RealTek RTL8812BU and RTL8822BU Chipsets.
 
-- Driver Version: v5.8.7.4 (Realtek)
+- Driver Version: v5.8.7.4 (Realtek) (2020-09-22)
 - Plus updates from the Linux community
 
 ### Features:
@@ -23,8 +23,8 @@
 - Mesh
 - Wake on LAN
 - Monitor mode
-- USB mode control
 - Packet Injection (needs testing, please report results in `Issues`)
+- USB mode control
 
 ### Compatible Kernels:
 

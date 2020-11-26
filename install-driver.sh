@@ -2,13 +2,15 @@
 
 DRV_NAME=rtl88x2bu
 DRV_VERSION=5.8.7.4
+OPTIONS_FILE=88x2bu.conf
+SCRIPT_NAME=install-driver.sh
 
 echo ""
 
 if [ $EUID -ne 0 ]
 then
-	echo "You must run dkms-install.sh with superuser priviliges."
-	echo "Try: \"sudo ./dkms-install.sh\""
+	echo "You must run $(SCRIPT_NAME) with superuser priviliges."
+	echo "Try: \"sudo ./$(SCRIPT_NAME)\""
 	exit 1
 fi
 
@@ -26,8 +28,8 @@ echo "Copying driver source files to: /usr/src/${DRV_NAME}-${DRV_VERSION}"
 cp -r $(pwd) /usr/src/${DRV_NAME}-${DRV_VERSION}
 
 echo ""
-echo "Copying 88x2bu.conf to: /etc/modprobe.d"
-cp -r 88x2bu.conf /etc/modprobe.d
+echo "Copying $(OPTIONS_FILE) to: /etc/modprobe.d"
+cp -r $(OPTIONS_FILE) /etc/modprobe.d
 
 dkms add -m ${DRV_NAME} -v ${DRV_VERSION}
 RESULT=$?
