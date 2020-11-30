@@ -8,23 +8,25 @@
 ### Features:
 
 - IEEE 802.11 b/g/n/ac WiFi compliant
-- 802.1x, WEP, WPA TKIP and WPA2 AES/Mixed mode for PSK and TLS (Radius)
-- WPS - PIN and PBC Methods
-- IEEE 802.11b/g/n/ac Client mode
-- Wireless security for WEP, WPA TKIP, WPA2 AES PSK and WPA3-SAE Personal
-- Site survey scan and manual connect
-- WPA/WPA2 TLS client
-- Power saving mode
-- LED control
-- AP Mode (WiFi Hotspot)
-- WiFi-Direct
-- Miracast
-- MU-MIMO
-- Mesh
-- Wake on LAN
-- Monitor mode
-- Packet Injection (needs testing, please report results in `Issues`)
+
+- Supported Ciphers:
+	* WEP40 (00-0f-ac:1)
+	* WEP104 (00-0f-ac:5)
+	* TKIP (00-0f-ac:2)
+	* CCMP-128 (00-0f-ac:4)
+	* CMAC (00-0f-ac:6)
+
+- Supported interface modes:
+	* IBSS
+	* Managed
+	* AP (WiFi Hotspot) (Master mode)
+	* Monitor
+	* P2P-client
+	* P2P-GO
+
 - USB mode control
+- Log level control
+- LED control
 
 ### Compatible Kernels:
 
@@ -33,7 +35,7 @@
 
 ### Tested Linux Distributions:
 
-- Raspberry Pi OS (08-20-2020) (ARM 32 bit and ARM 64 bit)
+- Raspberry Pi OS (08-20-2020) (ARM 32 bit)
 
 - LMDE 4 (Linux Mint based on Debian)
 
@@ -228,47 +230,7 @@ LED control options: ( rtw_led_ctrl )
 
 ### Information about USB 3 support:
 
-USB 3 support is off by default as there can be problems with older USB 3 ports, however, almost all USB 3 ports on modern systems work well so turning USB 3 support on should work fine for almost everyone and the difference in performance can be large as can be seen in the data from the tests that I have conducted:
-
-
-```
-USB 3 support turned off (driver v5.8.7.2)
- (average Bitrate = 255 Mbits/sec)
-
-Transfer     Bitrate
-30.9 MBytes   260 Mbits/sec
-29.5 MBytes   247 Mbits/sec
-32.6 MBytes   273 Mbits/sec
-30.6 MBytes   256 Mbits/sec
-30.4 MBytes   255 Mbits/sec
-28.3 MBytes   238 Mbits/sec
-```
-
-```
-USB 3 support turned on (driver v5.8.7.2)
- (average Bitrate = 411 Mbits/sec)
-
-Transfer     Bitrate
-48.8 MBytes   409 Mbits/sec
-47.5 MBytes   398 Mbits/sec
-51.2 MBytes   430 Mbits/sec
-48.8 MBytes   409 Mbits/sec
-50.0 MBytes   419 Mbits/sec
-47.5 MBytes   398 Mbits/sec
-```
-
-```
-USB 3 support turned on (driver v 5.8.7.4)
- (average Bitrate = 552 Mbits/sec)
-
-Transfer     Bitrate         Retr
-66.2 MBytes   556 Mbits/sec    0
-62.5 MBytes   524 Mbits/sec    0
-67.5 MBytes   566 Mbits/sec    0
-66.2 MBytes   556 Mbits/sec    0
-65.0 MBytes   545 Mbits/sec    0
-67.5 MBytes   566 Mbits/sec    0
-```
+USB 3 support is off by default as there can be problems with older USB 3 ports, however, almost all USB 3 ports on modern systems work well so turning USB 3 support on should work fine for almost everyone and the difference in performance can be large.
 
 See what your USB mode is:
 
@@ -278,6 +240,20 @@ $ lsusb -t
 ```
 USB 2 =  480M
 USB 3 = 5000M
+```
+### iperf3 test results with USB 3 mode on:
+```
+Bitrate
+-------------
+566 Mbits/sec
+545 Mbits/sec
+556 Mbits/sec
+577 Mbits/sec
+566 Mbits/sec
+556 Mbits/sec
+556 Mbits/sec
+556 Mbits/sec
+565 Mbits/sec
 ```
 
 ### Entering Monitor Mode with 'iw' and 'ip':
@@ -329,58 +305,6 @@ $ sudo ip link set wlan0 up
 Verify the mode has changed:
 ```
 $ sudo iw dev
-```
-
-### Packet Injection:
-
-Install the `aircrack-ng` package:
-```
-$ sudo apt-get install aircrack-ng
-```
-Open a terminal and execute the following:
-```
-$ sudo airmon-ng check kill
-```
-Determine the interface name:
-```
-$ sudo iw dev
-```
-Note: Do not use `airmon-ng` to enter Monitor Mode as it appears to be broken.
-
-Note: Replace `wlan0` with your interface name.
-
-Take the interface down:
-```
-$ sudo ip link set wlan0 down
-```
-Set monitor mode:
-```
-$ sudo iw wlan0 set monitor control
-```
-Bring the interface up:
-```
-$ sudo ip link set wlan0 up
-```
-Verify the mode has changed:
-```
-$ sudo iw dev
-```
-Run a test:
-```
-$ sudo aireplay-ng --test wlan0
-```
-
-Example of a successful test:
-```
-15:38:31  $ sudo aireplay-ng --test wlan0
-15:38:31  Trying broadcast probe requests...
-15:38:31  Injection is working!
-15:38:32  Found 1 AP
-
-15:38:32  Trying directed probe requests...
-15:38:32  8C:59:73:FE:8B:F5 - channel: 36 - 'APname'
-15:38:32  Ping (min/avg/max): 0.826ms/4.058ms/6.667ms Power: -35.77
-15:38:32  30/30: 100%
 ```
 
 ### ----------------------------- Various Tidbits of Information -----------------------------
