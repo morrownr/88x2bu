@@ -1,6 +1,5 @@
 #!/bin/bash
 #
-#
 # Purpose: Change settings in the Makefile to support compiling for Raspberry Pi OS (64 bit).
 #
 # To make this file executable:
@@ -31,5 +30,6 @@ then
 	exit 1
 else
 	echo "Raspberry Pi OS (64 bit) support was turned on in Makefile as planned."
+fi
 
 exit 0

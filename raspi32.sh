@@ -1,6 +1,5 @@
 #!/bin/bash
 #
-#
 # Purpose: Change settings in the Makefile to support compiling for Raspberry Pi OS (32 bit).
 #
 # To make this file executable:
