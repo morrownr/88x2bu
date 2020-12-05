@@ -31,5 +31,6 @@ then
 	exit 1
 else
 	echo "Raspberry Pi OS (32 bit) support was turned on in Makefile as planned."
+fi
 
 exit 0

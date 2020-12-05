@@ -375,3 +375,9 @@ Change the last line to read:
 
 REGDOMAIN=US
 ```
+
+### To-Do Lst:
+
+* add and test addional driver options
+
+* add support for Linux kernel 5.10
