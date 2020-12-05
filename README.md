@@ -81,7 +81,7 @@
 
 Note: The installation instructions that are provided are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
 
-Note: The installation instructions require that your system has access to the internet. There are numerous ways to enable temporary internet access depending on your hardware and situation. One method is to use tethering from a phone. Another method is to keep an ultra cheap adapter in your toolkit that uses an in-kernel driver. Here is one:
+Note: The installation instructions require that your system has access to the internet. There are numerous ways to enable temporary internet access depending on your hardware and situation. One method is to use tethering from a phone. Another method is to keep an ultra cheap adapter in your toolkit that uses an in-kernel (plug and play) driver. Here is one:
 ```
 https://www.canakit.com/raspberry-pi-wifi.html
 ```
@@ -378,7 +378,7 @@ Change the last line to read:
 REGDOMAIN=US
 ```
 
-### To-Do Lst:
+### To-Do List:
 
 * add and test addional driver options
 
