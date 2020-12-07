@@ -35,7 +35,7 @@
 
 ### Tested Linux Distributions:
 
-- Raspberry Pi OS (08-20-2020) (ARM 32 bit)
+- Raspberry Pi OS (12-02-2020) (ARM 32 bit)
 
 - LMDE 4 (Linux Mint based on Debian)
 
@@ -339,7 +339,9 @@ Note: These are general recommendations based on years of experience but may not
 
 Security: Use WPA2-AES. Do not use WPA or WPA2 mixed mode or TKIP.
 
-Channel Width for 2.4G: Use 20 MHz. Do not use 40 MHz or 20/40 automatic.
+Channel Width for 2.4G: Use 20 MHz fixed width. Do not use 40 MHz or 20/40 automatic.
+
+Channel width for 5G: Using a 40 MHz fixed width may help in some situations.
 
 Channels for 2.4G: Use 1 or 6 or 11. Do not use automatic channel selection.
 
