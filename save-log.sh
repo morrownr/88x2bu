@@ -19,9 +19,10 @@ then
 	exit 1
 fi
 
+# Deletes existing log
 rm -f -- rtw.log
 
-dmesg | sed 's/[^ ]* //' >> rtw.log
+dmesg | cut -d"]" -f2- | grep "RTW" >> rtw.log
 RESULT=$?
 
 if [ "$RESULT" != "0" ]
