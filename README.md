@@ -251,7 +251,7 @@ The driver options are as follows:
 
  -----
 
- Notes
+ Notes:
  - To turn power saving off, set the two options below to 0.
  - These options may be useful in server setups and also if dropouts are experienced.
 
@@ -289,8 +289,8 @@ See what your USB mode is:
 $ lsusb -t
 ```
 ```
-USB 2 =  480M
-USB 3 = 5000M
+USB 2 =  480 Mb/s
+USB 3 = 5000 Mb/s
 ```
 ### iperf3 test results with USB 3 mode on:
 ```
@@ -396,7 +396,7 @@ Channels for 2.4G: Use 1 or 6 or 11. Do not use automatic channel selection.
 
 Mode for 2.4G: Use G/N or B/G/N. Do not use N only.
 
-Network names: Do not set the 2.4G Network and the 5G Network to the same name. Many routers come with both networks set to the same name.
+Network names: Do not set the 2.4G Network and the 5G Network to the same name. Note: Many routers come with both networks set to the same name.
 
 Power Saving: Set to off. This can help in some situations. If you try turning it off and you see no improvement then set it back to on so as to save electricity.
 
