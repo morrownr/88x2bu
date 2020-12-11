@@ -214,7 +214,7 @@ The driver options are as follows:
  -----
 
  Log level options: ( rtw_drv_log_level )
-
+```
  0 = NONE (default)
  1 = ALWAYS
  2 = ERROR
@@ -222,7 +222,7 @@ The driver options are as follows:
  4 = INFO
  5 = DEBUG
  6 = MAX
-
+```
  Note: You can save a log of RTW log entries by running the following in a terminal:
 
  $ sudo ./save-log.sh
@@ -230,19 +230,19 @@ The driver options are as follows:
  -----
 
  LED control options: ( rtw_led_ctrl )
-
+```
  0 = Always off
  1 = Normal blink (default)
  2 = Always on
-
+```
  -----
 
  VHT enable options: ( rtw_vht_enable )
-
+```
   0 = Disable
   1 = Enable (default)
   2 = Force auto enable (use caution)
-
+```
  Notes:
  - Unless you know what you are doing, don't change the default for rtw_vht_enable.
  - A non-default setting can degrade performance greatly in some operational modes.
@@ -256,25 +256,25 @@ The driver options are as follows:
  - These options may be useful in server setups and also if dropouts are experienced.
 
  Power saving options: ( rtw_power_mgnt )
-
+```
  0 = Disable power saving
  1 = Power saving on, minPS (default)
  2 = Power saving on, maxPS
-
+```
 
  IPS mode options: ( rtw_ips_mode )
-
+```
  0 = Low power
  1 = High power (default)
-
+```
  -----
 
  USB mode options: ( rtw_switch_usb_mode )
-
+```
  0 = No switch (default)
  1 = Switch from usb 2.0 to usb 3.0
  2 = Switch from usb 3.0 to usb 2.0
-
+```
  Note: When changing USB options, a cold boot is recommended.
 
  -----
