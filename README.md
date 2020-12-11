@@ -125,6 +125,10 @@ Option for Linux Mint (Ubuntu based) or Ubuntu (all flavors):
 ```
 $ sudo apt-get install -y dkms git
 ```
+Option for Manjaro:
+```
+$ sudo pacman -S --noconfirm linux-headers dkms git
+```
 Step 4: Create a directory to hold the downloaded driver:
 
 Note: The technique used in this document is to create a directory in the home directory called `src`.
