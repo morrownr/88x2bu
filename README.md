@@ -143,9 +143,9 @@ Step 7: Move to the newly created driver directory:
 ```
 $ cd ~/src/88x2bu
 ```
-Step 8: Run the installation script:
+Step 8: Run preparation script if needed:
 
-Raspberry Pi OS requires an extra step. Run one of the two scripts below ONLY if you have a Raspberry Pi:
+The Raspberry Pi OS requires a preparation script. Run one of the two scripts below ONLY if you have a Raspberry Pi:
 
 For 32 bit Raspberry Pi OS: (Please skip this step if you are not installing to Raspberry Pi 32 bit)
 ```
@@ -157,10 +157,11 @@ For 64 bit Raspberry Pi OS: (Please skip this step if you are not installing to 
 $ sudo ./raspi64.sh
 
 ```
+Step 9: Run the installation script:
 ```
 $ sudo ./install-driver.sh
 ```
-Step 9: Reboot:
+Step 10: Reboot:
 ```
 $ sudo reboot
 ```
