@@ -21,7 +21,6 @@
 - MU-MIMO
 - Mesh
 - Wake on WLAN
-
 - Supported interface modes:
   * IBSS
   * Managed
@@ -29,12 +28,16 @@
   * Monitor
   * P2P-client
   * P2P-GO
-
 - USB mode control
 - Log level control
 - LED control
 - Power saving control
 - VHT Control ( to allow 80 MHz channel width in AP mode)
+
+### Compatible CPUs:
+
+- x86, amd64
+- ARM, ARM64
 
 ### Compatible Kernels:
 
@@ -86,7 +89,7 @@
 * TRENDnet TEW-808UBM
 * Numerous additional products that are based on the supported chipsets
 
-### Installation of the Driver:
+### Installation Information:
 
 Note: The installation instructions that are provided are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
 
@@ -99,6 +102,8 @@ Note: The installation instructions require the use of the terminal. The quick w
 Note: The installation instructions make use of DKMS. DKMS is a system utility which will automatically recompile and install this kernel module when a new kernel is installed. DKMS is provided by and maintained by Dell.
 
 Note: It is recommended that you do not delete the driver directory after installation as the directory contains documentation (README.md) and scripts that you may need in the future.
+
+### Installation Steps:
 
 Step 1: Open a terminal (Ctrl+Alt+T)
 
@@ -116,7 +121,7 @@ Option for LMDE (Debian based):
 ```
 $ sudo apt-get install -y linux-headers-$(uname -r) build-essential dkms git
 ```
-Option for Linux Mint or Ubuntu:
+Option for Linux Mint (Ubuntu based) or Ubuntu (all flavors):
 ```
 $ sudo apt-get install -y dkms git
 ```
@@ -138,37 +143,29 @@ Step 7: Move to the newly created driver directory:
 ```
 $ cd ~/src/88x2bu
 ```
-Step 8: Run the installation script and reboot: (select the option for the OS you are using)
+Step 8: Run the installation script:
 
-Option for LMDE, Linux Mint or Ubuntu:
+Raspberry Pi OS requires an extra step. Run one of the two scripts below ONLY if you have a Raspberry Pi:
 
-Run installation script and reboot:
+For 32 bit Raspberry Pi OS: (Please skip this step if you are not installing to Raspberry Pi 32 bit)
+```
+$ sudo ./raspi32.sh
+
+```
+For 64 bit Raspberry Pi OS: (Please skip this step if you are not installing to Raspberry Pi 64 bit)
+```
+$ sudo ./raspi64.sh
+
+```
 ```
 $ sudo ./install-driver.sh
+```
+Step 9: Reboot:
+```
 $ sudo reboot
 ```
-Note: The installation for LMDE, Linux Mint or Ubuntu is complete.
+Note: The installation is complete.
 
-Option for Raspberry Pi OS: (select either Option 1 or Option 2 but not both)
-
-Turn off I386 support:
-```
-$ sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
-```
-Option 1: for Raspberry Pi OS (32 bit), turn on ARM support:
-```
-$ sed -i 's/CONFIG_PLATFORM_ARM_RPI = n/CONFIG_PLATFORM_ARM_RPI = y/g' Makefile
-```
-Option 2: for Raspberry Pi OS (64 bit), turn on ARM64 support:
-```
-$ sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makefile
-```
-Run installation script and reboot:
-```
-$ sudo ./install-driver.sh
-$ sudo reboot
-```
-Note: The installation for Raspberry Pi OS is complete.
 
 ### Removal of the Driver:
 
@@ -178,9 +175,12 @@ Step 2: Move to the driver directory:
 ```
 $ cd ~/src/88x2bu
 ```
-Step 3: Run the removal script and reboot:
+Step 3: Run the removal script:
 ```
 $ sudo ./remove-driver.sh
+```
+Step 4: Reboot:
+```
 $ sudo reboot
 ```
 
@@ -206,7 +206,7 @@ $ sudo ./edit-options.sh
 ```
 The driver options are as follows:
 
------
+ -----
 
  Log level options: ( rtw_drv_log_level )
 
