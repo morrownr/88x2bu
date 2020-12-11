@@ -8,30 +8,39 @@
 ### Features:
 
 - IEEE 802.11 b/g/n/ac WiFi compliant
-
-- Supported Ciphers:
-	* WEP40 (00-0f-ac:1)
-	* WEP104 (00-0f-ac:5)
-	* TKIP (00-0f-ac:2)
-	* CCMP-128 (00-0f-ac:4)
-	* CMAC (00-0f-ac:6)
+- 802.1x, WEP, WPA TKIP and WPA2 AES/Mixed mode for PSK and TLS (Radius)
+- WPA3-SAE (Personal)
+- WPS - PIN and PBC Methods
+- IEEE 802.11b/g/n/ac Client mode
+  * Support wireless security for WEP, WPA TKIP and WPA2 AES PSK
+  * Support site survey scan and manual connect
+  * Support WPA/WPA2 TLS client
+  * Support power saving mode
+- Soft AP mode
+- WiFi-Direct
+- MU-MIMO
+- Mesh
+- Wake on WLAN
 
 - Supported interface modes:
-	* IBSS
-	* Managed
-	* AP (WiFi Hotspot) (Master mode)
-	* Monitor
-	* P2P-client
-	* P2P-GO
+  * IBSS
+  * Managed
+  * AP (WiFi Hotspot) (Master mode)
+  * Monitor
+  * P2P-client
+  * P2P-GO
 
 - USB mode control
 - Log level control
 - LED control
+- Power saving control
+- VHT Control ( to allow 80 MHz channel width in AP mode)
 
 ### Compatible Kernels:
 
 - Kernels: 2.6.24 ~ 5.8 (Realtek)
 - Kernels: 5.9
+- Note: Work on kernel 5.10 is in progress.
 
 ### Tested Linux Distributions:
 
@@ -197,38 +206,73 @@ $ sudo ./edit-options.sh
 ```
 The driver options are as follows:
 
+-----
 
-USB mode options: ( rtw_switch_usb_mode )
-```
-  0 = no switch (default)
-  1 = switch from usb 2.0 to usb 3.0
-  2 = switch from usb 3.0 to usb 2.0
-```
-  Note: When changing USB options, a cold boot is recommended.
+ Log level options: ( rtw_drv_log_level )
+
+ 0 = NONE (default)
+ 1 = ALWAYS
+ 2 = ERROR
+ 3 = WARNING
+ 4 = INFO
+ 5 = DEBUG
+ 6 = MAX
+
+ Note: You can save a log of RTW log entries by running the following in a terminal:
+
+ $ sudo ./save-log.sh
+
+ -----
+
+ LED control options: ( rtw_led_ctrl )
+
+ 0 = Always off
+ 1 = Normal blink (default)
+ 2 = Always on
+
+ -----
+
+ VHT enable options: ( rtw_vht_enable )
+
+  0 = Disable
+  1 = Enable (default)
+  2 = Force auto enable (use caution)
+
+ Notes:
+ - Unless you know what you are doing, don't change the default for rtw_vht_enable.
+ - A non-default setting can degrade performance greatly in some operational modes.
+ - For AP mode, such as when you are using Hostapd, setting this option to 2 will
+   allow 80 MHz channel width.
+
+ -----
+
+ Notes
+ - To turn power saving off, set the two options below to 0.
+ - These options may be useful in server setups and also if dropouts are experienced.
+
+ Power saving options: ( rtw_power_mgnt )
+
+ 0 = Disable power saving
+ 1 = Power saving on, minPS (default)
+ 2 = Power saving on, maxPS
 
 
-Log level options: ( rtw_drv_log_level )
-```
-  0 = NONE (default)
-  1 = ALWAYS
-  2 = ERRORS
-  3 = WARNINGS
-  4 = INFO
-  5 = DEBUG
-  6 = MAX
-```
-  Note: View RTW log entries by running the following in a terminal:
-  ```
-  $ sudo dmesg
-  ```
+ IPS mode options: ( rtw_ips_mode )
 
+ 0 = Low power
+ 1 = High power (default)
 
-LED control options: ( rtw_led_ctrl )
-```
-  0 = Always off
-  1 = Normal blink (default)
-  2 = Always on
-```
+ -----
+
+ USB mode options: ( rtw_switch_usb_mode )
+
+ 0 = No switch (default)
+ 1 = Switch from usb 2.0 to usb 3.0
+ 2 = Switch from usb 3.0 to usb 2.0
+
+ Note: When changing USB options, a cold boot is recommended.
+
+ -----
 
 ### Information about USB 3 support:
 

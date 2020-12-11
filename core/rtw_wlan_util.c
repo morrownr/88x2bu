@@ -3693,7 +3693,6 @@ void dump_macid_map(void *sel, struct macid_bmp *map, u8 max_num)
 #endif
 }
 
-
 inline bool rtw_macid_is_set(struct macid_bmp *map, u8 id)
 {
 	if (id < 32)
