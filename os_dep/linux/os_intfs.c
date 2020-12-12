@@ -200,7 +200,7 @@ int rtw_uapsd_ac_enable = 0x0;
 	/*PHYDM API, must enable by default*/
 	int rtw_pwrtrim_enable = 1;
 #else
-	int rtw_pwrtrim_enable = 0; /* Default Enalbe  power trim by efuse config */
+	int rtw_pwrtrim_enable = 0; /* Default Enable power trim by efuse config */
 #endif
 
 #if CONFIG_TX_AC_LIFETIME
@@ -2602,7 +2602,6 @@ u8 rtw_init_drv_sw(_adapter *padapter)
 		struct hal_spec_t *hal_spec = GET_HAL_SPEC(padapter);
 
 		dvobj->macid_ctl.num = rtw_min(hal_spec->macid_num, MACID_NUM_SW_LIMIT);
-
 		dvobj->macid_ctl.macid_cap = hal_spec->macid_cap;
 		dvobj->macid_ctl.macid_txrpt = hal_spec->macid_txrpt;
 		dvobj->macid_ctl.macid_txrpt_pgsz = hal_spec->macid_txrpt_pgsz;

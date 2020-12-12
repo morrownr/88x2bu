@@ -42,8 +42,7 @@
 ### Compatible Kernels:
 
 - Kernels: 2.6.24 ~ 5.8 (Realtek)
-- Kernels: 5.9
-- Note: Work on kernel 5.10 is in progress.
+- Kernels: 5.9 - 5.10
 
 ### Tested Linux Distributions:
 
@@ -149,7 +148,7 @@ $ cd ~/src/88x2bu
 ```
 Step 8: Run a preparation script if needed:
 
-The Raspberry Pi OS requires a preparation script. Run one of the two scripts below ONLY if you have a Raspberry Pi:
+The Raspberry Pi OS requires a preparation script.
 
 For 32 bit Raspberry Pi OS: (Please skip this step if you are not installing to Raspberry Pi 32 bit)
 ```
@@ -428,9 +427,3 @@ Change the last line to read:
 
 REGDOMAIN=US
 ```
-
-### To-Do List:
-
-* add and test addional driver options
-
-* add support for Linux kernel 5.10
