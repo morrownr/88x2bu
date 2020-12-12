@@ -32,7 +32,7 @@
 - Log level control
 - LED control
 - Power saving control
-- VHT control ( to allow 80 MHz channel width in AP mode)
+- VHT control (allows 80 MHz channel width in AP mode)
 
 ### Compatible CPUs:
 
@@ -65,6 +65,9 @@
 
 ### Tested Hardware:
 
+- Cudy WU1400 AC 1300Mbps USB 3.0 WiFi Adapter:
+  https://www.amazon.com/Cudy-WU1200-AC1200Mbps-Wireless-Compatible/dp/B07Q9KY4NT
+
 - EDUP EP-AC1605GS WiFi Adapter 1300Mbps USB 3.0 High Gain Wireless Adapter:
   https://www.amazon.com/gp/product/B07Q56K68T
 
@@ -73,8 +76,11 @@
 
 ### Compatible Devices:
 
+Note: Some adapter makers change the chipsets in their products while keeping the same model number so please check to confirm that the product you plan to buy has the chipset you are expecting.
+
 * ASUS AC1300 USB-AC55 B1
 * ASUS U2
+* Cudy WU1400
 * Dlink - DWA-181
 * Dlink - DWA-182
 * Edimax EW-7822ULC
