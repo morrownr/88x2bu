@@ -2,7 +2,7 @@
 
 ### Linux Driver for the RealTek RTL8812BU and RTL8822BU Chipsets.
 
-- Driver Version: v5.8.7.4 (Realtek) (2020-09-22)
+- v5.8.7.4 (Realtek) (2020-09-22)
 - Plus updates from the Linux community
 
 ### Features:
@@ -32,7 +32,7 @@
 - Log level control
 - LED control
 - Power saving control
-- VHT Control ( to allow 80 MHz channel width in AP mode)
+- VHT control ( to allow 80 MHz channel width in AP mode)
 
 ### Compatible CPUs:
 
