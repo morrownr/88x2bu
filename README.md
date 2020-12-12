@@ -174,8 +174,6 @@ Step 10: Reboot:
 ```
 $ sudo reboot
 ```
-Note: The installation is complete.
-
 
 ### Removal of the Driver:
 
@@ -297,6 +295,7 @@ $ lsusb -t
 USB 2 =  480 Mb/s
 USB 3 = 5000 Mb/s
 ```
+
 ### iperf3 test results with USB 3 mode on:
 ```
 Bitrate
