@@ -47,16 +47,16 @@
 
 ### Tested Linux Distributions:
 
-- Raspberry Pi OS (12-02-2020) (ARM 32 bit)
+- Raspberry Pi OS (12-02-2020) (ARM 32 bit) (kernel 5.4)
 
-- LMDE 4 (Linux Mint based on Debian)
+- LMDE 4 (Linux Mint based on Debian) (kernel 4.19)
 
-- Linux Mint 20 (Linux Mint based on Ubuntu)
-- Linux Mint 19.3 (Linux Mint based on Ubuntu)
+- Linux Mint 20 (Linux Mint based on Ubuntu) (kernel 5.4)
+- Linux Mint 19.3 (Linux Mint based on Ubuntu) (kernel 5.4)
 
-- Ubuntu 20.10
-- Ubuntu 20.04
-- Ubuntu 18.04
+- Ubuntu 20.10 (kernel 5.8)
+- Ubuntu 20.04 (kernel 5.4)
+- Ubuntu 18.04 (kernel 5.4)
 
 ### Download Locations for Tested Linux Distributions:
 
@@ -91,17 +91,17 @@
 
 ### Installation Information:
 
-Note: The installation instructions that are provided are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
+The installation instructions that are provided are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
 
-Note: The installation instructions require that your system has access to the internet. There are numerous ways to enable temporary internet access depending on your hardware and situation. One method is to use tethering from a phone. Another method is to keep an ultra cheap adapter in your toolkit that uses an in-kernel (plug and play) driver. Here is one:
+The installation instructions require that your system has access to the internet. There are numerous ways to enable temporary internet access depending on your hardware and situation. One method is to use tethering from a phone. Another method is to keep an ultra cheap adapter in your toolkit that uses an in-kernel (plug and play) driver. Here is one:
 ```
 https://www.canakit.com/raspberry-pi-wifi.html
 ```
-Note: The installation instructions require the use of the terminal. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key.)
+The installation instructions require the use of the terminal. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key.)
 
-Note: The installation instructions make use of DKMS. DKMS is a system utility which will automatically recompile and install this kernel module when a new kernel is installed. DKMS is provided by and maintained by Dell.
+The installation instructions make use of DKMS. DKMS is a system utility which will automatically recompile and install this kernel module when a new kernel is installed. DKMS is provided by and maintained by Dell.
 
-Note: It is recommended that you do not delete the driver directory after installation as the directory contains documentation (README.md) and scripts that you may need in the future.
+It is recommended that you do not delete the driver directory after installation as the directory contains documentation (README.md) and scripts that you may need in the future.
 
 ### Installation Steps:
 
@@ -147,7 +147,7 @@ Step 7: Move to the newly created driver directory:
 ```
 $ cd ~/src/88x2bu
 ```
-Step 8: Run preparation script if needed:
+Step 8: Run a preparation script if needed:
 
 The Raspberry Pi OS requires a preparation script. Run one of the two scripts below ONLY if you have a Raspberry Pi:
 
