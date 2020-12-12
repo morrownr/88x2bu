@@ -309,12 +309,12 @@ Bitrate
 
 ### Entering Monitor Mode with 'iw' and 'ip':
 
-Start by making sure the system recognizes the Wi-Fi interface:
+Start by making sure the system recognizes the WiFi interface:
 ```
 $ sudo iw dev
 ```
 
-Note: The output shows the Wi-Fi interface name and the current mode among other things. The interface name may be something like `wlx00c0cafre8ba` and is required for the below commands. The interface name `wlan0` will be used in the instructions below but you need to substitute your interface name.
+Note: The output shows the WiFi interface name and the current mode among other things. The interface name may be something like `wlx00c0cafre8ba` and is required for the below commands. The interface name `wlan0` will be used in the instructions below but you need to substitute your interface name.
 
 Take the interface down:
 ```
@@ -369,13 +369,13 @@ dtoverlay=disable-wifi
 ```
 
 
-### How to forget a saved wifi network on a Raspberry Pi
+### How to forget a saved WiFi network on a Raspberry Pi
 
 1. Edit wpa_supplicant.conf:
 ```
 $ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 ```
-2. Delete the relevant wifi network block (including the 'network=' and opening/closing braces.
+2. Delete the relevant WiFi network block (including the 'network=' and opening/closing braces.
 
 3. Press ctrl-x followed by 'y' and enter to save the file.
 
