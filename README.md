@@ -41,7 +41,7 @@
 
 ### Compatible Kernels:
 
-- Kernels: 2.6.24 ~ 5.8 (Realtek)
+- Kernels: 2.6.24 - 5.8 (Realtek)
 - Kernels: 5.9 - 5.10
 
 ### Tested Linux Distributions:
@@ -254,22 +254,14 @@ The driver options are as follows:
 
  -----
 
- Notes:
- - To turn power saving off, set the two options below to 0.
- - These options may be useful in server setups and also if dropouts are experienced.
-
- Power saving options: ( rtw_power_mgnt )
+  Power saving options: ( rtw_power_mgnt )
 ```
  0 = Disable power saving
  1 = Power saving on, minPS (default)
  2 = Power saving on, maxPS
 ```
+ Note: 0 may be useful in unattended server setups or if dropouts are experienced.
 
- IPS mode options: ( rtw_ips_mode )
-```
- 0 = Low power
- 1 = High power (default)
-```
  -----
 
  USB mode options: ( rtw_switch_usb_mode )
