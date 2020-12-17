@@ -427,6 +427,7 @@ vht_oper_chwidth=1
 vht_oper_centr_freq_seg0_idx=42
 # end of hostapd.conf
 ```
+Note: See 88x2bu/hostapd/hostapd.conf for detailed information regarding this configuration file.
 -----
 ```
 $ sudo nano /etc/default/hostapd
@@ -443,7 +444,6 @@ $ sudo systemctl unmask hostapd
 ```
 $ sudo systemctl enable hostapd
 ```
-
 ```
 $ sudo reboot
 ```
