@@ -303,6 +303,139 @@ Bitrate
 565 Mbits/sec
 ```
 
+### Setting up a Bridged Wireless Access Point:
+
+Note: Stable operation and speeds from 802.11g, channel width 20,
+to 802.11ac, channel width 80, have been achieved during testing.
+This setup uses a Raspberry Pi but should work well on x86 as well.
+Please report results and suggestions in ```Issues```.
+
+Tested setup:
+```
+Raspberry Pi 4B (4gb)
+Raspberry Pi OS (12-02-20) (32 bit)
+Driver: github.com/morrownr/88x2bu.git
+Onboard WiFi disabled
+Ethernet connection
+EDUP EP-AC1605GS WiFi Adapter
+```
+
+Steps:
+
+Optional: Disable Raspberry Pi onboard WiFi:
+```
+$ sudo nano /boot/config.txt
+```
+Add:
+
+dtoverlay=disable-wifi
+
+
+Driver options:
+```
+$ sudo nano /etc/modprobe.d/88x2bu.conf
+```
+rtw_vht_enable=2
+rtw_switch_usb_mode=1
+
+
+Update system:
+```
+$ sudo apt-get update
+$ sudo apt-get upgrade
+```
+
+Install needed packages:
+```
+$ sudo apt install hostapd bridge-utils
+```
+
+Reboot system:
+```
+$ sudo reboot
+```
+
+Determine wireless interface:
+```
+$ iw dev
+```
+Note: The output shows the WiFi interface name and the current mode among other things. The interface name may be something like wlx00c0cafre8ba and is required for the below. The interface name wlan0 will be used in the instructions below but you need to substitute your interface name.
+
+```
+$ sudo nano /etc/dhcpcd.conf
+```
+Add to bottom of file:
+
+denyinterfaces wlan0
+denyinterfaces eth0	
+
+```
+$ sudo brctl addbr br0
+```
+
+```
+$ sudo nano /etc/network/interfaces
+```
+Add:
+
+# Bridge setup
+auto br0
+iface br0 inet dhcp
+bridge_ports eth0 wlan0
+
+```
+$ sudo nano /etc/hostapd/hostapd.conf
+```
+Add:
+
+# hostapd.conf
+interface=wlan0
+bridge=br0
+country_code=US
+ssid=pi
+hw_mode=a
+channel=36
+macaddr_acl=0
+auth_algs=3
+ignore_broadcast_ssid=0
+wpa=2
+wpa_passphrase=raspberry
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+# N
+ieee80211n=1
+wmm_enabled=1
+ht_capab=[HT40-][HT40+][SHORT-GI-20][SHORT-GI-40][MAX-AMSDU-7935][DSSS_CCK-40]
+# AC
+ieee80211ac=1
+ieee80211h=0
+ieee80211d=0
+vht_capab=[HTC-VHT][MAX-MPDU-11454][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMEE]
+vht_oper_chwidth=1
+vht_oper_centr_freq_seg0_idx=42
+# end of hostapd.conf
+
+```
+$ sudo nano /etc/default/hostapd
+```
+
+Update the line #DAEMON_CONF to: (remove #)
+
+DAEMON_CONF="/etc/hostapd/hostapd.conf"
+
+```
+$ sudo systemctl unmask hostapd
+```
+```
+$ sudo systemctl enable hostapd
+```
+
+```
+$ sudo reboot
+```
+
+
 ### Entering Monitor Mode with 'iw' and 'ip':
 
 Start by making sure the system recognizes the WiFi interface:
