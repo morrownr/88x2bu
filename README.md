@@ -337,9 +337,10 @@ Driver options:
 ```
 $ sudo nano /etc/modprobe.d/88x2bu.conf
 ```
+```
 rtw_vht_enable=2
 rtw_switch_usb_mode=1
-
+```
 -----
 Update system:
 ```
@@ -364,17 +365,17 @@ Determine wireless interface:
 ```
 $ iw dev
 ```
-Note: The output shows the WiFi interface name and the current mode among other things. The interface name may be something like wlx00c0cafre8ba and is required for the below. The interface name wlan0 will be used in the instructions below but you need to substitute your interface name.
+Note: The output shows the WiFi interface name and the current mode among other things. The interface name may be something like wlx00c0cafre8ba and is required below. The interface name ```wlan0``` will be used in the instructions below but you need to substitute your interface name.
 
 -----
 ```
 $ sudo nano /etc/dhcpcd.conf
 ```
 Add to bottom of file:
-
+```
 denyinterfaces wlan0
 denyinterfaces eth0	
-
+```
 -----
 ```
 $ sudo brctl addbr br0
@@ -385,18 +386,19 @@ $ sudo brctl addbr br0
 $ sudo nano /etc/network/interfaces
 ```
 Add:
-
+```
 # Bridge setup
 auto br0
 iface br0 inet dhcp
 bridge_ports eth0 wlan0
+```
 
 -----
 ```
 $ sudo nano /etc/hostapd/hostapd.conf
 ```
 Add:
-
+```
 # hostapd.conf
 interface=wlan0
 bridge=br0
@@ -424,7 +426,7 @@ vht_capab=[HTC-VHT][MAX-MPDU-11454][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMEE]
 vht_oper_chwidth=1
 vht_oper_centr_freq_seg0_idx=42
 # end of hostapd.conf
-
+```
 -----
 ```
 $ sudo nano /etc/default/hostapd
