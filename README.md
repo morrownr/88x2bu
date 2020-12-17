@@ -429,8 +429,9 @@ $ sudo nano /etc/default/hostapd
 ```
 
 Update the line #DAEMON_CONF to: (remove #)
-
+```
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
+```
 -----
 ```
 $ sudo systemctl unmask hostapd
