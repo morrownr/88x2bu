@@ -174,7 +174,6 @@ Step 10: Reboot:
 ```
 $ sudo reboot
 ```
-
 ### Removal of the Driver:
 
 Step 1: Open a terminal (Ctrl+Alt+T)
@@ -191,7 +190,6 @@ Step 4: Reboot:
 ```
 $ sudo reboot
 ```
-
 ### Driver Options:
 
 A file called `88x2bu.conf` will be installed in `/etc/modeprob.d` by default.
@@ -302,8 +300,6 @@ Bitrate
 556 Mbits/sec
 565 Mbits/sec
 ```
-
-
 ### Setting up a Bridged Wireless Access Point:
 
 Note: Stable operation and speeds from 802.11g, channel width 20,
@@ -311,7 +307,7 @@ to 802.11ac, channel width 80, have been achieved during testing.
 This setup uses a Raspberry Pi but should work well on x86 as well.
 Please report results and suggestions in ```Issues```.
 
-Tested setup:
+Test setup:
 ```
 Raspberry Pi 4B (4gb)
 Raspberry Pi OS (12-02-20) (32 bit)
@@ -320,9 +316,7 @@ Onboard WiFi disabled
 Ethernet connection
 EDUP EP-AC1605GS WiFi Adapter
 ```
-
-Setup instructions:
-
+Steps:
 -----
 Optional: Disable Raspberry Pi onboard WiFi:
 ```
@@ -331,7 +325,6 @@ $ sudo nano /boot/config.txt
 Add:
 
 dtoverlay=disable-wifi
-
 -----
 Driver options:
 ```
@@ -347,26 +340,22 @@ Update system:
 $ sudo apt-get update
 $ sudo apt-get upgrade
 ```
-
 -----
 Install needed packages:
 ```
 $ sudo apt install hostapd bridge-utils
 ```
-
 -----
 Reboot system:
 ```
 $ sudo reboot
 ```
-
 -----
 Determine wireless interface:
 ```
 $ iw dev
 ```
 Note: The output shows the WiFi interface name and the current mode among other things. The interface name may be something like wlx00c0cafre8ba and is required below. The interface name ```wlan0``` will be used in the instructions below but you need to substitute your interface name.
-
 -----
 ```
 $ sudo nano /etc/dhcpcd.conf
@@ -380,7 +369,6 @@ denyinterfaces eth0
 ```
 $ sudo brctl addbr br0
 ```
-
 -----
 ```
 $ sudo nano /etc/network/interfaces
@@ -392,7 +380,6 @@ auto br0
 iface br0 inet dhcp
 bridge_ports eth0 wlan0
 ```
-
 -----
 ```
 $ sudo nano /etc/hostapd/hostapd.conf
@@ -438,7 +425,6 @@ $ sudo nano /etc/default/hostapd
 Update the line #DAEMON_CONF to: (remove #)
 
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
-
 -----
 ```
 $ sudo systemctl unmask hostapd
@@ -449,7 +435,6 @@ $ sudo systemctl enable hostapd
 ```
 $ sudo reboot
 ```
-
 
 ### Entering Monitor Mode with 'iw' and 'ip':
 
