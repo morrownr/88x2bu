@@ -356,7 +356,9 @@ Determine wireless interface:
 ```
 $ iw dev
 ```
+```
 Note: The output shows the WiFi interface name and the current mode among other things. The interface name may be something like wlx00c0cafre8ba and is required below. The interface name ```wlan0``` will be used in the instructions below but you need to substitute your interface name.
+```
 -----
 ```
 $ sudo nano /etc/dhcpcd.conf
