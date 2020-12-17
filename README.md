@@ -322,6 +322,7 @@ EDUP EP-AC1605GS WiFi Adapter
 ```
 
 Setup instructions:
+
 -----
 Optional: Disable Raspberry Pi onboard WiFi:
 ```
