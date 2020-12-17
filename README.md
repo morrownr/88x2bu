@@ -303,6 +303,7 @@ Bitrate
 565 Mbits/sec
 ```
 
+
 ### Setting up a Bridged Wireless Access Point:
 
 Note: Stable operation and speeds from 802.11g, channel width 20,
@@ -320,8 +321,8 @@ Ethernet connection
 EDUP EP-AC1605GS WiFi Adapter
 ```
 
-Steps:
-
+Setup instructions:
+-----
 Optional: Disable Raspberry Pi onboard WiFi:
 ```
 $ sudo nano /boot/config.txt
@@ -330,7 +331,7 @@ Add:
 
 dtoverlay=disable-wifi
 
-
+-----
 Driver options:
 ```
 $ sudo nano /etc/modprobe.d/88x2bu.conf
@@ -338,29 +339,33 @@ $ sudo nano /etc/modprobe.d/88x2bu.conf
 rtw_vht_enable=2
 rtw_switch_usb_mode=1
 
-
+-----
 Update system:
 ```
 $ sudo apt-get update
 $ sudo apt-get upgrade
 ```
 
+-----
 Install needed packages:
 ```
 $ sudo apt install hostapd bridge-utils
 ```
 
+-----
 Reboot system:
 ```
 $ sudo reboot
 ```
 
+-----
 Determine wireless interface:
 ```
 $ iw dev
 ```
 Note: The output shows the WiFi interface name and the current mode among other things. The interface name may be something like wlx00c0cafre8ba and is required for the below. The interface name wlan0 will be used in the instructions below but you need to substitute your interface name.
 
+-----
 ```
 $ sudo nano /etc/dhcpcd.conf
 ```
@@ -369,10 +374,12 @@ Add to bottom of file:
 denyinterfaces wlan0
 denyinterfaces eth0	
 
+-----
 ```
 $ sudo brctl addbr br0
 ```
 
+-----
 ```
 $ sudo nano /etc/network/interfaces
 ```
@@ -383,6 +390,7 @@ auto br0
 iface br0 inet dhcp
 bridge_ports eth0 wlan0
 
+-----
 ```
 $ sudo nano /etc/hostapd/hostapd.conf
 ```
@@ -416,6 +424,7 @@ vht_oper_chwidth=1
 vht_oper_centr_freq_seg0_idx=42
 # end of hostapd.conf
 
+-----
 ```
 $ sudo nano /etc/default/hostapd
 ```
@@ -424,6 +433,7 @@ Update the line #DAEMON_CONF to: (remove #)
 
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 
+-----
 ```
 $ sudo systemctl unmask hostapd
 ```
