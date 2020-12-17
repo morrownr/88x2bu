@@ -316,15 +316,16 @@ Onboard WiFi disabled
 Ethernet connection
 EDUP EP-AC1605GS WiFi Adapter
 ```
-Steps:
+### Steps:
 -----
 Optional: Disable Raspberry Pi onboard WiFi:
 ```
 $ sudo nano /boot/config.txt
 ```
 Add:
-
+```
 dtoverlay=disable-wifi
+```
 -----
 Driver options:
 ```
