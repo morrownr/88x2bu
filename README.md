@@ -302,10 +302,7 @@ Bitrate
 ```
 ### Setting up a Bridged Wireless Access Point:
 
-Note: Stable operation and speeds from 802.11g, channel width 20,
-to 802.11ac, channel width 80, have been achieved during testing.
-This setup uses a Raspberry Pi but should work well on x86 as well.
-Please report results and suggestions in `Issues`.
+Note: Stable operation and speeds up to 867 Mbps have been achieved during testing. This setup uses a Raspberry Pi but should work well on x86 as well. Please report results and suggestions in `Issues`.
 
 Test setup:
 ```
@@ -357,6 +354,7 @@ Determine wireless interface:
 $ iw dev
 ```
 Note: The output shows the WiFi interface name and the current mode among other things. The interface name may be something like `wlx00c0cafre8ba` and is required below. The interface name `wlan0` will be used in the instructions below but you need to substitute your interface name.
+
 -----
 ```
 $ sudo nano /etc/dhcpcd.conf
