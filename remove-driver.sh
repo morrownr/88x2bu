@@ -20,6 +20,6 @@ if [[ "$RESULT" != "0" ]]; then
 	exit $RESULT
 else
 	rm -f /etc/modprobe.d/${OPTIONS_FILE}
-	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
+	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}-${KERNEL_VERSION}
 	echo "The module has been removed successfully."
 fi
