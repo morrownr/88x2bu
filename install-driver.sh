@@ -22,8 +22,8 @@ else
 	exit 1
 fi
 
-echo "Copying driver source files to: /usr/src/${DRV_NAME}-${DRV_VERSION}"
-cp -r "$(pwd)" /usr/src/${DRV_NAME}-${DRV_VERSION}
+echo "Copying driver source files to: /usr/src/${DRV_NAME}-${DRV_VERSION}-${KERNEL_VERSION}"
+cp -r "$(pwd)" /usr/src/${DRV_NAME}-${DRV_VERSION}-${KERNEL_VERSION}
 
 echo "Copying ${OPTIONS_FILE} to: /etc/modprobe.d"
 cp -r ${OPTIONS_FILE} /etc/modprobe.d
