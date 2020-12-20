@@ -2,7 +2,7 @@
 
 DRV_NAME=rtl88x2bu
 DRV_VERSION=5.8.7.4
-KERNEL_VERSION=$(uname -r)
+KRNL_VERSION=$(uname -r)
 OPTIONS_FILE=88x2bu.conf
 SCRIPT_NAME=install-driver.sh
 
@@ -22,49 +22,44 @@ else
 	exit 1
 fi
 
-echo "Copying driver source files to: /usr/src/${DRV_NAME}-${DRV_VERSION}-${KERNEL_VERSION}"
-cp -r "$(pwd)" /usr/src/${DRV_NAME}-${DRV_VERSION}-${KERNEL_VERSION}
+echo "Copying driver source files to: /usr/src/${DRV_NAME}-${DRV_VERSION}"
+cp -r $(pwd) /usr/src/${DRV_NAME}-${DRV_VERSION}
 
 echo "Copying ${OPTIONS_FILE} to: /etc/modprobe.d"
 cp -r ${OPTIONS_FILE} /etc/modprobe.d
 
-dkms add -m ${DRV_NAME} -v ${DRV_VERSION} -k ${KERNEL_VERSION}
+dkms add -m ${DRV_NAME} -v ${DRV_VERSION}
 RESULT=$?
 
-if [ "$RESULT" == 3 ]
+if [ "$RESULT" != "0" ]
 then
-	# If $RESULT is 3, the DKMS tree already contains the module,
-	# we can build it against the current kernel headers.
-	:
-elif [ "$RESULT" != "0" ]
-then
-	echo "An error occurred while running: dkms add -m ${DRV_NAME} -v ${DRV_VERSION} -k ${KERNEL_VERSION}"
-	exit $RESULT
+	echo "An error occurred while running: dkms add"
+	exit 1
 else
 	echo "dkms add was successful."
 fi
 
-dkms build -m ${DRV_NAME} -v ${DRV_VERSION} -k ${KERNEL_VERSION}
+dkms build -m ${DRV_NAME} -v ${DRV_VERSION}
 RESULT=$?
 
 if [ "$RESULT" != "0" ]
 then
-	echo "An error occurred while running: dkms build -m ${DRV_NAME} -v ${DRV_VERSION} -k ${KERNEL_VERSION}"
-	exit $RESULT
+	echo "An error occurred while running: dkms build"
+	exit 1
 else
 	echo "dkms build was successful."
 fi
 
-dkms install -m ${DRV_NAME} -v ${DRV_VERSION} -k ${KERNEL_VERSION}
+dkms install -m ${DRV_NAME} -v ${DRV_VERSION}
 RESULT=$?
 
 if [ "$RESULT" != "0" ]
 then
-	echo "An error occurred while running: dkms install -m ${DRV_NAME} -v ${DRV_VERSION} -k ${KERNEL_VERSION}"
+	echo "An error occurred while running: dkms install -m ${DRV_NAME} -v ${DRV_VERSION} -k ${KRNL_VERSION}"
 	exit $RESULT
 else
 	echo "dkms install was successful."
-	echo "${DRV_NAME}-${DRV_VERSION}-${KERNEL_VERSION} has been installed successfully."
+	echo "${DRV_NAME}-${DRV_VERSION} has been installed successfully."
 fi
 
 exit 0

@@ -2,7 +2,7 @@
 
 DRV_NAME=rtl88x2bu
 DRV_VERSION=5.8.7.4
-KERNEL_VERSION=$(uname -r)
+KRNL_VERSION=$(uname -r)
 OPTIONS_FILE=88x2bu.conf
 SCRIPT_NAME=remove-driver.sh
 
@@ -12,14 +12,14 @@ if [[ $EUID -ne 0 ]]; then
 	exit 1
 fi
 
-dkms remove -m ${DRV_NAME} -v ${DRV_VERSION} -k ${KERNEL_VERSION}
+dkms remove ${DRV_NAME}/${DRV_VERSION} --all
 RESULT=$?
 
 if [[ "$RESULT" != "0" ]]; then
-	echo "An error occurred while running: dkms remove -m ${DRV_NAME} -v ${DRV_VERSION} -k ${KERNEL_VERSION}"
+	echo "An error occurred while running ${SCRIPT_NAME} : $RESULT "
 	exit $RESULT
 else
 	rm -f /etc/modprobe.d/${OPTIONS_FILE}
-	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}-${KERNEL_VERSION}
+	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
 	echo "The module has been removed successfully."
 fi
