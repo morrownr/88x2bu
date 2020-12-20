@@ -102,9 +102,9 @@ Note: Some adapter makers change the chipsets in their products while keeping th
 
 The installation instructions that are provided are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
 
-The installation instructions require that your system has access to the internet. There are numerous ways to enable temporary internet access depending on your hardware and situation. One method is to use tethering from a phone. Another method is to keep an ultra cheap adapter in your toolkit that uses an in-kernel (plug and play) driver. Here is one: https://www.canakit.com/raspberry-pi-wifi.html.
+The installation instructions require that your system has access to the internet. There are numerous ways to enable temporary internet access depending on your hardware and situation. One method is to use tethering from a phone. Another method is to keep an ultra cheap adapter in your toolkit that uses an in-kernel (plug and play) driver. Here is one: https://www.canakit.com/raspberry-pi-wifi.html
 
-The installation instructions require the use of the terminal. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key).
+The installation instructions require the use of the terminal. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key)
 
 The installation instructions make use of DKMS. DKMS is a system utility which will automatically recompile and install this kernel module when a new kernel is installed. DKMS is provided by and maintained by Dell.
 
@@ -132,7 +132,7 @@ Option for Linux Mint (Ubuntu based) or Ubuntu (all flavors):
 ```bash
 $ sudo apt-get install -y dkms git
 ```
-Option for Arch-based distributions (like Manjaro):
+Option for Arch-based distributions (Manjaro):
 ```bash
 $ sudo pacman -S --noconfirm linux-headers dkms git
 ```
@@ -304,7 +304,7 @@ Bitrate
 ```
 ### Setting up a Bridged Wireless Access Point:
 
-Note: Stable operation and speeds up to 867 Mbps have been achieved during testing. This setup uses a Raspberry Pi but should work well on x86 as well. Please report results and suggestions in `Issues`.
+Note: This section is undergoing testing. Expect changes. Report problems.
 
 Test setup:
 ```

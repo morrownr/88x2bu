@@ -2,13 +2,13 @@
 
 DRV_NAME=rtl88x2bu
 DRV_VERSION=5.8.7.4
-KRNL_VERSION=$(uname -r)
 OPTIONS_FILE=88x2bu.conf
+
 SCRIPT_NAME=install-driver.sh
 
 if [ $EUID -ne 0 ]
 then
-	echo "You must run ${SCRIPT_NAME} with root privileges."
+	echo "You must run ${SCRIPT_NAME} with superuser (root) privileges."
 	echo "Try: \"sudo ./${SCRIPT_NAME}\""
 	exit 1
 fi
@@ -33,8 +33,8 @@ RESULT=$?
 
 if [ "$RESULT" != "0" ]
 then
-	echo "An error occurred while running: dkms add"
-	exit 1
+	echo "An error occurred while running: dkms add : ${RESULT}"
+	exit $RESULT
 else
 	echo "dkms add was successful."
 fi
@@ -44,8 +44,8 @@ RESULT=$?
 
 if [ "$RESULT" != "0" ]
 then
-	echo "An error occurred while running: dkms build"
-	exit 1
+	echo "An error occurred while running: dkms build : ${RESULT}"
+	exit $RESULT
 else
 	echo "dkms build was successful."
 fi
@@ -55,11 +55,10 @@ RESULT=$?
 
 if [ "$RESULT" != "0" ]
 then
-	echo "An error occurred while running: dkms install -m ${DRV_NAME} -v ${DRV_VERSION} -k ${KRNL_VERSION}"
+	echo "An error occurred while running: dkms install : ${RESULT}"
 	exit $RESULT
 else
 	echo "dkms install was successful."
-	echo "${DRV_NAME}-${DRV_VERSION} has been installed successfully."
+	echo "${DRV_NAME}-${DRV_VERSION} was installed successfully."
+	exit 0
 fi
-
-exit 0
