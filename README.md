@@ -326,7 +326,7 @@ Add:
 dtoverlay=disable-wifi
 ```
 -----
-Driver options:
+Optional: Change driver options:
 ```bash
 $ sudo nano /etc/modprobe.d/88x2bu.conf
 ```
@@ -351,11 +351,11 @@ Reboot system:
 $ sudo reboot
 ```
 -----
-Determine wireless interface:
+Determine the names of the network interfaces:
 ```bash
-$ iw dev
+$ ip link show
 ```
-Note: The output shows the WiFi interface name and the current mode among other things. The interface name may be something like `wlx00c0cafre8ba` and is required below. The interface name `wlan0` will be used in the instructions below but you need to substitute your interface name.
+Note: The names of the ethernet and WiFi interfaces will need to replace eth0 and wlan0 if your system uses different names.
 
 -----
 ```bash
@@ -363,8 +363,7 @@ $ sudo nano /etc/dhcpcd.conf
 ```
 Add to bottom of file:
 ```
-denyinterfaces wlan0
-denyinterfaces eth0
+denyinterfaces eth0 wlan0
 ```
 -----
 ```bash
@@ -387,33 +386,58 @@ $ sudo nano /etc/hostapd/hostapd.conf
 ```
 Add:
 ```
-# hostapd.conf
+## hostapd.conf
+#
+#  $ sudo nano /etc/hostapd/hostapd.conf
+#
+
 interface=wlan0
 bridge=br0
-country_code=US
+driver=nl80211
+ctrl_interface_group=0
+
 ssid=pi
+country_code=US
+ieee80211d=1
+ieee80211h=1
+
+#2g
+#hw_mode=g
+#channel=1
+
+#5g
 hw_mode=a
 channel=36
-macaddr_acl=0
+
+preamble=1
+macaddr_acl=0 
 auth_algs=3
 ignore_broadcast_ssid=0
+wmm_enabled=1
+
 wpa=2
 wpa_passphrase=raspberry
 wpa_key_mgmt=WPA-PSK
-wpa_pairwise=TKIP
+wpa_pairwise=CCMP
 rsn_pairwise=CCMP
+
 # N
 ieee80211n=1
-wmm_enabled=1
-ht_capab=[HT40-][HT40+][SHORT-GI-20][SHORT-GI-40][MAX-AMSDU-7935][DSSS_CCK-40]
+require_ht=1
+ht_capab=[HT40-][HT40+][MAX-AMSDU-7935]
+#ht_capab=[LDPC][HT40-][HT40+][SHORT-GI-20][SHORT-GI-40][RX-STBC1][MAX-AMSDU-7935][DSSS_CCK-40]
+
 # AC
 ieee80211ac=1
-ieee80211h=0
-ieee80211d=0
-vht_capab=[HTC-VHT][MAX-MPDU-11454][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMEE]
-vht_oper_chwidth=1
-vht_oper_centr_freq_seg0_idx=42
-# end of hostapd.conf
+#require_vht=1
+vht_capab=[MAX-MPDU-11454][HTC-VHT]
+#vht_capab=[MAX-MPDU-11454][RXLDPC][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMEE][HTC-VHT]
+#vht_oper_chwidth=1
+#vht_oper_centr_freq_seg0_idx=42
+
+#
+## end of hostapd.conf
+
 ```
 ```
 Note: See 88x2bu/hostapd/hostapd.conf for detailed information regarding this configuration file.
