@@ -1,10 +1,11 @@
 #!/bin/bash
 
-DRV_NAME=rtl88x2bu
-DRV_VERSION=5.8.7.4
-OPTIONS_FILE=88x2bu.conf
+DRV_DIR="$(pwd)"
+DRV_NAME="rtl88x2bu"
+DRV_VERSION="5.8.7.4"
 
-SCRIPT_NAME=install-driver.sh
+OPTIONS_FILE="88x2bu.conf"
+SCRIPT_NAME="install-driver.sh"
 
 if [ $EUID -ne 0 ]
 then
@@ -18,12 +19,12 @@ then
 	echo "Installing ${DRV_NAME}-${DRV_VERSION}"
 else
 	echo "dkms does not appear to be installed."
-	echo "Try: \"sudo apt install dkms\""
+	echo "Please install dkms and try again."
 	exit 1
 fi
 
 echo "Copying driver source files to: /usr/src/${DRV_NAME}-${DRV_VERSION}"
-cp -r $(pwd) /usr/src/${DRV_NAME}-${DRV_VERSION}
+cp -r ${DRV_DIR} /usr/src/${DRV_NAME}-${DRV_VERSION}
 
 echo "Copying ${OPTIONS_FILE} to: /etc/modprobe.d"
 cp -r ${OPTIONS_FILE} /etc/modprobe.d
