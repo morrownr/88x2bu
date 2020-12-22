@@ -23,7 +23,7 @@ else
 	exit 1
 fi
 
-echo "Copying driver source files to: /usr/src/${DRV_NAME}-${DRV_VERSION}"
+echo "Copying source files to: /usr/src/${DRV_NAME}-${DRV_VERSION}"
 cp -r ${DRV_DIR} /usr/src/${DRV_NAME}-${DRV_VERSION}
 
 echo "Copying ${OPTIONS_FILE} to: /etc/modprobe.d"
