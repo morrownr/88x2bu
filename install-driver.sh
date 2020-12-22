@@ -36,7 +36,7 @@ if [[ "$RESULT" != "0" ]]; then
 	exit $RESULT
 fi
 
-dkms build -m ${DRV_NAME} -v ${DRV_VERSION} -k ${KRNL_VERSION}
+dkms build -m ${DRV_NAME} -v ${DRV_VERSION}
 RESULT=$?
 
 if [[ "$RESULT" != "0" ]]; then
@@ -44,7 +44,7 @@ if [[ "$RESULT" != "0" ]]; then
 	exit $RESULT
 fi
 
-dkms install -m ${DRV_NAME} -v ${DRV_VERSION} -k ${KRNL_VERSION}
+dkms install -m ${DRV_NAME} -v ${DRV_VERSION}
 RESULT=$?
 
 if [[ "$RESULT" != "0" ]]; then

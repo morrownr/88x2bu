@@ -16,7 +16,7 @@ fi
 rm -f /etc/modprobe.d/${OPTIONS_FILE}
 rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
 
-dkms remove -m ${DRV_NAME} -v ${DRV_VERSION} -k ${KRNL_VERSION} --all
+dkms remove ${DRV_NAME}/${DRV_VERSION} --all
 RESULT=$?
 
 if [[ "$RESULT" != "0" ]]; then
