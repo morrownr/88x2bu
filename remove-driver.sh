@@ -12,15 +12,16 @@ if [[ $EUID -ne 0 ]]; then
 	exit 1
 fi
 
+rm -f /etc/modprobe.d/${OPTIONS_FILE}
+rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
+
 dkms remove ${DRV_NAME}/${DRV_VERSION} --all
 RESULT=$?
 
 if [[ "$RESULT" != "0" ]]; then
-	echo "An error occurred while running ${SCRIPT_NAME} : ${RESULT}"
+	echo "An error occurred while running dkms remove : dkms return code: ${RESULT}"
 	exit $RESULT
 else
-	rm -f /etc/modprobe.d/${OPTIONS_FILE}
-	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
 	echo "The module has been removed successfully."
 	exit 0
 fi
