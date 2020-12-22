@@ -445,9 +445,10 @@ Note: See ~/src/88x2bu/hostapd.conf for detailed information regarding this conf
 $ sudo nano /etc/default/hostapd
 ```
 
-Update the line #DAEMON_CONF to: (remove #)
+Add to bottom of file:
 ```
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
+DAEMON_OPTS="-dd -t -f /home/pi/hostapd.log"
 ```
 -----
 ```bash
