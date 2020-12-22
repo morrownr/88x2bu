@@ -388,8 +388,6 @@ Add:
 ```
 ## hostapd.conf
 #
-#  $ sudo nano /etc/hostapd/hostapd.conf
-#
 
 interface=wlan0
 bridge=br0
@@ -440,7 +438,7 @@ vht_capab=[MAX-MPDU-11454][HTC-VHT]
 
 ```
 ```
-Note: See 88x2bu/hostapd/hostapd.conf for detailed information regarding this configuration file.
+Note: See ~/src/88x2bu/hostapd.conf for detailed information regarding this configuration file.
 ```
 -----
 ```bash
