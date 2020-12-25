@@ -338,7 +338,6 @@ rtw_switch_usb_mode=1
 Update system:
 ```bash
 $ sudo apt-get update
-$ sudo apt-get upgrade
 ```
 -----
 Install needed packages:
@@ -392,7 +391,6 @@ Add:
 interface=wlan0
 bridge=br0
 driver=nl80211
-ctrl_interface_group=0
 
 ssid=pi
 country_code=US
@@ -407,7 +405,6 @@ ieee80211h=1
 hw_mode=a
 channel=36
 
-preamble=1
 macaddr_acl=0 
 auth_algs=3
 ignore_broadcast_ssid=0
@@ -428,7 +425,7 @@ ht_capab=[HT40-][HT40+][MAX-AMSDU-7935]
 # AC
 ieee80211ac=1
 #require_vht=1
-vht_capab=[MAX-MPDU-11454][HTC-VHT]
+vht_capab=[MAX-MPDU-11454][SHORT-GI-80][HTC-VHT]
 #vht_capab=[MAX-MPDU-11454][RXLDPC][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMEE][HTC-VHT]
 #vht_oper_chwidth=1
 #vht_oper_centr_freq_seg0_idx=42
