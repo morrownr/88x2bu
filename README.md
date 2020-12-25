@@ -301,6 +301,7 @@ Bitrate
 556 Mbits/sec
 556 Mbits/sec
 565 Mbits/sec
+
 ```
 ### Setting up a Bridged Wireless Access Point:
 
@@ -579,3 +580,13 @@ Change the last line to read:
 
 REGDOMAIN=US
 ```
+
+### Recommendations regarding USB
+
+- If connecting your USB WiFi adapter to a desktop computer, use the USB ports on the rear of the computer. Why? The ports on the rear are directly connected to the motherboard which will reduce problems with interference and disconnection that can happen with cables.
+
+- If your USB WiFi adapter is USB 3 capable then you need to plug it into a USB port.
+
+- If you use an exptension cable and your adapter is USB 3 capable, the cable needs to be USB 3 capable.
+
+- Some USB WiFi adapters require considerable electrical current and push the capabilities of the power available via USB port. One examp is devices that use the Realtek 8814au chipset. I use a powered multiport USB extension for this adapter.
