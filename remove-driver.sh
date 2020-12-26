@@ -4,7 +4,7 @@ DRV_NAME="rtl88x2bu"
 DRV_VERSION="5.8.7.4"
 OPTIONS_FILE="88x2bu.conf"
 
-KRNL_VERSION=$(uname -r)
+KRNL_VERSION="$(uname -r)"
 SCRIPT_NAME="remove-driver.sh"
 
 if [[ $EUID -ne 0 ]]; then
