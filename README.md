@@ -425,8 +425,6 @@ Note: See ~/src/88x2bu/hostapd.conf for detailed information regarding this conf
 ```
 -----
 
-```
------
 ```bash
 $ sudo nano /etc/default/hostapd
 ```
