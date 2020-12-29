@@ -200,7 +200,7 @@ Location: `/etc/modprobe.d/88x2bu.conf`
 
 This file will be read and applied to the driver on each system boot.
 
-To change the driver options, here are two options:
+Here are two options to edit the driver options file:
 
 Option 1: Edit `88x2bu.conf` with a text editor using a terminal interface:
 ```bash
