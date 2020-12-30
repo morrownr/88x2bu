@@ -154,16 +154,16 @@ Step 7: Move to the newly created driver directory:
 ```bash
 $ cd ~/src/88x2bu
 ```
-Step 8: Run a preparation script if needed:
+Step 8: Run a preparation script if required:
 
-The Raspberry Pi OS requires a preparation script.
+Note: The Raspberry Pi OS and other ARM based systens require a preparation script.
 
-For 32 bit Raspberry Pi OS: (Please skip this step if you are not installing to Raspberry Pi 32 bit)
+Option for 32 bit Raspberry Pi OS:
 ```bash
 $ sudo ./raspi32.sh
 
 ```
-For 64 bit Raspberry Pi OS: (Please skip this step if you are not installing to Raspberry Pi 64 bit)
+Option for 64 bit Raspberry Pi OS or 64 bit Ubuntu 20.10 for Raspberry Pi:
 ```bash
 $ sudo ./raspi64.sh
 
