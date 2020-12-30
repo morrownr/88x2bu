@@ -72,6 +72,8 @@
 - Cudy WU1400 AC 1300Mbps USB 3.0 WiFi Adapter:
   https://www.amazon.com/Cudy-WU1200-AC1200Mbps-Wireless-Compatible/dp/B07Q9KY4NT
 
+Note: Cudy does a good job of posting updated source code from Realtek. Support those who support us.
+
 - EDUP EP-AC1605GS WiFi Adapter 1300Mbps USB 3.0 High Gain Wireless Adapter:
   https://www.amazon.com/gp/product/B07Q56K68T
 
@@ -114,9 +116,15 @@ It is recommended that you do not delete the driver directory after installation
 
 Step 1: Open a terminal (Ctrl+Alt+T)
 
-Step 2: Update the system:
+Step 2: Update the system (select the option for the OS you are using):
+
+Option for all Debian based distributions such as Ubuntu, Linux Mint and the Raspberry Pi OS:
 ```bash
 $ sudo apt-get update
+```
+Option for Arch-based distributions (Manjaro):
+```bash
+$ sudo pacman -Syu
 ```
 Step 3: Install the required packages (select the option for the OS you are using):
 
