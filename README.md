@@ -122,7 +122,7 @@ Option for all Debian based distributions such as Ubuntu, Linux Mint and the Ras
 ```bash
 $ sudo apt-get update
 ```
-Option for Arch-based distributions (Manjaro):
+Option for Arch-based distributions such as Manjaro:
 ```bash
 $ sudo pacman -Syu
 ```
@@ -136,11 +136,11 @@ Option for LMDE (Debian based):
 ```bash
 $ sudo apt-get install -y linux-headers-$(uname -r) build-essential dkms git
 ```
-Option for Linux Mint (Ubuntu based) or Ubuntu (all flavors):
+Option for Linux Mint or Ubuntu (all flavors):
 ```bash
 $ sudo apt-get install -y dkms git
 ```
-Option for Arch-based distributions (Manjaro):
+Option for Arch-based distributions such as Manjaro:
 ```bash
 $ sudo pacman -S --noconfirm linux-headers dkms git
 ```
@@ -164,7 +164,7 @@ $ cd ~/src/88x2bu
 ```
 Step 8: Run a preparation script if required:
 
-Note: The Raspberry Pi OS and other ARM based systens require a preparation script.
+Note: The Raspberry Pi OS and other ARM based systems require a preparation script.
 
 Option for 32 bit Raspberry Pi OS:
 ```bash
@@ -320,7 +320,7 @@ Raspberry Pi OS (12-02-20) (32 bit)
 Driver: github.com/morrownr/88x2bu.git
 Onboard WiFi disabled
 Ethernet connection
-EDUP EP-AC1605GS WiFi Adapter
+EDUP EP-AC1605GS USB WiFi Adapter
 ```
 ### Steps:
 -----
@@ -361,7 +361,7 @@ Determine the names of the network interfaces:
 ```bash
 $ ip link show
 ```
-Note: The names of the ethernet and WiFi interfaces will need to replace eth0 and wlan0 if your system uses different names.
+Note: The names of the ethernet and WiFi interfaces will need to replace eth0 and wlan0 below if your system uses different names.
 
 -----
 ```bash
