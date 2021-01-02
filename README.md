@@ -54,6 +54,8 @@
 
 - LMDE 4 (Linux Mint based on Debian) (kernel 4.19)
 
+- Manjaro 20.1 (kernel 5.9)
+
 - Ubuntu 20.10 (kernel 5.8)
 - Ubuntu 20.04 (kernel 5.4)
 - Ubuntu 18.04 (kernel 5.4)
@@ -64,8 +66,10 @@
 
 - Arch Linux - https://www.archlinux.org/
 - Linux Mint - https://www.linuxmint.com/
+- Manjaro - https://manjaro.org/
 - Raspberry Pi OS - https://www.raspberrypi.org/
-- Ubuntu - https://www.ubuntu.com/
+- Ubuntu - https://ubuntu.com/
+
 
 ### Tested Hardware:
 
