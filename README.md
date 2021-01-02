@@ -68,8 +68,7 @@
 - Linux Mint - https://www.linuxmint.com/
 - Manjaro - https://manjaro.org/
 - Raspberry Pi OS - https://www.raspberrypi.org/
-- Ubuntu - https://ubuntu.com/
-
+- Ubuntu - https://www.ubuntu.com/
 
 ### Tested Hardware:
 
