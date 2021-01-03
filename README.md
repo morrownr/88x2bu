@@ -130,7 +130,9 @@ Step 2: Update the system (select the option for the OS you are using):
     Option for all Debian based distributions such as Ubuntu, Linux Mint and the Raspberry Pi OS:
     
     $ sudo apt-get update
-    ---    
+```
+    -----
+``` 
     Option for Arch-based distributions such as Manjaro:
 
     $ sudo pacman -Syu
