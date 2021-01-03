@@ -130,7 +130,7 @@ Step 2: Update the system (select the option for the OS you are using):
     Option for all Debian based distributions such as Ubuntu, Linux Mint and the Raspberry Pi OS:
     
     $ sudo apt-get update
-    
+    ---    
     Option for Arch-based distributions such as Manjaro:
 
     $ sudo pacman -Syu
@@ -140,15 +140,15 @@ Step 3: Install the required packages (select the option for the OS you are usin
     Option for Raspberry Pi OS:
 
     $ sudo apt-get install -y raspberrypi-kernel-headers bc build-essential dkms git
----
+    ---
     Option for LMDE (Debian based):
 
     $ sudo apt-get install -y linux-headers-$(uname -r) build-essential dkms git
----
+    ---
     Option for Linux Mint or Ubuntu (all flavors):
 
     $ sudo apt-get install -y dkms git
----
+    ---
     Option for Arch-based distributions such as Manjaro:
 
     $ sudo pacman -S --noconfirm linux-headers dkms git
@@ -178,7 +178,7 @@ Note: The Raspberry Pi OS and other ARM based systems require a preparation scri
     Option for 32 bit Raspberry Pi OS:
 
     $ sudo ./raspi32.sh
----
+    ---
     Option for 64 bit Raspberry Pi OS or 64 bit Ubuntu 20.10 for Raspberry Pi:
 
     $ sudo ./raspi64.sh
