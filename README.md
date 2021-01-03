@@ -105,15 +105,21 @@ Note: Some adapter makers change the chipsets in their products while keeping th
 
 ### Installation Information:
 
-The installation instructions that are provided are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
+The installation instructions are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
 
-The installation instructions require that your system has access to the internet. There are numerous ways to enable temporary internet access depending on your hardware and situation. One method is to use tethering from a phone. Another method is to keep an ultra cheap adapter in your toolkit that uses an in-kernel (plug and play) driver. Here is one: https://www.canakit.com/raspberry-pi-wifi.html
+Temporary internet access is required for installation. There are numerous ways to enable temporary internet access depending on your hardware and situation. One method is to use tethering from a phone:
+```
+https://www.makeuseof.com/tag/how-to-tether-your-smartphone-in-linux/
+```
+Another method to enable temporary internet access is to keep an ultra cheap wifi adapter that uses an in-kernel driver in your toolkit. Here is a link to one:
+```
+https://www.canakit.com/raspberry-pi-wifi.html
+```
+You will need to use the terminal interface. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key)
 
-The installation instructions require the use of the terminal. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key)
+DKMS is used for the installation. DKMS is a system utility which will automatically recompile and install this driver when a new kernel is installed. DKMS is provided by and maintained by Dell.
 
-The installation instructions make use of DKMS. DKMS is a system utility which will automatically recompile and install this kernel module when a new kernel is installed. DKMS is provided by and maintained by Dell.
-
-It is recommended that you do not delete the driver directory after installation as the directory contains documentation (README.md) and scripts that you may need in the future.
+It is recommended that you do not delete the driver directory after installation as the directory contains information and scripts that you may need in the future.
 
 ### Installation Steps:
 
@@ -121,14 +127,14 @@ Step 1: Open a terminal (Ctrl+Alt+T)
 
 Step 2: Update the system (select the option for the OS you are using):
 
-Option for all Debian based distributions such as Ubuntu, Linux Mint and the Raspberry Pi OS:
-```bash
-$ sudo apt-get update
-```
-Option for Arch-based distributions such as Manjaro:
-```bash
-$ sudo pacman -Syu
-```
+    Option for all Debian based distributions such as Ubuntu, Linux Mint and the Raspberry Pi OS:
+    ```bash
+    $ sudo apt-get update
+    ```
+    Option for Arch-based distributions such as Manjaro:
+    ```bash
+    $ sudo pacman -Syu
+    ```
 Step 3: Install the required packages (select the option for the OS you are using):
 
 Option for Raspberry Pi OS:
