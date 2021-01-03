@@ -153,7 +153,7 @@ Step 3: Install the required packages (select the option for the OS you are usin
     $ sudo apt-get install -y dkms git
 ```
 ```
-    Option for Arch-based distributions such as Manjaro:
+    Option for Arch based distributions such as Manjaro:
 
     $ sudo pacman -S --noconfirm linux-headers dkms git
 ```
@@ -317,27 +317,6 @@ Bitrate
 ### ----------------------------- Various Tidbits of Information -----------------------------
 
 
-### How to disable onboard WiFi on Raspberry Pi 3B, 3B+, 3A+, 4B and Zero W.
-
-Add the following line to /boot/config.txt:
-```
-dtoverlay=disable-wifi
-```
-
-
-### How to forget a saved WiFi network on a Raspberry Pi
-
-1. Edit wpa_supplicant.conf:
-```bash
-$ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
-```
-2. Delete the relevant WiFi network block (including the 'network=' and opening/closing braces.
-
-3. Press ctrl-x followed by 'y' and enter to save the file.
-
-4. Reboot
-
-
 ### Recommended Router Settings for WiFi:
 
 Note: These are general recommendations based on years of experience but may not apply to your situation so testing to see if any help fix your problem is recommended.
@@ -394,3 +373,24 @@ REGDOMAIN=US
 - If you use an extension cable and your adapter is USB 3 capable, the cable needs to be USB 3 capable.
 
 - Some USB WiFi adapters require considerable electrical current and push the capabilities of the power available via USB port. One example is devices that use the Realtek 8814au chipset. Using a powered multiport USB extension can be a good idea in cases like this.
+
+
+### How to disable onboard WiFi on Raspberry Pi 3B, 3B+, 3A+, 4B and Zero W.
+
+Add the following line to /boot/config.txt:
+```
+dtoverlay=disable-wifi
+```
+
+### How to forget a saved WiFi network on a Raspberry Pi
+
+1. Edit wpa_supplicant.conf:
+```bash
+$ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+```
+2. Delete the relevant WiFi network block (including the 'network=' and opening/closing braces.
+
+3. Press ctrl-x followed by 'y' and enter to save the file.
+
+4. Reboot
+
