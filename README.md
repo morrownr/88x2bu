@@ -155,7 +155,6 @@ Step 3: Install the required packages (select the option for the OS you are usin
 ```
 Step 4: Create a directory to hold the downloaded driver:
 
-Note: The technique used in this document is to create a directory in the home directory called `src`.
 ```bash
 $ mkdir src
 ```
@@ -171,9 +170,7 @@ Step 7: Move to the newly created driver directory:
 ```bash
 $ cd ~/src/88x2bu
 ```
-Step 8: Run a preparation script if required:
-
-Note: The Raspberry Pi OS and other ARM based systems require a preparation script.
+Step 8: Run a preparation script if required: (The Raspberry Pi OS requires a preparation script)
 ```
     Option for 32 bit Raspberry Pi OS:
 
