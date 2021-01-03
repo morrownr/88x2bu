@@ -128,13 +128,13 @@ Step 1: Open a terminal (Ctrl+Alt+T)
 Step 2: Update the system (select the option for the OS you are using):
 
     Option for all Debian based distributions such as Ubuntu, Linux Mint and the Raspberry Pi OS:
-    ```bash
+    
     $ sudo apt-get update
-    ```
+    
     Option for Arch-based distributions such as Manjaro:
-    ```bash
+
     $ sudo pacman -Syu
-    ```
+
 Step 3: Install the required packages (select the option for the OS you are using):
 
 Option for Raspberry Pi OS:
