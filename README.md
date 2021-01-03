@@ -131,7 +131,6 @@ Step 2: Update the system (select the option for the OS you are using):
     
     $ sudo apt-get update
 ```
-    -----
 ``` 
     Option for Arch-based distributions such as Manjaro:
 
