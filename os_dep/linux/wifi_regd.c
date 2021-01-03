@@ -46,6 +46,7 @@ void rtw_regd_apply_flags(struct wiphy *wiphy)
 	for (i = 0; i < max_chan_nums; i++) {
 		channel = channel_set[i].ChannelNum;
 		freq = rtw_ch2freq(channel);
+
 		ch = ieee80211_get_channel(wiphy, freq);
 		if (!ch)
 			continue;

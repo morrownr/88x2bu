@@ -1511,6 +1511,7 @@ void rtw_survey_event_callback(_adapter	*adapter, u8 *pbuf)
 	WLAN_BSSID_EX *pnetwork;
 	struct	mlme_priv	*pmlmepriv = &(adapter->mlmepriv);
 
+
 	pnetwork = (WLAN_BSSID_EX *)pbuf;
 
 	len = get_WLAN_BSSID_EX_sz(pnetwork);
@@ -1870,7 +1871,7 @@ u8 _rtw_sitesurvey_condition_check(const char *caller, _adapter *adapter, bool c
 		goto _exit;
 	}
 
-_exit :
+_exit:
 	return ss_condition;
 }
 

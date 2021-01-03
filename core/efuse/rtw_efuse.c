@@ -3285,7 +3285,6 @@ u8 rtw_efuse_file_read(PADAPTER padapter, u8 *filepatch, u8 *buf, u32 len)
 		RTW_ERR("%s, filepatch %s, size=%d, FAIL!!\n", __FUNCTION__, filepatch, count);
 		return _FALSE;
 	}
-
 	i = 0;
 	j = 0;
 	ptr = ptmpbuf;
@@ -3299,7 +3298,6 @@ u8 rtw_efuse_file_read(PADAPTER padapter, u8 *filepatch, u8 *buf, u32 len)
 				i++;
 				continue;
 			}
-
 			/* Add string terminating null */
 			*ptr = 0;
 		} else {
@@ -3314,10 +3312,8 @@ u8 rtw_efuse_file_read(PADAPTER padapter, u8 *filepatch, u8 *buf, u32 len)
 			RTW_DBG("i=%d, j=%d, 0x%02x\n", i, j, buf[j]);
 			j++;
 		}
-
 		i = ptr - ptmpbuf + 1;
 	}
-
 	rtw_mfree(ptmpbuf, bufsize);
 	RTW_INFO("%s, filepatch %s, size=%d, done\n", __FUNCTION__, filepatch, count);
 	return _TRUE;
