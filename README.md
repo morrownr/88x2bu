@@ -108,9 +108,9 @@ Note: Some adapter makers change the chipsets in their products while keeping th
 The installation instructions are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
 
 Temporary internet access is required for installation. There are numerous ways to enable temporary internet access depending on your hardware and situation. One method is to use tethering from a phone:
-```
-https://www.makeuseof.com/tag/how-to-tether-your-smartphone-in-linux/
-```
+
+[https://www.makeuseof.com/tag/how-to-tether-your-smartphone-in-linux/]
+
 Another method to enable temporary internet access is to keep an ultra cheap wifi adapter that uses an in-kernel driver in your toolkit. Here is a link to one:
 ```
 https://www.canakit.com/raspberry-pi-wifi.html
