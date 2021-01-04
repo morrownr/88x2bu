@@ -109,11 +109,11 @@ The installation instructions are for the novice user. Experienced users are wel
 
 Temporary internet access is required for installation. There are numerous ways to enable temporary internet access depending on your hardware and situation. One method is to use tethering from a phone:
 
-[] https://www.makeuseof.com/tag/how-to-tether-your-smartphone-in-linux/
+[Teathering]: https://www.makeuseof.com/tag/how-to-tether-your-smartphone-in-linux
 
 Another method to enable temporary internet access is to keep an ultra cheap wifi adapter that uses an in-kernel driver in your toolkit. Here is a link to one:
-```
-https://www.canakit.com/raspberry-pi-wifi.html
+
+[WiFi Adapter]: https://www.canakit.com/raspberry-pi-wifi.html
 ```
 You will need to use the terminal interface. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key)
 
