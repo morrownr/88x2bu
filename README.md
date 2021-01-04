@@ -64,24 +64,21 @@
 
 ### Download Locations for Tested Linux Distributions:
 
-- Arch Linux - https://www.archlinux.org/
-- Linux Mint - https://www.linuxmint.com/
-- Manjaro - https://manjaro.org/
-- Raspberry Pi OS - https://www.raspberrypi.org/
-- Ubuntu - https://www.ubuntu.com/
+- [Arch Linux](https://www.archlinux.org)
+- [Linux Mint](https://www.linuxmint.com)
+- [Manjaro](https://manjaro.org)
+- [Raspberry Pi OS](https://www.raspberrypi.org)
+- [Ubuntu](https://www.ubuntu.com)
 
 ### Tested Hardware:
 
-- Cudy WU1400 AC 1300Mbps USB 3.0 WiFi Adapter:
-  https://www.amazon.com/Cudy-WU1200-AC1200Mbps-Wireless-Compatible/dp/B07Q9KY4NT
+- [Cudy WU1400 AC 1300Mbps USB 3.0 WiFi Adapter](https://www.amazon.com/Cudy-WU1200-AC1200Mbps-Wireless-Compatible/dp/B07Q9KY4NT)
 
 Note: Cudy does a good job of posting updated source code from Realtek. Support those who support us.
 
-- EDUP EP-AC1605GS WiFi Adapter 1300Mbps USB 3.0 High Gain Wireless Adapter:
-  https://www.amazon.com/gp/product/B07Q56K68T
+- [EDUP EP-AC1605GS WiFi Adapter 1300Mbps USB 3.0 High Gain Wireless Adapter](https://www.amazon.com/gp/product/B07Q56K68T)
 
-- FIDECO 6B21-AC1200M WiFi Adapter - AC1200 Dual Band:
-  https://www.amazon.co.uk/gp/product/B08523KPP9
+- [FIDECO 6B21-AC1200M WiFi Adapter - AC1200 Dual Band](https://www.amazon.co.uk/gp/product/B08523KPP9)
 
 ### Compatible Devices:
 
