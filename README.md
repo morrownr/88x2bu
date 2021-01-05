@@ -1,11 +1,11 @@
-### 88x2bu ( 88x2bu.ko ) :+1:
+### 88x2bu ( 88x2bu.ko ) :rocket:
 
-### Linux Driver for the RealTek RTL8812BU and RTL8822BU Chipsets.
+### Linux Driver for the RealTek RTL8812BU and RTL8822BU Chipsets
 
 - v5.8.7.4 (Realtek) (2020-09-22)
 - Plus updates from the Linux community
 
-### Features:
+### Features
 
 - IEEE 802.11 b/g/n/ac WiFi compliant
 - 802.1x, WEP, WPA TKIP and WPA2 AES/Mixed mode for PSK and TLS (Radius)
@@ -34,17 +34,17 @@
 - Power saving control
 - VHT control (allows 80 MHz channel width in AP mode)
 
-### Compatible CPUs:
+### Compatible CPUs
 
 - x86, amd64
 - ARM, ARM64
 
-### Compatible Kernels:
+### Compatible Kernels
 
 - Kernels: 2.6.24 - 5.8 (Realtek)
 - Kernels: 5.9 - 5.10
 
-### Tested Linux Distributions:
+### Tested Linux Distributions
 
 - Arch Linux (kernel 5.4)
 - Arch Linux (kernel 5.9)
@@ -62,7 +62,7 @@
 
 - Raspberry Pi OS (12-02-2020) (ARM 32 bit) (kernel 5.4)
 
-### Download Locations for Tested Linux Distributions:
+### Download Locations for Tested Linux Distributions
 
 - [Arch Linux](https://www.archlinux.org)
 - [Linux Mint](https://www.linuxmint.com)
@@ -70,7 +70,7 @@
 - [Raspberry Pi OS](https://www.raspberrypi.org)
 - [Ubuntu](https://www.ubuntu.com)
 
-### Tested Hardware:
+### Tested Hardware
 
 - [Cudy WU1400 AC 1300Mbps USB 3.0 WiFi Adapter](https://www.amazon.com/Cudy-WU1200-AC1200Mbps-Wireless-Compatible/dp/B07Q9KY4NT)
 
@@ -100,7 +100,7 @@ Note: Some adapter makers change the chipsets in their products while keeping th
 * TRENDnet TEW-808UBM
 * Numerous additional products that are based on the supported chipsets
 
-### Installation Information:
+### Installation Information
 
 The installation instructions are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
 
@@ -114,7 +114,7 @@ DKMS is used for the installation. DKMS is a system utility which will automatic
 
 It is recommended that you do not delete the driver directory after installation as the directory contains information and scripts that you may need in the future.
 
-### Installation Steps:
+### Installation Steps
 
 Step 1: Open a terminal (Ctrl+Alt+T)
 
@@ -186,7 +186,7 @@ Step 10: Reboot:
 ```bash
 $ sudo reboot
 ```
-### Removal of the Driver:
+### Removal of the Driver
 
 Step 1: Open a terminal (Ctrl+Alt+T)
 
@@ -202,7 +202,7 @@ Step 4: Reboot:
 ```bash
 $ sudo reboot
 ```
-### Driver Options:
+### Driver Options
 
 A file called `88x2bu.conf` will be installed in `/etc/modeprob.d` by default.
 
@@ -278,7 +278,7 @@ The driver options are as follows:
 
  -----
 
-### Information about USB 3 support:
+### Information about USB 3 support
 
 USB 3 support is off by default as there can be problems with older USB 3 ports, however, almost all USB 3 ports on modern systems work well so turning USB 3 support on should work fine for almost everyone and the difference in performance can be large.
 
@@ -292,7 +292,7 @@ USB 2 =  480 Mb/s
 USB 3 = 5000 Mb/s
 ```
 
-### iperf3 test results with USB 3 mode on:
+### iperf3 test results with USB 3 mode on
 ```
 Bitrate
 -------------
@@ -307,10 +307,7 @@ Bitrate
 565 Mbits/sec
 ```
 
-### ----------------------------- Various Tidbits of Information -----------------------------
-
-
-### Recommended Router Settings for WiFi:
+### Recommended Router Settings for WiFi
 
 Note: These are general recommendations based on years of experience but may not apply to your situation so testing to see if any help fix your problem is recommended.
 
@@ -331,7 +328,7 @@ Power Saving: Set to off. This can help in some situations. If you try turning i
 After making these changes, reboot the router.
 
 
-### Set regulatory domain to correct setting in OS:
+### Set regulatory domain to correct setting in OS
 
 Check the current setting:
 ```bash
