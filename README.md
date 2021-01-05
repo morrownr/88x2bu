@@ -206,21 +206,19 @@ $ sudo reboot
 
 A file called `88x2bu.conf` will be installed in `/etc/modeprob.d` by default.
 
-Location: `/etc/modprobe.d/88x2bu.conf`
+`/etc/modprobe.d/88x2bu.conf`
 
 This file will be read and applied to the driver on each system boot.
 
-To edit the driver options file:
-
-From the driver directory, run the `edit-options.sh` script:
+To edit the driver options file, run the `edit-options.sh` script.
 ```bash
 $ sudo ./edit-options.sh
 ```
-The driver options are as follows:
+The driver options are as follows
 
  -----
 
- Log level options: ( rtw_drv_log_level )
+ Log level options ( rtw_drv_log_level )
 ```
  0 = NONE (default)
  1 = ALWAYS
@@ -236,7 +234,7 @@ The driver options are as follows:
 
  -----
 
- LED control options: ( rtw_led_ctrl )
+ LED control options ( rtw_led_ctrl )
 ```
  0 = Always off
  1 = Normal blink (default)
@@ -244,7 +242,7 @@ The driver options are as follows:
 ```
  -----
 
- VHT enable options: ( rtw_vht_enable )
+ VHT enable options ( rtw_vht_enable )
 ```
   0 = Disable
   1 = Enable (default)
@@ -258,7 +256,7 @@ The driver options are as follows:
 
  -----
 
-  Power saving options: ( rtw_power_mgnt )
+  Power saving options ( rtw_power_mgnt )
 ```
  0 = Disable power saving
  1 = Power saving on, minPS (default)
@@ -268,7 +266,7 @@ The driver options are as follows:
 
  -----
 
- USB mode options: ( rtw_switch_usb_mode )
+ USB mode options ( rtw_switch_usb_mode )
 ```
  0 = No switch (default)
  1 = Switch from usb 2.0 to usb 3.0
@@ -282,7 +280,7 @@ The driver options are as follows:
 
 USB 3 support is off by default as there can be problems with older USB 3 ports, however, almost all USB 3 ports on modern systems work well so turning USB 3 support on should work fine for almost everyone and the difference in performance can be large.
 
-See what your USB mode is:
+See what your USB mode is
 
 ```bash
 $ lsusb -t
@@ -330,7 +328,7 @@ After making these changes, reboot the router.
 
 ### Set regulatory domain to correct setting in OS
 
-Check the current setting:
+Check the current setting
 ```bash
 $ sudo iw reg get
 ```
@@ -339,13 +337,13 @@ If you get 00, that is the default and may not provide optimal performance.
 
 Find the correct setting here: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 
-Set it temporarily:
+Set it temporarily
 ```bash
 $ sudo iw reg set US
 ```
 Note: Substitute your country code if you are not in the United States.
 
-Set it permanently:
+Set it permanently
 ```bash
 $ sudo nano /etc/default/crda
 
@@ -367,14 +365,14 @@ REGDOMAIN=US
 
 ### How to disable onboard WiFi on Raspberry Pi 3B, 3B+, 3A+, 4B and Zero W.
 
-Add the following line to /boot/config.txt:
+Add the following line to /boot/config.txt
 ```
 dtoverlay=disable-wifi
 ```
 
 ### How to forget a saved WiFi network on a Raspberry Pi
 
-1. Edit wpa_supplicant.conf:
+1. Edit wpa_supplicant.conf
 ```bash
 $ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 ```
