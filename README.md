@@ -1,6 +1,6 @@
 ### 88x2bu ( 88x2bu.ko ) :rocket:
 
-### Linux Driver for USB WiFi Adapters using the RealTek RTL8812BU and RTL8822BU Chipsets
+### Linux Driver for USB WiFi Adapters using the RTL8812BU and RTL8822BU Chipsets
 
 - v5.8.7.4 (Realtek) (2020-09-22)
 - Plus updates from the Linux community
@@ -56,11 +56,11 @@
 
 - Manjaro 20.1 (kernel 5.9)
 
+- Raspberry Pi OS (12-02-2020) (ARM 32 bit) (kernel 5.4)
+
 - Ubuntu 20.10 (kernel 5.8)
 - Ubuntu 20.04 (kernel 5.4)
 - Ubuntu 18.04 (kernel 5.4)
-
-- Raspberry Pi OS (12-02-2020) (ARM 32 bit) (kernel 5.4)
 
 ### Download Locations for Tested Linux Distributions
 
