@@ -1,6 +1,6 @@
 ### 88x2bu ( 88x2bu.ko ) :rocket:
 
-### Linux Driver for the RealTek RTL8812BU and RTL8822BU Chipsets
+### Linux Driver for USB WiFi Adapters using the RealTek RTL8812BU and RTL8822BU Chipsets
 
 - v5.8.7.4 (Realtek) (2020-09-22)
 - Plus updates from the Linux community
