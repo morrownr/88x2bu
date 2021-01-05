@@ -1,4 +1,4 @@
-### 88x2bu ( 88x2bu.ko )
+### 88x2bu ( 88x2bu.ko ) :+1:
 
 ### Linux Driver for the RealTek RTL8812BU and RTL8822BU Chipsets.
 
@@ -212,7 +212,7 @@ This file will be read and applied to the driver on each system boot.
 
 To edit the driver options file:
 
-From the driver directory, run the `./edit-options.sh` script:
+From the driver directory, run the `edit-options.sh` script:
 ```bash
 $ sudo ./edit-options.sh
 ```
