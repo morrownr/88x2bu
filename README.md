@@ -80,7 +80,7 @@ Note: Cudy does a good job of posting updated source code from Realtek. Support 
 
 - [FIDECO 6B21-AC1200M WiFi Adapter - AC1200 Dual Band](https://www.amazon.co.uk/gp/product/B08523KPP9)
 
-### Compatible Devices:
+### Compatible Devices
 
 Note: Some adapter makers change the chipsets in their products while keeping the same model number so please check to confirm that the product you plan to buy has the chipset you are expecting.
 
@@ -280,7 +280,7 @@ The driver options are as follows
 
 USB 3 support is off by default as there can be problems with older USB 3 ports, however, almost all USB 3 ports on modern systems work well so turning USB 3 support on should work fine for almost everyone and the difference in performance can be large.
 
-See what your USB mode is
+See what your USB mode is:
 
 ```bash
 $ lsusb -t
