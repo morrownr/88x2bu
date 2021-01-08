@@ -38,6 +38,7 @@ if [[ "$RESULT" != "0" ]]; then
     echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
 	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
     echo "Cleanup complete"
+    echo "dkms status:"
     dkms status
 	exit $RESULT
 fi
@@ -53,6 +54,7 @@ if [[ "$RESULT" != "0" ]]; then
     echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
 	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
     echo "Cleanup complete"
+    echo "dkms status:"
     dkms status
 	exit $RESULT
 fi
@@ -71,6 +73,7 @@ if [[ "$RESULT" != "0" ]]; then
     dkms status
 	exit $RESULT
 else
+    echo "dkms status:"
     dkms status
 	echo "The driver was installed successfully."
 	exit 0
