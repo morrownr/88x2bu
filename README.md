@@ -49,7 +49,8 @@
 - Arch Linux (kernel 5.4)
 - Arch Linux (kernel 5.9)
 
-- Linux Mint 20 (Linux Mint based on Ubuntu) (kernel 5.4)
+- Linux Mint 20.1 (Linux Mint based on Ubuntu) (kernel 5.4)
+- Linux Mint 20   (Linux Mint based on Ubuntu) (kernel 5.4)
 - Linux Mint 19.3 (Linux Mint based on Ubuntu) (kernel 5.4)
 
 - LMDE 4 (Linux Mint based on Debian) (kernel 4.19)
