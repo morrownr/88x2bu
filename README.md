@@ -1,5 +1,4 @@
-#### [USB WiFi Adapter Information for Linux](https://github.com/morrownr/USB-WiFi)
-
+#### [Link to USB WiFi Adapter Information for Linux](https://github.com/morrownr/USB-WiFi)
 
 ### 88x2bu ( 88x2bu.ko ) :rocket:
 
