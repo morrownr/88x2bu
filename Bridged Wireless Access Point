@@ -22,11 +22,13 @@ Steps:
 
 Follow instructions at this site:
 
-https://github.com/morrownr/8812bu.git
+https://github.com/morrownr/88x2bu.git
 
 -----
 
 2. Disable Raspberry Pi onboard WiFi:
+
+Note: Disregard if not installing to Raspberry Pi hardware.
 
 $ sudo nano /boot/config.txt
 
@@ -38,7 +40,7 @@ dtoverlay=disable-wifi
 
 3. Change driver options:
 
-$ sudo nano /etc/modprobe.d/8812bu.conf
+$ sudo nano /etc/modprobe.d/88x2bu.conf
 
 rtw_vht_enable=2      (enable 80 Mhz channel width)
 rtw_switch_usb_mode=1 (enable USB 3 support)
@@ -140,12 +142,12 @@ $ sudo rfkill unblock wlan
 
 $ sudo nano /etc/hostapd/hostapd.conf
 
-Add:
+File contents:
 
 ## hostapd.conf
 ## https://w1.fi/hostapd/
 ## rtl8812bu USB WiFi Adapter
-## 5g, 80211ac, channel width 80, 434 Mb/s
+## 5g, 80211ac, channel width 80, 867 Mb/s
 
 interface=wlan0
 bridge=br0
