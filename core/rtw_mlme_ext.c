@@ -15966,7 +15966,8 @@ void rtw_join_done_chk_ch(_adapter *adapter, int join_res)
 
 						rtw_cfg80211_ch_switch_notify(iface
 							, mlmeext->cur_channel, mlmeext->cur_bwmode, mlmeext->cur_ch_offset
-							, ht_option, 0);
+							, ht_option
+							, 0);
 						#endif
 					}
 				}
