@@ -11,7 +11,7 @@ Tested setup:
 
 Raspberry Pi 4B (4gb)
 Raspberry Pi OS (2021-01-11) (32 bit)
-WiFi Adapter Driver: https://github.com/morrownr/88x2bu.git
+WiFi Adapter Driver: https://github.com/morrownr/88x2bu
 Onboard WiFi disabled
 Ethernet connection providing internet
 USB WiFi Adapter based on the rtl8812bu chipset
@@ -22,7 +22,7 @@ Steps:
 
 Follow instructions at this site:
 
-https://github.com/morrownr/88x2bu.git
+https://github.com/morrownr/88x2bu
 
 -----
 
@@ -38,11 +38,11 @@ dtoverlay=disable-wifi
 
 -----
 
-3. Change driver options:
+3. Change driver options: (to allow full speed operation)
 
 $ sudo nano /etc/modprobe.d/88x2bu.conf
 
-rtw_vht_enable=2      (enable 80 Mhz channel width)
+rtw_vht_enable=2      (enable 80 Mhz channel width - 80211AC support)
 rtw_switch_usb_mode=1 (enable USB 3 support)
 
 -----
