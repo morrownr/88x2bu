@@ -27,8 +27,8 @@
 - Wake on WLAN
 - Supported interface modes:
   * IBSS
-  * Managed
-  * AP (WiFi Hotspot) (Master mode)
+  * Managed (client)
+  * AP (see *Bridged Wireless Access Point* located in the main directory of this repo)
   * Monitor
   * P2P-client
   * P2P-GO
