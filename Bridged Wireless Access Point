@@ -1,22 +1,27 @@
-##Bridged Wireless Access Point
+## Bridged Wireless Access Point
 
-For wireless adapters based on the following chipsets:
+For wireless adapters based on the following chipsets
 
 rtl8812bu
 rtl8822bu
 
 2021-01-29
 
-#####Tested setup
+##### Tested setup
 
 -Raspberry Pi 4B (4gb)
+
 -Raspberry Pi OS (2021-01-11) (32 bit)
--WiFi Adapter Driver: https://github.com/morrownr/88x2bu
+
+-WiFi Adapter Driver - https://github.com/morrownr/88x2bu
+
 -Onboard WiFi disabled
+
 -Ethernet connection providing internet
+
 -USB WiFi Adapter based on the rtl8812bu chipset
 
-#####Steps
+##### Steps
 
 1. Install the driver for the WiFi adapter.
 
@@ -144,10 +149,10 @@ $ sudo nano /etc/hostapd/hostapd.conf
 
 File contents
 
-## hostapd.conf
-## https://w1.fi/hostapd/
-## rtl8812bu USB WiFi Adapter
-## 5g, 80211ac, channel width 80, 867 Mb/s
+# hostapd.conf
+# https://w1.fi/hostapd/
+# rtl8812bu USB WiFi Adapter
+# 5g, 80211ac, channel width 80, 867 Mb/s
 
 interface=wlan0
 bridge=br0
@@ -162,11 +167,11 @@ country_code=US
 ieee80211d=1
 ieee80211h=1
 
-#2g
+# 2g
 #hw_mode=g
 #channel=7
 
-#5g
+# 5g
 hw_mode=a
 channel=36
 #channel=149
@@ -180,12 +185,12 @@ wpa_key_mgmt=WPA-PSK
 #wpa_pairwise=TKIP
 rsn_pairwise=CCMP
 
-##### IEEE 802.11n related configuration #####
+# IEEE 802.11n related configuration #####
 ieee80211n=1
 # 8812bu
 ht_capab=[HT40+][SHORT-GI-20][SHORT-GI-40][MAX-AMSDU-7935]
 
-##### IEEE 802.11ac related configuration #####
+# IEEE 802.11ac related configuration #####
 ieee80211ac=1
 # 8812bu
 vht_capab=[MAX-A-MPDU-LEN-EXP3][MAX-MPDU-11454][SHORT-GI-80][HTC-VHT]
@@ -194,7 +199,7 @@ vht_oper_centr_freq_seg0_idx=42
 #vht_oper_centr_freq_seg0_idx=155
 
 #
-## end of hostapd.conf
+# end of hostapd.conf
 
 -----
 
@@ -225,16 +230,16 @@ $ iperf3 -c 192.168.1.40
 Connecting to host 192.168.1.40, port 5201
 [  5] local 192.168.1.36 port 46256 connected to 192.168.1.40 port 5201
 [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
-[  5]   0.00-1.00   sec  46.8 MBytes   393 Mbits/sec    0    981 KBytes       
-[  5]   1.00-2.00   sec  47.5 MBytes   398 Mbits/sec    0   1.29 MBytes       
-[  5]   2.00-3.00   sec  47.5 MBytes   398 Mbits/sec    0   1.37 MBytes       
-[  5]   3.00-4.00   sec  46.2 MBytes   388 Mbits/sec    0   1.44 MBytes       
-[  5]   4.00-5.00   sec  46.2 MBytes   388 Mbits/sec    0   1.60 MBytes       
-[  5]   5.00-6.00   sec  47.5 MBytes   398 Mbits/sec    0   1.87 MBytes       
-[  5]   6.00-7.00   sec  47.5 MBytes   398 Mbits/sec    0   1.87 MBytes       
-[  5]   7.00-8.00   sec  46.2 MBytes   388 Mbits/sec    0   1.87 MBytes       
-[  5]   8.00-9.00   sec  45.0 MBytes   377 Mbits/sec    0   2.07 MBytes       
-[  5]   9.00-10.00  sec  45.0 MBytes   377 Mbits/sec    0   2.20 MBytes       
+[  5]   0.00-1.00   sec  46.8 MBytes   393 Mbits/sec    0    981 KBytes
+[  5]   1.00-2.00   sec  47.5 MBytes   398 Mbits/sec    0   1.29 MBytes
+[  5]   2.00-3.00   sec  47.5 MBytes   398 Mbits/sec    0   1.37 MBytes
+[  5]   3.00-4.00   sec  46.2 MBytes   388 Mbits/sec    0   1.44 MBytes 
+[  5]   4.00-5.00   sec  46.2 MBytes   388 Mbits/sec    0   1.60 MBytes 
+[  5]   5.00-6.00   sec  47.5 MBytes   398 Mbits/sec    0   1.87 MBytes 
+[  5]   6.00-7.00   sec  47.5 MBytes   398 Mbits/sec    0   1.87 MBytes 
+[  5]   7.00-8.00   sec  46.2 MBytes   388 Mbits/sec    0   1.87 MBytes 
+[  5]   8.00-9.00   sec  45.0 MBytes   377 Mbits/sec    0   2.07 MBytes 
+[  5]   9.00-10.00  sec  45.0 MBytes   377 Mbits/sec    0   2.20 MBytes 
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bitrate         Retr
 [  5]   0.00-10.00  sec   466 MBytes   391 Mbits/sec    0             sender
