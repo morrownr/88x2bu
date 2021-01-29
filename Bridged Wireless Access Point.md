@@ -1,22 +1,22 @@
-Bridged Wireless Access Point
+##Bridged Wireless Access Point
 
 For wireless adapters based on the following chipsets:
 
 rtl8812bu
 rtl8822bu
 
-2021-01-26
+2021-01-29
 
-Tested setup:
+#####Tested setup
 
-Raspberry Pi 4B (4gb)
-Raspberry Pi OS (2021-01-11) (32 bit)
-WiFi Adapter Driver: https://github.com/morrownr/88x2bu
-Onboard WiFi disabled
-Ethernet connection providing internet
-USB WiFi Adapter based on the rtl8812bu chipset
+-Raspberry Pi 4B (4gb)
+-Raspberry Pi OS (2021-01-11) (32 bit)
+-WiFi Adapter Driver: https://github.com/morrownr/88x2bu
+-Onboard WiFi disabled
+-Ethernet connection providing internet
+-USB WiFi Adapter based on the rtl8812bu chipset
 
-Steps:
+#####Steps
 
 1. Install the driver for the WiFi adapter.
 
@@ -26,7 +26,7 @@ https://github.com/morrownr/88x2bu
 
 -----
 
-2. Disable Raspberry Pi onboard WiFi:
+2. Disable Raspberry Pi onboard WiF.
 
 Note: Disregard if not installing to Raspberry Pi hardware.
 
@@ -38,7 +38,7 @@ dtoverlay=disable-wifi
 
 -----
 
-3. Change driver options: (to allow full speed operation)
+3. Change driver options (to allow full speed operation)
 
 $ sudo nano /etc/modprobe.d/88x2bu.conf
 
@@ -47,7 +47,7 @@ rtw_switch_usb_mode=1 (enable USB 3 support)
 
 -----
 
-4. Update system:
+4. Update system.
 
 $ sudo apt update
 $ sudo apt full-upgrade
@@ -55,14 +55,14 @@ $ sudo reboot
 
 -----
 
-5. Install needed packages:
+5. Install needed packages.
 
 $ sudo apt install hostapd
 
 -----
 
 6. Enable the wireless access point service and set it to start
-   when your Raspberry Pi boots:
+   when your Raspberry Pi boots.
 
 $ sudo systemctl unmask hostapd
 $ sudo systemctl enable hostapd
@@ -70,11 +70,11 @@ $ sudo systemctl enable hostapd
 -----
 
 7. Add a bridge network device named br0 by creating a file using
-   the following command, with the contents below:
+   the following command, with the contents below.
 
 $ sudo nano /etc/systemd/network/bridge-br0.netdev
 
-File contents:
+File contents
 
 [NetDev]
 Name=br0
@@ -82,7 +82,7 @@ Kind=bridge
 
 -----
 
-8. Determine the names of the network interfaces:
+8. Determine the names of the network interfaces.
 
 $ ip link show
 
@@ -94,11 +94,11 @@ and wlan0 during the remainder of this document.
 
 9. Bridge the Ethernet network with the wireless network, first
    add the built-in Ethernet interface ( eth0 ) as a bridge
-   member by creating the following file:
+   member by creating the following file.
 
 $ sudo nano /etc/systemd/network/br0-member-eth0.network
 
-File contents:
+File contents
 
 [Match]
 Name=eth0
@@ -109,7 +109,7 @@ Bridge=br0
 -----
 
 10. Enable the systemd-networkd service to create and populate
-    the bridge when your Raspberry Pi boots:
+    the bridge when your Raspberry Pi boots.
 
 $ sudo systemctl enable systemd-networkd
 
@@ -121,28 +121,28 @@ processed, and let dhcpcd configure only br0 via DHCP.
 $ sudo nano /etc/dhcpcd.conf
 
 Add the following line near the beginning of the file (above the
-first interface xxx line, if any):
+first interface xxx line, if any)
 
 denyinterfaces wlan0 eth0
 
-Go to the end of the file and add the following:
+Go to the end of the file and add the following
 
 interface br0
 
 -----
 
 12. To ensure WiFi radio is not blocked on your Raspberry Pi,
-    execute the following command:
+    execute the following command.
 
 $ sudo rfkill unblock wlan
 
 -----
 
-13. Create the hostapd configuration file:
+13. Create the hostapd configuration file.
 
 $ sudo nano /etc/hostapd/hostapd.conf
 
-File contents:
+File contents
 
 ## hostapd.conf
 ## https://w1.fi/hostapd/
@@ -188,7 +188,7 @@ ht_capab=[HT40+][SHORT-GI-20][SHORT-GI-40][MAX-AMSDU-7935]
 ##### IEEE 802.11ac related configuration #####
 ieee80211ac=1
 # 8812bu
-vht_capab=[MAX-A-MPDU-LEN-EXP3][MAX-MPDU-11454][SHORT-GI-80][TX-STBC-2BY1][HTC-VHT]
+vht_capab=[MAX-A-MPDU-LEN-EXP3][MAX-MPDU-11454][SHORT-GI-80][HTC-VHT]
 vht_oper_chwidth=1
 vht_oper_centr_freq_seg0_idx=42
 #vht_oper_centr_freq_seg0_idx=155
@@ -198,11 +198,11 @@ vht_oper_centr_freq_seg0_idx=42
 
 -----
 
-14. Establish conf file and log file locations:
+14. Establish conf file and log file locations.
 
 $ sudo nano /etc/default/hostapd
 
-Add to bottom of file:
+Add to bottom of file
 
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 DAEMON_OPTS="-d -K -f /home/pi/hostapd.log"
@@ -219,7 +219,7 @@ $ sudo reboot
 
 -----
 
-iperf3 results:
+iperf3 results
 
 $ iperf3 -c 192.168.1.40
 Connecting to host 192.168.1.40, port 5201
