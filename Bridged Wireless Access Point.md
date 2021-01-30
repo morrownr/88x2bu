@@ -232,24 +232,25 @@ $ sudo reboot
 ```
 $ iperf3 -c 192.168.1.40
 Connecting to host 192.168.1.40, port 5201
-[  5] local 192.168.1.36 port 46256 connected to 192.168.1.40 port 5201
+[  5] local 192.168.1.83 port 60420 connected to 192.168.1.40 port 5201
 [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
-[  5]   0.00-1.00   sec  46.8 MBytes   393 Mbits/sec    0    981 KBytes
-[  5]   1.00-2.00   sec  47.5 MBytes   398 Mbits/sec    0   1.29 MBytes
-[  5]   2.00-3.00   sec  47.5 MBytes   398 Mbits/sec    0   1.37 MBytes
-[  5]   3.00-4.00   sec  46.2 MBytes   388 Mbits/sec    0   1.44 MBytes 
-[  5]   4.00-5.00   sec  46.2 MBytes   388 Mbits/sec    0   1.60 MBytes 
-[  5]   5.00-6.00   sec  47.5 MBytes   398 Mbits/sec    0   1.87 MBytes 
-[  5]   6.00-7.00   sec  47.5 MBytes   398 Mbits/sec    0   1.87 MBytes 
-[  5]   7.00-8.00   sec  46.2 MBytes   388 Mbits/sec    0   1.87 MBytes 
-[  5]   8.00-9.00   sec  45.0 MBytes   377 Mbits/sec    0   2.07 MBytes 
-[  5]   9.00-10.00  sec  45.0 MBytes   377 Mbits/sec    0   2.20 MBytes 
+[  5]   0.00-1.00   sec  58.1 MBytes   487 Mbits/sec    0   1.19 MBytes       
+[  5]   1.00-2.00   sec  65.0 MBytes   545 Mbits/sec    0   1.46 MBytes       
+[  5]   2.00-3.00   sec  65.0 MBytes   545 Mbits/sec    0   1.46 MBytes       
+[  5]   3.00-4.00   sec  65.0 MBytes   545 Mbits/sec    0   1.46 MBytes       
+[  5]   4.00-5.00   sec  65.0 MBytes   545 Mbits/sec    0   1.54 MBytes       
+[  5]   5.00-6.00   sec  63.8 MBytes   535 Mbits/sec    0   1.54 MBytes       
+[  5]   6.00-7.00   sec  63.8 MBytes   535 Mbits/sec    0   1.54 MBytes       
+[  5]   7.00-8.00   sec  63.8 MBytes   535 Mbits/sec    0   1.71 MBytes       
+[  5]   8.00-9.00   sec  62.5 MBytes   524 Mbits/sec    0   1.71 MBytes       
+[  5]   9.00-10.00  sec  63.8 MBytes   535 Mbits/sec    0   1.71 MBytes       
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bitrate         Retr
-[  5]   0.00-10.00  sec   466 MBytes   391 Mbits/sec    0             sender
-[  5]   0.00-10.01  sec   463 MBytes   388 Mbits/sec                  receiver
+[  5]   0.00-10.00  sec   636 MBytes   533 Mbits/sec    0             sender
+[  5]   0.00-10.01  sec   634 MBytes   531 Mbits/sec                  receiver
 
 iperf Done.
+
 ```
 
 
