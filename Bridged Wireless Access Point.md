@@ -1,6 +1,6 @@
 ## Bridged Wireless Access Point
 
-For wireless adapters based on the following chipsets
+For wireless adapters based on the following chipsets -
 
 rtl8812bu
 rtl8822bu
@@ -9,23 +9,23 @@ rtl8822bu
 
 ##### Tested setup
 
--Raspberry Pi 4B (4gb)
+- Raspberry Pi 4B (4gb)
 
--Raspberry Pi OS (2021-01-11) (32 bit)
+- Raspberry Pi OS (2021-01-11) (32 bit)
 
--WiFi Adapter Driver - https://github.com/morrownr/88x2bu
+- WiFi Adapter Driver - https://github.com/morrownr/88x2bu
 
--Onboard WiFi disabled
+- Onboard WiFi disabled
 
--Ethernet connection providing internet
+- Ethernet connection providing internet
 
--USB WiFi Adapter based on the rtl8812bu chipset
+- USB WiFi Adapter based on the rtl8812bu chipset
 
 ##### Steps
 
 1. Install the driver for the WiFi adapter.
 
-Follow instructions at this site:
+Follow instructions at this site -
 
 https://github.com/morrownr/88x2bu
 
@@ -34,63 +34,66 @@ https://github.com/morrownr/88x2bu
 2. Disable Raspberry Pi onboard WiF.
 
 Note: Disregard if not installing to Raspberry Pi hardware.
-
+```
 $ sudo nano /boot/config.txt
-
-Add:
-
+```
+Add -
+```
 dtoverlay=disable-wifi
-
+```
 -----
 
 3. Change driver options (to allow full speed operation)
-
+```
 $ sudo nano /etc/modprobe.d/88x2bu.conf
-
+```
 rtw_vht_enable=2      (enable 80 Mhz channel width - 80211AC support)
 rtw_switch_usb_mode=1 (enable USB 3 support)
 
 -----
 
 4. Update system.
-
+```
 $ sudo apt update
-$ sudo apt full-upgrade
-$ sudo reboot
 
+$ sudo apt full-upgrade
+
+$ sudo reboot
+```
 -----
 
 5. Install needed packages.
-
+```
 $ sudo apt install hostapd
-
+```
 -----
 
 6. Enable the wireless access point service and set it to start
    when your Raspberry Pi boots.
-
+```
 $ sudo systemctl unmask hostapd
-$ sudo systemctl enable hostapd
 
+$ sudo systemctl enable hostapd
+```
 -----
 
 7. Add a bridge network device named br0 by creating a file using
    the following command, with the contents below.
-
+```
 $ sudo nano /etc/systemd/network/bridge-br0.netdev
-
+```
 File contents
-
+```
 [NetDev]
 Name=br0
 Kind=bridge
-
+```
 -----
 
 8. Determine the names of the network interfaces.
-
+```
 $ ip link show
-
+```
 Note: If the interface names are not eth0 and wlan0, then the
 interface names used in your system will have to replace eth0
 and wlan0 during the remainder of this document.
@@ -100,58 +103,58 @@ and wlan0 during the remainder of this document.
 9. Bridge the Ethernet network with the wireless network, first
    add the built-in Ethernet interface ( eth0 ) as a bridge
    member by creating the following file.
-
+```
 $ sudo nano /etc/systemd/network/br0-member-eth0.network
-
+```
 File contents
-
+```
 [Match]
 Name=eth0
 
 [Network]
 Bridge=br0
-
+```
 -----
 
 10. Enable the systemd-networkd service to create and populate
     the bridge when your Raspberry Pi boots.
-
+```
 $ sudo systemctl enable systemd-networkd
-
+```
 -----
 
 11. Block the eth0 and wlan0 interfaces from being
 processed, and let dhcpcd configure only br0 via DHCP.
-
+```
 $ sudo nano /etc/dhcpcd.conf
-
+```
 Add the following line near the beginning of the file (above the
-first interface xxx line, if any)
-
+first interface xxx line, if any) -
+```
 denyinterfaces wlan0 eth0
-
-Go to the end of the file and add the following
-
+```
+Go to the end of the file and add the following -
+```
 interface br0
-
+```
 -----
 
 12. To ensure WiFi radio is not blocked on your Raspberry Pi,
     execute the following command.
-
+```
 $ sudo rfkill unblock wlan
-
+```
 -----
 
 13. Create the hostapd configuration file.
-
+```
 $ sudo nano /etc/hostapd/hostapd.conf
-
-File contents
-
+```
+File contents -
+```
 # hostapd.conf
 # https://w1.fi/hostapd/
-# rtl8812bu USB WiFi Adapter
+# rtl8812bu based USB WiFi Adapter
 # 5g, 80211ac, channel width 80, 867 Mb/s
 
 interface=wlan0
@@ -185,12 +188,12 @@ wpa_key_mgmt=WPA-PSK
 #wpa_pairwise=TKIP
 rsn_pairwise=CCMP
 
-# IEEE 802.11n related configuration #####
+# IEEE 802.11n related configuration
 ieee80211n=1
 # 8812bu
 ht_capab=[HT40+][SHORT-GI-20][SHORT-GI-40][MAX-AMSDU-7935]
 
-# IEEE 802.11ac related configuration #####
+# IEEE 802.11ac related configuration
 ieee80211ac=1
 # 8812bu
 vht_capab=[MAX-A-MPDU-LEN-EXP3][MAX-MPDU-11454][SHORT-GI-80][HTC-VHT]
@@ -200,21 +203,21 @@ vht_oper_centr_freq_seg0_idx=42
 
 #
 # end of hostapd.conf
-
+```
 -----
 
 14. Establish conf file and log file locations.
-
+```
 $ sudo nano /etc/default/hostapd
-
-Add to bottom of file
-
+```
+Add to bottom of file -
+```
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 DAEMON_OPTS="-d -K -f /home/pi/hostapd.log"
-
+```
 -----
 
-15. Reboot the system
+15. Reboot the system.
 
 $ sudo reboot
 
@@ -225,7 +228,7 @@ $ sudo reboot
 -----
 
 iperf3 results
-
+```
 $ iperf3 -c 192.168.1.40
 Connecting to host 192.168.1.40, port 5201
 [  5] local 192.168.1.36 port 46256 connected to 192.168.1.40 port 5201
@@ -246,7 +249,7 @@ Connecting to host 192.168.1.40, port 5201
 [  5]   0.00-10.01  sec   463 MBytes   388 Mbits/sec                  receiver
 
 iperf Done.
-
+```
 
 
 
