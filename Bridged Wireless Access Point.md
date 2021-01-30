@@ -1,10 +1,10 @@
 ## Bridged Wireless Access Point
 
-For wireless adapters based on the following chipsets -
-
+For wireless adapters based on the following chipsets
+```
 rtl8812bu
 rtl8822bu
-
+```
 2021-01-29
 
 ##### Tested setup
@@ -37,19 +37,20 @@ Note: Disregard if not installing to Raspberry Pi hardware.
 ```
 $ sudo nano /boot/config.txt
 ```
-Add -
+Add
 ```
 dtoverlay=disable-wifi
 ```
 -----
 
-3. Change driver options (to allow full speed operation)
+3. Change driver options (to allow full speed operation.)
 ```
 $ sudo nano /etc/modprobe.d/88x2bu.conf
 ```
+```
 rtw_vht_enable=2      (enable 80 Mhz channel width - 80211AC support)
 rtw_switch_usb_mode=1 (enable USB 3 support)
-
+```
 -----
 
 4. Update system.
@@ -129,11 +130,11 @@ processed, and let dhcpcd configure only br0 via DHCP.
 $ sudo nano /etc/dhcpcd.conf
 ```
 Add the following line near the beginning of the file (above the
-first interface xxx line, if any) -
+first interface xxx line, if any)
 ```
 denyinterfaces wlan0 eth0
 ```
-Go to the end of the file and add the following -
+Go to the end of the file and add the following
 ```
 interface br0
 ```
@@ -150,7 +151,7 @@ $ sudo rfkill unblock wlan
 ```
 $ sudo nano /etc/hostapd/hostapd.conf
 ```
-File contents -
+File contents
 ```
 # hostapd.conf
 # https://w1.fi/hostapd/
@@ -210,7 +211,7 @@ vht_oper_centr_freq_seg0_idx=42
 ```
 $ sudo nano /etc/default/hostapd
 ```
-Add to bottom of file -
+Add to bottom of file
 ```
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 DAEMON_OPTS="-d -K -f /home/pi/hostapd.log"
