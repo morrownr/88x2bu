@@ -7,19 +7,19 @@ rtl8822bu
 ```
 2021-01-29
 
-##### Tested setup
+##### Tested Setup
 
 - Raspberry Pi 4B (4gb)
 
 - Raspberry Pi OS (2021-01-11) (32 bit)
+
+- USB WiFi Adapter based on the rtl8812bu chipset
 
 - WiFi Adapter Driver - https://github.com/morrownr/88x2bu
 
 - Onboard WiFi disabled
 
 - Ethernet connection providing internet
-
-- USB WiFi Adapter based on the rtl8812bu chipset
 
 ##### Steps
 
@@ -31,7 +31,7 @@ https://github.com/morrownr/88x2bu
 
 -----
 
-2. Disable Raspberry Pi onboard WiF.
+2. Disable Raspberry Pi onboard WiFi.
 
 Note: Disregard if not installing to Raspberry Pi hardware.
 ```
@@ -228,7 +228,7 @@ $ sudo reboot
 
 -----
 
-iperf3 results
+##### iperf3 results
 ```
 $ iperf3 -c 192.168.1.40
 Connecting to host 192.168.1.40, port 5201
