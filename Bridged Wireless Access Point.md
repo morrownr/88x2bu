@@ -1,13 +1,19 @@
 ## Bridged Wireless Access Point
 
-A bridged wireless access point setup works within an existing ethernet network and will extend the network to WiFi capable computers and devices in areas where the WiFi signal is weak or otherwise does not meet expectations..
+A bridged wireless access point setup works within an existing
+ethernet network to extend the network to WiFi capable computers
+and devices in areas where the WiFi signal is weak or otherwise
+does not meet expectations.
 
-This document is designed for wireless adapters based on the following chipsets
+This document is for WiFi adapters based on the following chipsets
 ```
 rtl8812bu
 rtl8822bu
 ```
 2021-01-31
+
+Foreword: This setup can really push the data. It is FAST! See the
+iperf3 test data at the end of this document.
 
 ##### Tested Setup
 
@@ -23,19 +29,11 @@ rtl8822bu
 
 - Ethernet connection providing internet
 	- Ethernet cables are CAT 6
-	- Internet is Fiberoptic at 1 GHz up and down
+	- Internet is Fiber-optic at 1 GHz up and 1 GHz down
 
 ##### Steps
 
-1. Install the driver for the WiFi adapter.
-
-Follow instructions at this site -
-
-https://github.com/morrownr/88x2bu
-
------
-
-2. Disable Raspberry Pi onboard WiFi.
+1. Disable Raspberry Pi onboard WiFi.
 
 Note: Disregard if not installing to Raspberry Pi hardware.
 ```
@@ -45,6 +43,14 @@ Add
 ```
 dtoverlay=disable-wifi
 ```
+-----
+
+2. Install the driver for the WiFi adapter.
+
+Follow the instructions at this site
+
+https://github.com/morrownr/88x2bu
+
 -----
 
 3. Change driver options (to allow full speed operation.)
@@ -67,7 +73,7 @@ $ sudo reboot
 ```
 -----
 
-5. Install needed packages.
+5. Install needed package.
 ```
 $ sudo apt install hostapd
 ```
@@ -129,12 +135,11 @@ $ sudo systemctl enable systemd-networkd
 -----
 
 11. Block the eth0 and wlan0 interfaces from being
-processed, and let dhcpcd configure only br0 via DHCP.
+    processed, and let dhcpcd configure only br0 via DHCP.
 ```
 $ sudo nano /etc/dhcpcd.conf
 ```
-Add the following line near the beginning of the file (above the
-first interface xxx line, if any)
+Add the following line above the first interface xxx line, if any
 ```
 denyinterfaces wlan0 eth0
 ```
