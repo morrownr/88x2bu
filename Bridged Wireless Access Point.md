@@ -1,11 +1,13 @@
 ## Bridged Wireless Access Point
 
-For wireless adapters based on the following chipsets
+A bridged wireless access point setup works within an existing ethernet network and will extend the network to WiFi capable computers and devices in areas where the WiFi signal is weak or otherwise does not meet expectations..
+
+This document is designed for wireless adapters based on the following chipsets
 ```
 rtl8812bu
 rtl8822bu
 ```
-2021-01-29
+2021-01-31
 
 ##### Tested Setup
 
@@ -13,13 +15,15 @@ rtl8822bu
 
 - Raspberry Pi OS (2021-01-11) (32 bit)
 
+- Onboard WiFi disabled
+
 - USB WiFi Adapter based on the rtl8812bu chipset
 
 - WiFi Adapter Driver - https://github.com/morrownr/88x2bu
 
-- Onboard WiFi disabled
-
 - Ethernet connection providing internet
+	- Ethernet cables are CAT 6
+	- Internet is Fiberoptic at 1 GHz up and down
 
 ##### Steps
 
@@ -252,6 +256,6 @@ Connecting to host 192.168.1.40, port 5201
 iperf Done.
 
 ```
-
+Note: The Raspi 4b is overclocked to 2.0 GHz.
 
 
