@@ -143,7 +143,7 @@ Add the following line above the first interface xxx line, if any
 ```
 denyinterfaces wlan0 eth0
 ```
-Go to the end of the file and add the following
+Go to the end of the file and add the following line
 ```
 interface br0
 ```
@@ -164,25 +164,30 @@ File contents
 ```
 # hostapd.conf
 # https://w1.fi/hostapd/
-# rtl8812bu based USB WiFi Adapter
-# 5g, 80211ac, channel width 80, 867 Mb/s
+# 2g, 5g, 80211n, 80211ac
 
+# change the interface name to match your system, if necessary
 interface=wlan0
 bridge=br0
 driver=nl80211
 ctrl_interface=/var/run/hostapd
 ctrl_interface_group=0
 
+# change as desired
 ssid=pi
+
+# change as desired
 wpa_passphrase=raspberry
 
+# change as needed
 country_code=US
+
 ieee80211d=1
 ieee80211h=1
 
 # 2g
 #hw_mode=g
-#channel=7
+#channel=6
 
 # 5g
 hw_mode=a
@@ -190,23 +195,32 @@ channel=36
 #channel=149
 
 macaddr_acl=0
-auth_algs=1
+auth_algs=3
 ignore_broadcast_ssid=0
 wmm_enabled=1
 wpa=2
 wpa_key_mgmt=WPA-PSK
-#wpa_pairwise=TKIP
+wpa_pairwise=CCMP
 rsn_pairwise=CCMP
 
 # IEEE 802.11n related configuration
 ieee80211n=1
-# 8812bu
+
+# 8812bu/8812au/8814au/8811cu/8811au
+# 2g
+#ht_capab=[SHORT-GI-20][MAX-AMSDU-7935][DSSS_CCK-40]
+# 5g
 ht_capab=[HT40+][SHORT-GI-20][SHORT-GI-40][MAX-AMSDU-7935]
 
 # IEEE 802.11ac related configuration
+# 5g
 ieee80211ac=1
-# 8812bu
+
+# 8812bu/8812au/8814au/8811cu/8811au
+# 5g
 vht_capab=[MAX-A-MPDU-LEN-EXP3][MAX-MPDU-11454][SHORT-GI-80][HTC-VHT]
+
+# 5g
 vht_oper_chwidth=1
 vht_oper_centr_freq_seg0_idx=42
 #vht_oper_centr_freq_seg0_idx=155
