@@ -7,10 +7,9 @@ does not meet expectations.
 
 This document is for WiFi adapters based on the following chipsets
 ```
-rtl8812bu
-rtl8822bu
+rtl8812bu, rtl8822bu
 ```
-2021-01-31
+2021-02-03
 
 Foreword: This setup can really push the data. It is FAST! See the
 iperf3 test data at the end of this document.
@@ -21,7 +20,7 @@ iperf3 test data at the end of this document.
 
 - Raspberry Pi OS (2021-01-11) (32 bit)
 
-- Onboard WiFi disabled
+- Raspberry Pi Onboard WiFi disabled
 
 - USB WiFi Adapter based on the rtl8812bu chipset
 
@@ -185,11 +184,11 @@ country_code=US
 ieee80211d=1
 ieee80211h=1
 
-# 2g
+# 2g (b/g/n)
 #hw_mode=g
 #channel=6
 
-# 5g
+# 5g (a/n/ac)
 hw_mode=a
 channel=36
 #channel=149
