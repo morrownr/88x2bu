@@ -9,7 +9,7 @@ This document is for WiFi adapters based on the following chipsets
 ```
 rtl8812bu, rtl8822bu
 ```
-2021-02-03
+2021-02-05
 
 Foreword: This setup can really push the data. It is FAST! See the
 iperf3 test data at the end of this document.
@@ -18,7 +18,7 @@ iperf3 test data at the end of this document.
 
 - Raspberry Pi 4B (4gb)
 
-- Raspberry Pi OS (2021-01-11) (32 bit)
+- Raspberry Pi OS (2021-01-11) (32 bit) (kernel 5.10.11-v7l+)
 
 - Raspberry Pi Onboard WiFi disabled
 
@@ -28,7 +28,7 @@ iperf3 test data at the end of this document.
 
 - Ethernet connection providing internet
 	- Ethernet cables are CAT 6
-	- Internet is Fiber-optic at 1 GHz up and 1 GHz down
+	- Internet is Fiber-optic at 1 Gbps up and 1 Gbps down
 
 ##### Steps
 
@@ -163,10 +163,11 @@ File contents
 ```
 # hostapd.conf
 # https://w1.fi/hostapd/
-# 2g, 5g, 80211n, 80211ac
+# Supports: 2g, 5g, 80211n, 80211ac, WPA2-AES, WPA3-SAE
 
 # change the interface name to match your system, if necessary
 interface=wlan0
+
 bridge=br0
 driver=nl80211
 ctrl_interface=/var/run/hostapd
@@ -194,13 +195,17 @@ channel=36
 #channel=149
 
 macaddr_acl=0
-auth_algs=3
+auth_algs=1
 ignore_broadcast_ssid=0
 wmm_enabled=1
 wpa=2
+# WPA-2 AES only
 wpa_key_mgmt=WPA-PSK
-wpa_pairwise=CCMP
+# WPA-2 AES and WPA-3 SAE
+#wpa_key_mgmt=WPA-PSK SAE
 rsn_pairwise=CCMP
+# required for WPA-3 SAE
+#ieee80211w=2
 
 # IEEE 802.11n related configuration
 ieee80211n=1
