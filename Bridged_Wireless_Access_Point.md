@@ -34,7 +34,7 @@ iperf3 test data at the end of this document.
 
 1. Disable Raspberry Pi onboard WiFi.
 
-Note: Disregard if not installing to Raspberry Pi hardware.
+Note: Disregard this step if not installing to Raspberry Pi hardware.
 ```
 $ sudo nano /boot/config.txt
 ```
@@ -52,7 +52,12 @@ https://github.com/morrownr/88x2bu
 
 -----
 
-3. Change driver options (to allow full speed operation.)
+3. Change driver options (to allow high speed operation.)
+
+Note: Some USB 3 ports, cables and adapters do not work well
+when pushed with high speed settings, therefore, it is recommended
+that your initial troubleshooting step should be to return the two
+settings below to default.
 ```
 $ sudo nano /etc/modprobe.d/88x2bu.conf
 ```
@@ -224,7 +229,11 @@ ieee80211ac=1
 # 5g
 vht_capab=[MAX-A-MPDU-LEN-EXP3][MAX-MPDU-11454][SHORT-GI-80][HTC-VHT]
 
-# 5g
+# 5g (enable 80 Mhz channel width)
+# Note: Some USB 3 ports, cables and adapters do not work well
+# when pushed with high speed settings, therefore, it is recommended
+# that you deactivate the two lines below early in the troubleshooting
+# process.
 vht_oper_chwidth=1
 vht_oper_centr_freq_seg0_idx=42
 #vht_oper_centr_freq_seg0_idx=155
