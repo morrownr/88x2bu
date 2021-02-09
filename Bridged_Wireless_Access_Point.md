@@ -9,7 +9,7 @@ This document is for WiFi adapters based on the following chipsets
 ```
 rtl8812bu, rtl8822bu
 ```
-2021-02-05
+2021-02-09
 
 Foreword: This setup can really push the data. It is FAST! See the
 iperf3 test data at the end of this document.
@@ -54,10 +54,6 @@ https://github.com/morrownr/88x2bu
 
 3. Change driver options (to allow high speed operation.)
 
-Note: Some USB 3 ports, cables and adapters do not work well
-when pushed with high speed settings, therefore, it is recommended
-that your initial troubleshooting step should be to return the two
-settings below to default.
 ```
 $ sudo nano /etc/modprobe.d/88x2bu.conf
 ```
@@ -168,11 +164,12 @@ File contents
 ```
 # hostapd.conf
 # https://w1.fi/hostapd/
-# Supports: 2g, 5g, 80211n, 80211ac, WPA2-AES, WPA3-SAE
+# 2g, 5g, a/b/g/n/ac, WPA2-AES, WPA3-SAE
+# 2021-02-09
 
-# change the interface name to match your system, if necessary
+# change to match your system, if necessary
 interface=wlan0
-
+#
 bridge=br0
 driver=nl80211
 ctrl_interface=/var/run/hostapd
@@ -184,7 +181,7 @@ ssid=pi
 # change as desired
 wpa_passphrase=raspberry
 
-# change as needed
+# change as required
 country_code=US
 
 ieee80211d=1
@@ -193,53 +190,112 @@ ieee80211h=1
 # 2g (b/g/n)
 #hw_mode=g
 #channel=6
-
+#
 # 5g (a/n/ac)
 hw_mode=a
 channel=36
-#channel=149
+# channel=149
 
+max_num_sta=128
 macaddr_acl=0
 auth_algs=1
 ignore_broadcast_ssid=0
-wmm_enabled=1
 wpa=2
+#
 # WPA-2 AES only
 wpa_key_mgmt=WPA-PSK
+#
 # WPA-2 AES and WPA-3 SAE
 #wpa_key_mgmt=WPA-PSK SAE
+#
 rsn_pairwise=CCMP
+#
 # required for WPA-3 SAE
 #ieee80211w=2
 
-# IEEE 802.11n related configuration
+# IEEE 802.11n
 ieee80211n=1
+#
+# rtl8812bu/8812au/8814au/8811cu/8811au
+ht_capab=[LDPC][HT40+][HT40-][SHORT-GI-20][SHORT-GI-40][MAX-AMSDU-7935][DSSS_CCK-40]
+#
+# mt7612u
+#ht_capab=[LDPC][HT40+][GF][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1]
 
-# 8812bu/8812au/8814au/8811cu/8811au
-# 2g
-#ht_capab=[SHORT-GI-20][MAX-AMSDU-7935][DSSS_CCK-40]
-# 5g
-ht_capab=[HT40+][SHORT-GI-20][SHORT-GI-40][MAX-AMSDU-7935]
 
-# IEEE 802.11ac related configuration
+# IEEE 802.11ac
 # 5g
 ieee80211ac=1
+#
+# rtl8812bu/8812au/8814au/8811cu/8811au
+vht_capab=[MAX-MPDU-11454][RXLDPC][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMEE][HTC-VHT]
+#
+# mt7612u
+#vht_capab=[RXLDPC][TX-STBC-2BY1][SHORT-GI-80][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN]
 
-# 8812bu/8812au/8814au/8811cu/8811au
-# 5g
-vht_capab=[MAX-A-MPDU-LEN-EXP3][MAX-MPDU-11454][SHORT-GI-80][HTC-VHT]
-
-# 5g (enable 80 Mhz channel width)
-# Note: Some USB 3 ports, cables and adapters do not work well
-# when pushed with high speed settings, therefore, it is recommended
-# that you deactivate the two lines below early in the troubleshooting
-# process.
+# The next line is required for 80 MHz width channel operation
 vht_oper_chwidth=1
+#
+# Use the next line with channel 36
 vht_oper_centr_freq_seg0_idx=42
-#vht_oper_centr_freq_seg0_idx=155
+#
+# Use the next with channel 149
+# vht_oper_centr_freq_seg0_idx=155
+
+
+# Event logger
+logger_syslog=-1
+logger_syslog_level=2
+logger_stdout=-1
+logger_stdout_level=2
+
+
+# WMM
+wmm_enabled=1
+uapsd_advertisement_enabled=1
+wmm_ac_bk_cwmin=4
+wmm_ac_bk_cwmax=10
+wmm_ac_bk_aifs=7
+wmm_ac_bk_txop_limit=0
+wmm_ac_bk_acm=0
+wmm_ac_be_aifs=3
+wmm_ac_be_cwmin=4
+wmm_ac_be_cwmax=10
+wmm_ac_be_txop_limit=0
+wmm_ac_be_acm=0
+wmm_ac_vi_aifs=2
+wmm_ac_vi_cwmin=3
+wmm_ac_vi_cwmax=4
+wmm_ac_vi_txop_limit=94
+wmm_ac_vi_acm=0
+wmm_ac_vo_aifs=2
+wmm_ac_vo_cwmin=2
+wmm_ac_vo_cwmax=3
+wmm_ac_vo_txop_limit=47
+wmm_ac_vo_acm=0
+
+
+# TX queue parameters
+tx_queue_data3_aifs=7
+tx_queue_data3_cwmin=15
+tx_queue_data3_cwmax=1023
+tx_queue_data3_burst=0
+tx_queue_data2_aifs=3
+tx_queue_data2_cwmin=15
+tx_queue_data2_cwmax=63
+tx_queue_data2_burst=0
+tx_queue_data1_aifs=1
+tx_queue_data1_cwmin=7
+tx_queue_data1_cwmax=15
+tx_queue_data1_burst=3.0
+tx_queue_data0_aifs=1
+tx_queue_data0_cwmin=3
+tx_queue_data0_cwmax=7
+tx_queue_data0_burst=1.5
 
 #
 # end of hostapd.conf
+
 ```
 -----
 
