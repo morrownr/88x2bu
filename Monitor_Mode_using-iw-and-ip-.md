@@ -1,9 +1,9 @@
-##Monitor Mode using ```iw``` and ```ip```
+### Monitor Mode using ```iw``` and ```ip```
 
 2021-02-09
 
 -----
-###Enter Monitor Mode
+##### Enter Monitor Mode
 
 Start by making sure the system recognizes the WiFi interface
 ```
@@ -33,7 +33,7 @@ $ iw dev
 ```
 -----
 
-###Revert to Managed Mode
+##### Revert to Managed Mode
 
 Take the interface down
 ```
@@ -56,7 +56,7 @@ $ iw dev
 ```
 -----
 
-###Change MAC Address before entering Monitor Mode
+##### Change MAC Address before entering Monitor Mode
 
 Take down things that might interfere
 ```
