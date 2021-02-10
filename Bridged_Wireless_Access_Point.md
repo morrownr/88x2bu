@@ -295,7 +295,6 @@ tx_queue_data0_burst=1.5
 
 #
 # end of hostapd.conf
-
 ```
 -----
 
