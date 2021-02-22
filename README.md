@@ -27,9 +27,9 @@
 - Wake on WLAN
 - Supported interface modes:
   * IBSS
-  * Managed (client)
-  * AP (see *Bridged Wireless Access Point* located in the main directory of this repo)
-  * Monitor (see Monitor_Mode.md)
+  * Managed
+  * AP (see Bridged_Wireless_Access_Point.md located in the main directory of this repo)
+  * Monitor (see Monitor_Mode.md located in the main directory of this repo)
   * P2P-client
   * P2P-GO
 - USB mode control
