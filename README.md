@@ -29,7 +29,7 @@
   * IBSS
   * Managed (client)
   * AP (see *Bridged Wireless Access Point* located in the main directory of this repo)
-  * Monitor
+  * Monitor (see Monitor_Mode.md)
   * P2P-client
   * P2P-GO
 - USB mode control
