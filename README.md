@@ -315,13 +315,13 @@ $ sudo reboot
 
 Note: These are general recommendations, some of which may not apply to your specific situation.
 
-Security: Set WPA2-AES or WPA2-AES/WPA3-SAE mixed mode if available. Do not set WPA2 mixed mode or WPA or TKIP.
+Security: Set WPA2-AES (or WPA2-AES/WPA3-SAE mixed mode if available.) Do not set WPA2 mixed mode or WPA or TKIP.
 
 Channel width for 2.4G: Set 20 MHz fixed width. Do not use 40 MHz or 20/40 automatic.
 
 Channels for 2.4G: Set channel 1 or 6 or 11 depending on the congestion at your location. Do not set automatic channel selection.
 
-Mode for 2.4G: If you no long use B or G capable devices, set N only.
+Mode for 2.4G: Set N only if you no longer use B or G capable devices.
 
 Network names: Do not set the 2.4G Network and the 5G Network to the same name. Note: Unfortunately many routers come with both networks set to the same name.
 
@@ -329,7 +329,7 @@ Channels for 5G: Not all devices are capable of using DFS channels. It may be ne
 
 Best location for the router: Near center of apartment or house, at least a couple of feet away from walls, in an elevated location.
 
-Checking congestion: There are apps available for smart phones that allow you to check the congestion levels on wifi channels. The apps generally go by the name of WiFi Analyzer.
+Checking congestion: There are apps available for smart phones that allow you to check the congestion levels on wifi channels. The apps generally go by the name of WiFi Analyzer or something similar.
 
 After making and saving changes, reboot the router.
 
