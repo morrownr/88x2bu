@@ -78,26 +78,26 @@
 
 ### Tested Hardware
 
-- [Cudy WU1400 AC 1300Mbps USB 3.0 WiFi Adapter](https://www.amazon.com/Cudy-WU1200-AC1200Mbps-Wireless-Compatible/dp/B07Q9KY4NT)
-
-Note: Cudy does a good job of posting updated source code from Realtek. Support those who support us.
-
-- [EDUP EP-AC1605GS WiFi Adapter 1300Mbps USB 3.0 High Gain Wireless Adapter](https://www.amazon.com/gp/product/B07Q56K68T)
+- [EDUP EP-AC1605GS WiFi Adapter 1300Mbps USB 3.0 High Gain Wireless Adapter](https://www.amazon.com/gp/product/B07Q56K68T) (single-state)
 
 - [FIDECO 6B21-AC1200M WiFi Adapter - AC1200 Dual Band](https://www.amazon.co.uk/gp/product/B08523KPP9)
 
+- [Cudy WU1400 AC 1300Mbps USB 3.0 WiFi Adapter](https://www.amazon.com/Cudy-WU1200-AC1200Mbps-Wireless-Compatible/dp/B07Q9KY4NT) (multi-state)
+
 ### Compatible Devices
+
+Warning: Beware of "multi-state" USB WiFi adapters. Some USB WiFi adapters have proprietary Windows drivers onboard. When plugged in for the first time, they act like a flash drive or CDROM and start installing the Windows driver from there. The problem is that the state of the adapter has to be changed for the adapter to show up as the device that you expect. Most modern Linux distributions ship with a utility called "usb-modeswitch" that will handle this issue for you. It is a good utility but if you buy adapters that are NOT "multi-state" that is one less potential headache you may have to experience when something goes wrong. Often you can indentify adapters that are "multi-state" as they are advertized as "free driver" or "free installation driver." I will work toward identifying the "multi-state" adapters in the list of adapters below so if you own any of the listed devices and want to forward information about the adapter, please do so. If you are looking to buy a USB WiFi adapter for use on Linux, MAC OS, *NIX or anything besides Windows, it is a good idea to seek out single-state adapters.
 
 Note: Some adapter makers change the chipsets in their products while keeping the same model number so please check to confirm that the product you plan to buy has the chipset you are expecting.
 
 * ASUS AC1300 USB-AC55 B1
 * ASUS U2
-* Cudy WU1400
+* Cudy WU1400 (multi-state)
 * Dlink - DWA-181
 * Dlink - DWA-182
 * Edimax EW-7822ULC
 * Edimax EW-7822UTC
-* EDUP EP-AC1605GS
+* EDUP EP-AC1605GS (single state)
 * FIDECO 6B21-AC1200M
 * NetGear A6150
 * TP-Link Archer T3U
@@ -127,7 +127,7 @@ Step 1: Open a terminal (Ctrl+Alt+T)
 Step 2: Update the system (select the option for the OS you are using)
 ```
     Option for Debian based distributions such as Ubuntu, Linux Mint and the Raspberry Pi OS
-    
+
     $ sudo apt-get update
 ```
 ```
@@ -389,4 +389,3 @@ $ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 3. Press ctrl-x followed by 'y' and enter to save the file.
 
 4. Reboot
-
