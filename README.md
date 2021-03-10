@@ -38,7 +38,7 @@
 - VHT control (allows 80 MHz channel width in AP mode)
 
 Note: WPA3-AES does not appear to be working. If you need a comparable adapter
-that does support WPA3-AES, I will suggest a Alfa AWUS036ACM. You can get more
+that does support WPA3-AES, I will suggest an Alfa AWUS036ACM. You can get more
 information and links about this adapter at the following site-
 
 https://github.com/morrownr/USB-WiFi
