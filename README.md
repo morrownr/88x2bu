@@ -28,7 +28,7 @@
 - Supported interface modes:
   * IBSS
   * Managed (client)
-  * AP (see *Bridged Wireless Access Point* located in the main directory of this repo)
+  * AP
   * Monitor (see *Monitor_Mode.md* located in the main directory of this repo)
   * P2P-client
   * P2P-GO
@@ -86,13 +86,13 @@
 
 ### Compatible Devices
 
-Warning: Beware of "multi-state" USB WiFi adapters. Some USB WiFi adapters have proprietary Windows drivers onboard. When plugged in for the first time, they act like a flash drive or CDROM and start installing the Windows driver from there. The problem is that the state of the adapter has to be changed for the adapter to show up as the device that you expect. Most modern Linux distributions ship with a utility called "usb-modeswitch" that will handle this issue for you. It is a good utility but if you buy adapters that are NOT "multi-state" that is one less potential headache you may have to experience when something goes wrong. Often you can indentify adapters that are "multi-state" as they are advertized as "free driver" or "free installation driver." I will work toward identifying the "multi-state" adapters in the list of adapters below so if you own any of the listed devices and want to forward information about the adapter, please do so. If you are looking to buy a USB WiFi adapter for use on Linux, MAC OS, *NIX or anything besides Windows, it is a good idea to seek out single-state adapters.
+Warning: Beware of "multi-state" USB WiFi adapters. Some USB WiFi adapters have proprietary Windows drivers onboard. When plugged in for the first time, they act like a flash drive or CDROM and on Windows will attempt to start installing the Windows driver. That won't work on Linux or MAC or any other non-Windows OS so the adapter sits there in flash driver or CDROM mode. The problem is that the state of the adapter has to be changed for the adapter to show up as the device that you expect, in this case, a WiFi adapter. Most modern Linux distributions ship with a utility called "usb-modeswitch" that will handle this issue for you if it has the correct information for your adapter. It is a good utility but if you buy adapters that are "multi-state," that is one more potential headache you may have to deal with when something goes wrong. Often you can indentify adapters that are "multi-state" as they are advertised as "free driver" or "free installation driver." I will work toward identifying the "multi-state" adapters in the list of adapters below so if you own any of the listed devices and want to forward information about the adapter, please do so. If you are looking to buy a USB WiFi adapter for use on Linux, MAC OS, *NIX or anything besides Windows, it is a good idea to seek out single-state adapters.
 
 Note: Some adapter makers change the chipsets in their products while keeping the same model number so please check to confirm that the product you plan to buy has the chipset you are expecting.
 
 * ASUS AC1300 USB-AC55 B1
 * ASUS U2
-* Cudy WU1400 (multi-state)
+* Cudy WU1400 (single-state)
 * Dlink - DWA-181
 * Dlink - DWA-182
 * Edimax EW-7822ULC
@@ -112,7 +112,7 @@ The installation instructions are for the novice user. Experienced users are wel
 
 Temporary internet access is required for installation. There are numerous ways to enable temporary internet access depending on your hardware and situation. [One method is to use tethering from a phone.](https://www.makeuseof.com/tag/how-to-tether-your-smartphone-in-linux)
 
-Another method to enable temporary internet access is to keep an [ultra cheap wifi adapter that uses an in-kernel driver](https://www.canakit.com/raspberry-pi-wifi.html) in your toolkit.
+Another method to enable temporary internet access is to keep a [wifi adapter that uses an in-kernel driver](https://github.com/morrownr/USB-WiFi) in your toolkit.
 
 You will need to use the terminal interface. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key)
 
@@ -364,7 +364,7 @@ REGDOMAIN=US
 
 - If connecting your USB WiFi adapter to a desktop computer, use the USB ports on the rear of the computer. Why? The ports on the rear are directly connected to the motherboard which will reduce problems with interference and disconnection that can happen with front ports that use cables.
 
-- If your USB WiFi adapter is USB 3 capable then you need to plug it into a USB 3 port.
+- If your USB WiFi adapter is USB 3 capable then plug it into a USB 3 port.
 
 - If you use an extension cable and your adapter is USB 3 capable, the cable needs to be USB 3 capable.
 
