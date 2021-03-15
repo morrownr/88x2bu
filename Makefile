@@ -93,8 +93,10 @@ CONFIG_ICMP_VOQ = n
 CONFIG_IP_R_MONITOR = n #arp VOQ and high rate
 # user priority mapping rule : tos, dscp
 CONFIG_RTW_UP_MAPPING_RULE = tos
-# Enable VHT rate on 2.4G channel or not
+# enable VHT rate on 2.4G channel or not
 CONFIG_RTW_VHT_2G4 = y
+# necessary for WPA3 support
+CONFIG_GTK_OL = y
 
 ########################## Debug ###########################
 CONFIG_RTW_DEBUG =  n
@@ -1317,6 +1319,11 @@ else
 EXTRA_CFLAGS += -DRTW_VHT_2G4=0
 endif
 
+# necessary for WPA3 support
+ifeq ($(CONFIG_GTK_OL), y)
+EXTRA_CFLAGS += -DCONFIG_GTK_OL
+endif
+
 ifeq ($(CONFIG_PLATFORM_I386_PC), y)
 EXTRA_CFLAGS += -DCONFIG_LITTLE_ENDIAN
 EXTRA_CFLAGS += -DCONFIG_IOCTL_CFG80211 -DRTW_USE_CFG80211_STA_EVENT
@@ -2491,4 +2498,3 @@ clean:
 	rm -fr *.mod.c *.mod *.o .*.cmd *.ko *~
 	rm -fr .tmp_versions *.ur-safe
 endif
-
