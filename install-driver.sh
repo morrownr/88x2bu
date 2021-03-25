@@ -26,15 +26,6 @@ else
 	exit 1
 fi
 
-# Clean existing installation before starting. Yes, users have been trying
-# to install over previous installations.
-echo "Pre-installation checks in progress"
-dkms remove ${DRV_NAME}/${DRV_VERSION}
-rm -f /etc/modprobe.d/${OPTIONS_FILE}
-rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
-echo "Pre-installation checks complete"
-
-echo "Begin installation"
 echo "Copying source files to: /usr/src/${DRV_NAME}-${DRV_VERSION}"
 cp -r "${DRV_DIR}" /usr/src/${DRV_NAME}-${DRV_VERSION}
 echo "Copying ${OPTIONS_FILE} to: /etc/modprobe.d"
@@ -47,10 +38,9 @@ RESULT=$?
 
 if [[ "$RESULT" != "0" ]]; then
 	echo "An error occurred while running: dkms add : ${RESULT}"
-	dkms remove ${DRV_NAME}/${DRV_VERSION}
-	echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
+    echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
 	rm -f /etc/modprobe.d/${OPTIONS_FILE}
-	echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
+    echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
 	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
 	echo "The driver was not installed due to an error."
 	echo "Please report errors."
@@ -62,10 +52,10 @@ RESULT=$?
 
 if [[ "$RESULT" != "0" ]]; then
 	echo "An error occurred while running: dkms build : ${RESULT}"
-	dkms remove ${DRV_NAME}/${DRV_VERSION}
-	echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
+    dkms remove ${DRV_NAME}/${DRV_VERSION} --all
+    echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
 	rm -f /etc/modprobe.d/${OPTIONS_FILE}
-	echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
+    echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
 	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
 	echo "The driver was not installed due to an error."
 	echo "Please report errors."
@@ -77,10 +67,10 @@ RESULT=$?
 
 if [[ "$RESULT" != "0" ]]; then
 	echo "An error occurred while running: dkms install : ${RESULT}"
-	dkms remove ${DRV_NAME}/${DRV_VERSION}
-	echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
+    dkms remove ${DRV_NAME}/${DRV_VERSION} --all
+    echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
 	rm -f /etc/modprobe.d/${OPTIONS_FILE}
-	echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
+    echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
 	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
 	echo "The driver was not installed due to an error."
 	echo "Please report errors."
