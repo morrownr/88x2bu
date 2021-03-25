@@ -22,8 +22,8 @@ fi
 
 nano /etc/modprobe.d/${OPTIONS_FILE}
 
-read -p "Do you want to apply the new options by rebooting now (y/n)? " -n 1 -r
-echo    # (optional) move to a new line
+read -p "Do you want to apply the new options by rebooting now? [y/n] " -n 1 -r
+echo    # move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     reboot
