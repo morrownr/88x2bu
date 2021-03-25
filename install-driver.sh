@@ -7,7 +7,7 @@ OPTIONS_FILE="88x2bu.conf"
 DRV_DIR="$(pwd)"
 KRNL_VERSION="$(uname -r)"
 SCRIPT_NAME="install-driver.sh"
-SCRIPT_VERSION="20210324"
+SCRIPT_VERSION="20210325"
 
 clear
 echo "Version ${SCRIPT_VERSION}"
@@ -29,7 +29,7 @@ fi
 # Clean existing installation before starting. Yes, users have been trying
 # to install over previous installations.
 echo "Pre-installation checks in progress"
-dkms remove ${DRV_NAME}/${DRV_VERSION} --all
+dkms remove ${DRV_NAME}/${DRV_VERSION}
 rm -f /etc/modprobe.d/${OPTIONS_FILE}
 rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
 echo "Pre-installation checks complete"
@@ -47,7 +47,7 @@ RESULT=$?
 
 if [[ "$RESULT" != "0" ]]; then
 	echo "An error occurred while running: dkms add : ${RESULT}"
-	dkms remove ${DRV_NAME}/${DRV_VERSION} --all
+	dkms remove ${DRV_NAME}/${DRV_VERSION}
 	echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
 	rm -f /etc/modprobe.d/${OPTIONS_FILE}
 	echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
@@ -62,7 +62,7 @@ RESULT=$?
 
 if [[ "$RESULT" != "0" ]]; then
 	echo "An error occurred while running: dkms build : ${RESULT}"
-	dkms remove ${DRV_NAME}/${DRV_VERSION} --all
+	dkms remove ${DRV_NAME}/${DRV_VERSION}
 	echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
 	rm -f /etc/modprobe.d/${OPTIONS_FILE}
 	echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
@@ -77,7 +77,7 @@ RESULT=$?
 
 if [[ "$RESULT" != "0" ]]; then
 	echo "An error occurred while running: dkms install : ${RESULT}"
-	dkms remove ${DRV_NAME}/${DRV_VERSION} --all
+	dkms remove ${DRV_NAME}/${DRV_VERSION}
 	echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
 	rm -f /etc/modprobe.d/${OPTIONS_FILE}
 	echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
