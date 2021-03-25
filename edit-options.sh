@@ -22,11 +22,11 @@ fi
 
 nano /etc/modprobe.d/${OPTIONS_FILE}
 
-while true; do
-    read -p "Do you want to active the new options by rebooting now?" yn
-    case $yn in
-        [Yy]* ) reboot; break;;
-        [Nn]* ) exit 0;;
-        * ) echo "Please answer Yes or No.";;
-    esac
-done
+read -p "Do you want to apply the new options by rebooting now (y/n)? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    reboot
+fi
+
+exit 0

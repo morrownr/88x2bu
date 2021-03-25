@@ -10,7 +10,7 @@ SCRIPT_NAME="install-driver.sh"
 SCRIPT_VERSION="20210324"
 
 clear
-echo "Version ${SCRIPT_VERSION}
+echo "Version ${SCRIPT_VERSION}"
 
 if [[ $EUID -ne 0 ]]; then
 	echo "You must run this script with superuser (root) privileges."
@@ -89,11 +89,11 @@ fi
 
 echo "The driver was installed successfully."
 
-while true; do
-    read -p "Do you want edit the driver options file now?" yn
-    case $yn in
-        [Yy]* ) nano /etc/modprobe.d/${OPTIONS_FILE}; break;;
-        [Nn]* ) exit 0;;
-        * ) echo "Please answer Yes or No.";;
-    esac
-done
+read -p "Do you want edit the driver options file now (y/n)? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    nano /etc/modprobe.d/${OPTIONS_FILE}
+fi
+
+exit 0
