@@ -7,6 +7,10 @@ OPTIONS_FILE="88x2bu.conf"
 DRV_DIR="$(pwd)"
 KRNL_VERSION="$(uname -r)"
 SCRIPT_NAME="install-driver.sh"
+SCRIPT_VERSION="20210324"
+
+clear
+echo "Version ${SCRIPT_VERSION}
 
 if [[ $EUID -ne 0 ]]; then
 	echo "You must run this script with superuser (root) privileges."
@@ -22,24 +26,34 @@ else
 	exit 1
 fi
 
+# Clean existing installation before starting. Yes, users have been trying
+# to install over previous installations.
+echo "Pre-installation checks in progress"
+dkms remove ${DRV_NAME}/${DRV_VERSION} --all
+rm -f /etc/modprobe.d/${OPTIONS_FILE}
+rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
+echo "Pre-installation checks complete"
+
+echo "Begin installation"
 echo "Copying source files to: /usr/src/${DRV_NAME}-${DRV_VERSION}"
 cp -r "${DRV_DIR}" /usr/src/${DRV_NAME}-${DRV_VERSION}
-
 echo "Copying ${OPTIONS_FILE} to: /etc/modprobe.d"
 cp -r ${OPTIONS_FILE} /etc/modprobe.d
+echo "All required files have been copied to the proper places."
 
+echo "dkms is now in charge of the installation."
 dkms add ${DRV_NAME}/${DRV_VERSION}
 RESULT=$?
 
 if [[ "$RESULT" != "0" ]]; then
 	echo "An error occurred while running: dkms add : ${RESULT}"
-    echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
+	dkms remove ${DRV_NAME}/${DRV_VERSION} --all
+	echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
 	rm -f /etc/modprobe.d/${OPTIONS_FILE}
-    echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
+	echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
 	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
-    echo "Cleanup complete"
-    echo "dkms status:"
-    dkms status
+	echo "The driver was not installed due to an error."
+	echo "Please report errors."
 	exit $RESULT
 fi
 
@@ -48,14 +62,13 @@ RESULT=$?
 
 if [[ "$RESULT" != "0" ]]; then
 	echo "An error occurred while running: dkms build : ${RESULT}"
-    dkms remove ${DRV_NAME}/${DRV_VERSION} --all
-    echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
+	dkms remove ${DRV_NAME}/${DRV_VERSION} --all
+	echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
 	rm -f /etc/modprobe.d/${OPTIONS_FILE}
-    echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
+	echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
 	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
-    echo "Cleanup complete"
-    echo "dkms status:"
-    dkms status
+	echo "The driver was not installed due to an error."
+	echo "Please report errors."
 	exit $RESULT
 fi
 
@@ -64,17 +77,23 @@ RESULT=$?
 
 if [[ "$RESULT" != "0" ]]; then
 	echo "An error occurred while running: dkms install : ${RESULT}"
-    dkms remove ${DRV_NAME}/${DRV_VERSION} --all
-    echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
+	dkms remove ${DRV_NAME}/${DRV_VERSION} --all
+	echo "Removing ${OPTIONS_FILE} from: /etc/modprobe.d"
 	rm -f /etc/modprobe.d/${OPTIONS_FILE}
-    echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
+	echo "Removing source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
 	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
-    echo "Cleanup complete"
-    dkms status
+	echo "The driver was not installed due to an error."
+	echo "Please report errors."
 	exit $RESULT
-else
-    echo "dkms status:"
-    dkms status
-	echo "The driver was installed successfully."
-	exit 0
 fi
+
+echo "The driver was installed successfully."
+
+while true; do
+    read -p "Do you want edit the driver options file now?" yn
+    case $yn in
+        [Yy]* ) nano /etc/modprobe.d/${OPTIONS_FILE}; break;;
+        [Nn]* ) exit 0;;
+        * ) echo "Please answer Yes or No.";;
+    esac
+done

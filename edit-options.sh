@@ -21,3 +21,12 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 nano /etc/modprobe.d/${OPTIONS_FILE}
+
+while true; do
+    read -p "Do you want to active the new options by rebooting now?" yn
+    case $yn in
+        [Yy]* ) reboot; break;;
+        [Nn]* ) exit 0;;
+        * ) echo "Please answer Yes or No.";;
+    esac
+done
