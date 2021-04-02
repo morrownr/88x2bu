@@ -28,7 +28,7 @@
   * IBSS
   * Managed (client)
   * AP
-  * Monitor (see *Monitor_Mode.md* located in the main directory of this repo)
+  * Monitor
   * P2P-client
   * P2P-GO
 - USB mode control
@@ -37,9 +37,9 @@
 - Power saving control
 - VHT control (allows 80 MHz channel width in AP mode)
 
-Note: WPA3-AES does not appear to be working. If you need a comparable adapter
-that does support WPA3-AES, I will suggest an Alfa AWUS036ACM. You can get more
-information and links about this adapter at the following site-
+Note: WPA3-AES does not work. If you need a comparable adapter that does support
+WPA3-AES, I will suggest an Alfa AWUS036ACM. You can get more information and
+links about this adapter at the following site:
 
 https://github.com/morrownr/USB-WiFi
 
@@ -131,7 +131,7 @@ Step 1: Open a terminal (Ctrl+Alt+T)
 
 Step 2: Update the system (select the option for the OS you are using)
 ```
-    Option for Debian based distributions such as Ubuntu, Linux Mint and the Raspberry Pi OS
+    Option for Debian based distributions such as Ubuntu, Linux Mint, Kali and the Raspberry Pi OS
 
     $ sudo apt-get update
 ```
@@ -147,17 +147,17 @@ Step 3: Install the required packages (select the option for the OS you are usin
     $ sudo apt-get install -y raspberrypi-kernel-headers bc build-essential dkms git
 ```
 ```
-    Option for LMDE (Debian based)
+    Option for Debian, Kali or Linux Mint Debian Edition (LMDE)
 
-    $ sudo apt-get install -y linux-headers-$(uname -r) build-essential dkms git
+    $ sudo apt-get install -y linux-headers-$(uname -r) build-essential dkms git libelf-dev
 ```
 ```
-    Option for Linux Mint or Ubuntu (all flavors)
+    Option for Ubuntu (all flavors) or Linux Mint
 
     $ sudo apt-get install -y dkms git
 ```
 ```
-    Option for Arch based distributions such as Manjaro
+    Option for Arch or Manjaro
 
     $ sudo pacman -S --noconfirm linux-headers dkms git
 ```
@@ -178,7 +178,9 @@ Step 7: Move to the newly created driver directory
 ```bash
 $ cd ~/src/88x2bu
 ```
-Step 8: Run a preparation script if required (Raspberry Pi *hardware* requires a preparation script)
+Step 8: Warning: this step only applies if you are installing to Raspberry Pi *hardware*.
+
+Run a preparation script
 ```
     Option for 32 bit operating systems to be installed to Raspberry Pi hardware
 
@@ -302,6 +304,13 @@ Bitrate
 ```
 ### Removal of the Driver
 
+Note: This script should be used in the following situations:
+
+- the driver is no longer needed
+- a fresh start with default settings is needed
+- a new version of the driver needs to be installed
+- a major operating system upgrade is going to be applied
+
 Step 1: Open a terminal (Ctrl+Alt+T)
 
 Step 2: Move to the driver directory
@@ -320,13 +329,13 @@ $ sudo reboot
 
 Note: These are general recommendations, some of which may not apply to your specific situation.
 
-Security: Set WPA2-AES (or WPA2-AES/WPA3-SAE mixed mode if available.) Do not set WPA2 mixed mode or WPA or TKIP.
+Security: Set WPA2-AES. Do not set WPA2 mixed mode or WPA or TKIP.
 
 Channel width for 2.4G: Set 20 MHz fixed width. Do not use 40 MHz or 20/40 automatic.
 
 Channels for 2.4G: Set channel 1 or 6 or 11 depending on the congestion at your location. Do not set automatic channel selection.
 
-Mode for 2.4G: Set N only if you no longer use B or G capable devices.
+Mode for 2.4G: Set "N only" if you no longer use B or G capable devices.
 
 Network names: Do not set the 2.4G Network and the 5G Network to the same name. Note: Unfortunately many routers come with both networks set to the same name.
 
@@ -334,7 +343,7 @@ Channels for 5G: Not all devices are capable of using DFS channels. It may be ne
 
 Best location for the router: Near center of apartment or house, at least a couple of feet away from walls, in an elevated location.
 
-Checking congestion: There are apps available for smart phones that allow you to check the congestion levels on wifi channels. The apps generally go by the name of WiFi Analyzer or something similar.
+Check congestion: There are apps available for smart phones that allow you to check the congestion levels on wifi channels. The apps generally go by the name of WiFi Analyzer or something similar.
 
 After making and saving changes, reboot the router.
 
