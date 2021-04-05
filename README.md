@@ -38,8 +38,15 @@
 - VHT control (allows 80 MHz channel width in AP mode)
 
 Note: WPA3-AES does not work. If you need a comparable adapter that does support
-WPA3-AES, I will suggest an Alfa AWUS036ACM. You can get more information and
-links about this adapter at the following site:
+WPA3-AES, I suggest an Alfa AWUS036ACM (mt7612u chipset). You can get more
+information and links to this adapter at the following site:
+
+https://github.com/morrownr/USB-WiFi
+
+Note: Realtek out-of-kernel drivers, including this driver, do not support
+interface combinations. If you need support for interface combinations, I
+suggest adapters based on the Mediatek mt7612u and mt7610u chipsets. You can
+get more information and links to this adapter at the following site:
 
 https://github.com/morrownr/USB-WiFi
 
@@ -51,7 +58,7 @@ https://github.com/morrownr/USB-WiFi
 ### Compatible Kernels
 
 - Kernels: 2.6.24 - 5.8 (Realtek)
-- Kernels: 5.9 - 5.12
+- Kernels: 5.9 - 5.12 (community support)
 
 ### Tested Linux Distributions
 
@@ -164,7 +171,7 @@ Step 3: Install the required packages (select the option for the OS you are usin
 Step 4: Create a directory to hold the downloaded driver
 
 ```bash
-$ mkdir src
+$ mkdir ~/src
 ```
 Step 5: Move to the newly created directory
 ```bash
@@ -260,7 +267,7 @@ The driver options are as follows
  1 = Power saving on, minPS (default)
  2 = Power saving on, maxPS
 ```
- Note: 0 may be useful in unattended server setups or if dropouts are experienced.
+ Note: Extensive testing has shown that the default setting works well.
 
  -----
 
