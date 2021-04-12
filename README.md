@@ -46,7 +46,7 @@ https://github.com/morrownr/USB-WiFi
 Note: Realtek out-of-kernel drivers, including this driver, do not support
 interface combinations. If you need support for interface combinations, I
 suggest adapters based on the Mediatek mt7612u and mt7610u chipsets. You can
-get more information and links to this adapter at the following site:
+get more information and links at the following site:
 
 https://github.com/morrownr/USB-WiFi
 
