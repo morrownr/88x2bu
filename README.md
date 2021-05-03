@@ -399,9 +399,13 @@ REGDOMAIN=US
 
 ### Recommendations regarding USB
 
+- Moving your USB WiFi adapter to a different USB port has been known to fix a variety of problems. Problems include WiFi going on and off as well as connections coming and going.
+
 - If connecting your USB WiFi adapter to a desktop computer, use the USB ports on the rear of the computer. Why? The ports on the rear are directly connected to the motherboard which will reduce problems with interference and disconnection that can happen with front ports that use cables.
 
 - If your USB WiFi adapter is USB 3 capable then plug it into a USB 3 port.
+
+- Avoid USB 3.1 Gen 2 ports if possible as almost all currently available adapters have been tested with USB 3.1 Gen 1 (aka USB 3) and not with USB 3.1 Gen 2.
 
 - If you use an extension cable and your adapter is USB 3 capable, the cable needs to be USB 3 capable.
 
