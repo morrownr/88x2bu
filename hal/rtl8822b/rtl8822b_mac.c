@@ -18,7 +18,8 @@
 #include <hal_data.h>		/* HAL_DATA_TYPE */
 #include "../hal_halmac.h"	/* Register Definition and etc. */
 #include "rtl8822b.h"		/* FW array */
-
+#define MAC_FILE_FW_NIC			"rtw8822b_fw.bin"
+extern char rtw_phy_para_file_path[PATH_LENGTH_MAX];
 
 inline u8 rtl8822b_rcr_config(PADAPTER p, u32 rcr)
 {
@@ -127,6 +128,7 @@ s32 rtl8822b_fw_dl(PADAPTER adapter, u8 wowlan)
 	{
 		RTW_INFO("%s fw source from array\n", __FUNCTION__);
 		fw_bin = _FALSE;
+		err = 1;
 	}
 
 #ifdef CONFIG_FILE_FWIMG
@@ -134,14 +136,19 @@ s32 rtl8822b_fw_dl(PADAPTER adapter, u8 wowlan)
 		err = rtw_halmac_dlfw_from_file(d, rtw_phy_para_file_path);
 	} else
 #endif /* CONFIG_FILE_FWIMG */
+
 	{
+/*
 		#ifdef CONFIG_WOWLAN
 		if (_TRUE == wowlan)
 			err = rtw_halmac_dlfw(d, array_mp_8822b_fw_wowlan, array_length_mp_8822b_fw_wowlan);
 		else
-		#endif /* CONFIG_WOWLAN */
+		#endif
 			err = rtw_halmac_dlfw(d, array_mp_8822b_fw_nic, array_length_mp_8822b_fw_nic);
+*/
+		RTW_INFO("%s firmware will load from file\n", __FUNCTION__);
 	}
+
 
 	if (!err) {
 		hal->bFWReady = _TRUE;

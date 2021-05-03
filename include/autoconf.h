@@ -77,11 +77,13 @@
 /* #define CONFIG_H2CLBK */
 
 #define RTW_HALMAC		/* Use HALMAC architecture, necessary for 8822B */
+/*
 #define CONFIG_EMBEDDED_FWIMG	1
 #if (CONFIG_EMBEDDED_FWIMG==1)
 	#define	LOAD_FW_HEADER_FROM_DRIVER
 #endif
-/* #define CONFIG_FILE_FWIMG */
+*/
+#define CONFIG_FILE_FWIMG
 
 #define CONFIG_XMIT_ACK
 #ifdef CONFIG_XMIT_ACK

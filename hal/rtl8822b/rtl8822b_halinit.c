@@ -18,6 +18,8 @@
 #include <hal_data.h>		/* GET_HAL_SPEC(), HAL_DATA_TYPE */
 #include "../hal_halmac.h"	/* HALMAC API */
 #include "rtl8822b.h"
+#define MAC_FILE_FW_NIC			"rtw8822b_fw.bin"
+char	rtw_phy_para_file_path[PATH_LENGTH_MAX]="/lib/firmware/rtw88/";
 
 
 void rtl8822b_init_hal_spec(PADAPTER adapter)
@@ -160,6 +162,7 @@ u8 rtl8822b_hal_init(PADAPTER adapter)
 	{
 		RTW_INFO("%s fw source from array\n", __FUNCTION__);
 		fw_bin = _FALSE;
+		err=1;
 	}
 
 #ifdef CONFIG_FILE_FWIMG
@@ -167,7 +170,8 @@ u8 rtl8822b_hal_init(PADAPTER adapter)
 		err = rtw_halmac_init_hal_fw_file(d, rtw_phy_para_file_path);
 	else
 #endif /* CONFIG_FILE_FWIMG */
-		err = rtw_halmac_init_hal_fw(d, array_mp_8822b_fw_nic, array_length_mp_8822b_fw_nic);
+		RTW_INFO("%s FW from file,not embeeed\n", __FUNCTION__);
+//		err = rtw_halmac_init_hal_fw(d, array_mp_8822b_fw_nic, array_length_mp_8822b_fw_nic);
 
 	if (err) {
 		RTW_ERR("%s Download Firmware from %s failed\n", __FUNCTION__, (fw_bin) ? "file" : "array");
