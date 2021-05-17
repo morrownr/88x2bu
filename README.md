@@ -23,8 +23,8 @@
 - Supported interface modes:
   * IBSS
   * Managed (client)
-  * AP
-  * Monitor
+  * AP (AP mode support is not good)
+  * Monitor (Monitor mode support is not good)
   * P2P-client
   * P2P-GO
 - Supported extended features: None
@@ -356,7 +356,7 @@ Channel width for 2.4G: Set 20 MHz fixed width. Do not use 40 MHz or 20/40 autom
 
 Channels for 2.4G: Set channel 1 or 6 or 11 depending on the congestion at your location. Do not set automatic channel selection.
 
-Mode for 2.4G: For best performance, set "N only" if you no longer use B or G capable devices.
+Mode for 2.4G: For best performance, set "N only" if you no longer use B or G devices.
 
 Network names: Do not set the 2.4G Network and the 5G Network to the same name. Note: Unfortunately many routers come with both networks set to the same name.
 
