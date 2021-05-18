@@ -22,9 +22,9 @@
 - Wake on WLAN
 - Supported interface modes:
   * IBSS
-  * Managed (client)
-  * AP (AP mode support is not good)
-  * Monitor (Monitor mode support is not good)
+  * Managed
+  * AP
+  * Monitor (does not work well)
   * P2P-client
   * P2P-GO
 - Supported extended features: None
@@ -34,20 +34,30 @@
 - Power saving control
 - VHT control (allows 80 MHz channel width in AP mode)
 
-Note: WPA3 does not work. In fact, a client system using this driver will not
-connect to an AP with WPA3 Transition mode enabled. If you need a comparable
-adapter that does support WPA3, I suggest an Alfa AWUS036ACM (mt7612u chipset)
-or other mt7612u or mt7612un based adapter. You can get more information and
-links at the following site:
+FAQ:
+
+Question: Does WPA3 work with this driver?
+
+Answer: No, WPA3 does not work with this driver. If you need a comparable adapter
+that does support WPA3, I suggest an Alfa AWUS036ACM (mt7612u chipset) or a
+Alfa AWUS036ACHM (mt7610u chipset). You can get more information and links to
+these adapters at the following site:
 
 https://github.com/morrownr/USB-WiFi
 
-Note: Realtek out-of-kernel drivers, including this driver, do not support
-interface combinations. If you need support for interface combinations, I
-suggest adapters based on the Mediatek mt7612u and mt7610u chipsets. You can
+Question: What interface combination does this driver support?
+
+Answer: None. Realtek out-of-kernel drivers, including this driver, do not
+support interface combinations. If you need support for interface combinations,
+I suggest adapters based on the Mediatek mt7612u and mt7610u chipsets. You can
 get more information and links at the following site:
 
 https://github.com/morrownr/USB-WiFi
+
+Question: What is wrong with monitor mode?
+
+Answer: I wish I could figure that out. If you would like work on it, please
+do so. Help is appreciated.
 
 ### Compatible CPUs
 
@@ -356,7 +366,7 @@ Channel width for 2.4G: Set 20 MHz fixed width. Do not use 40 MHz or 20/40 autom
 
 Channels for 2.4G: Set channel 1 or 6 or 11 depending on the congestion at your location. Do not set automatic channel selection.
 
-Mode for 2.4G: For best performance, set "N only" if you no longer use B or G devices.
+Mode for 2.4G: For best performance, set "N only" if you no longer use B or G capable devices.
 
 Network names: Do not set the 2.4G Network and the 5G Network to the same name. Note: Unfortunately many routers come with both networks set to the same name.
 
