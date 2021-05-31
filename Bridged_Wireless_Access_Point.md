@@ -191,7 +191,7 @@ Reboot system.
 
 Code:
 ```
-$ sudo reboot
+sudo reboot
 ```
 -----
 
