@@ -35,9 +35,9 @@ this setup guide.
 
 #### Tested Setup
 
-Raspberry Pi 4B (4gb)
+[Raspberry Pi 4B (4gb)](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)
 
-Raspberry Pi OS (2021-03-04) (32 bit) (kernel 5.10.17-v7l+)
+[Raspberry Pi OS (2021-03-04) (32 bit) (kernel 5.10.17-v7l+)](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit)
 
 Ethernet connection providing internet
 
