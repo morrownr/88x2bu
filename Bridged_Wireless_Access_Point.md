@@ -692,7 +692,8 @@ Check status of the services.
 Code:
 ```
 systemctl status hostapd
-
+```
+```
 systemctl status systemd-networkd
 ```
 -----
@@ -747,17 +748,29 @@ Note: For systems running the Gnome desktop, use the following.
 Code:
 ```
 sudo systemctl stop NetworkManager.service
+```
+```
 sudo systemctl disable NetworkManager.service
-
+```
+```
 sudo systemctl stop NetworkManager-wait-online.service
+```
+```
 sudo systemctl disable NetworkManager-wait-online.service
-
+```
+```
 sudo systemctl stop NetworkManager-dispatcher.service
+```
+```
 sudo systemctl disable NetworkManager-dispatcher.service
-
+```
+```
 sudo systemctl stop network-manager.service
+```
+```
 sudo systemctl disable network-manager.service
-
+```
+```
 sudo reboot
 ```
 
@@ -774,9 +787,14 @@ Note: we are activating /etc/network/interfaces
 Code:
 ```
 sudo apt-get install ifupdown
-
+```
+```
 sudo systemctl stop networkd-dispatcher
+```
+```
 sudo systemctl disable networkd-dispatcher
+```
+```
 sudo systemctl mask networkd-dispatcher
 ```
 Purge netplan.
@@ -784,7 +802,8 @@ Purge netplan.
 Code:
 ```
 sudo apt-get purge nplan netplan.io
-
+```
+```
 sudo reboot
 ```
 -----
