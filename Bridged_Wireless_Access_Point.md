@@ -41,7 +41,7 @@ Raspberry Pi OS (2021-03-04) (32 bit) (kernel 5.10.17-v7l+)
 
 Ethernet connection providing internet
 
-USB WiFi Adapter(s)
+[USB WiFi Adapter(s)](https://github.com/morrownr/USB-WiFi)
 
 [Case](https://www.amazon.com/dp/B07X8RL8SL)
 
