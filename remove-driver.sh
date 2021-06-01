@@ -1,11 +1,13 @@
 #!/bin/bash
 
 SCRIPT_NAME="remove-driver.sh"
-SCRIPT_VERSION="20210416"
+SCRIPT_VERSION="20210531"
 
 DRV_NAME="rtl88x2bu"
 DRV_VERSION="5.8.7.4"
 OPTIONS_FILE="88x2bu.conf"
+
+DRV_DIR="$(pwd)"
 
 if [[ $EUID -ne 0 ]]
 then
@@ -14,21 +16,22 @@ then
 	exit 1
 fi
 
-echo "Start removal."
+echo "Starting removal."
 
 dkms remove -m ${DRV_NAME} -v ${DRV_VERSION} --all
 RESULT=$?
 
-# result will be 3 if there are no instances of module to remove
+# RESULT will be 3 if there are no instances of module to remove
 # however we still need to remove the files or the install script
 # will complain.
 if [[ ("$RESULT" = "0")||("$RESULT" = "3") ]]
 then
-	echo "Deleting ${OPTIONS_FILE} from: /etc/modprobe.d"
+	echo "Deleting ${OPTIONS_FILE} from /etc/modprobe.d"
 	rm -f /etc/modprobe.d/${OPTIONS_FILE}
-	echo "Deleting source files from: /usr/src/${DRV_NAME}-${DRV_VERSION}"
+	echo "Deleting source files from /usr/src/${DRV_NAME}-${DRV_VERSION}"
 	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
-
+	echo "Deleting ${DRV_DIR}"
+	rm -rf ${DRV_DIR}
 	echo "The driver was removed successfully."
 else
 	echo "An error occurred. dkms remove error = ${RESULT}"
