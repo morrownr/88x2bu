@@ -21,7 +21,7 @@
   * IBSS
   * Managed
   * AP
-  * Monitor (does not work well)
+  * Monitor
   * P2P-client
   * P2P-GO
 - USB mode control
@@ -56,11 +56,6 @@ Answer: None. For extended features, you need an adapter that uses Mediatek
 drivers. You can get more information and links at the following site:
 
 https://github.com/morrownr/USB-WiFi
-
-Question: What is wrong with monitor mode?
-
-Answer: I wish I could figure that out. If you would like work on it, please
-do so. Help is appreciated.
 
 ### Compatible CPUs
 
@@ -137,9 +132,7 @@ Note: Some adapter makers change the chipsets in their products while keeping th
 
 The installation instructions are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
 
-Temporary internet access is required for installation. There are numerous ways to enable temporary internet access depending on your hardware and situation. [One method is to use tethering from a phone.](https://www.makeuseof.com/tag/how-to-tether-your-smartphone-in-linux)
-
-Another method to enable temporary internet access is to keep a [wifi adapter that uses an in-kernel driver](https://github.com/morrownr/USB-WiFi) in your toolkit.
+Temporary internet access is required for installation. There are numerous ways to enable temporary internet access depending on your hardware and situation. [One method is to use tethering from a phone.](https://www.makeuseof.com/tag/how-to-tether-your-smartphone-in-linux). Another method to enable temporary internet access is to keep a [wifi adapter that uses an in-kernel driver](https://github.com/morrownr/USB-WiFi) in your toolkit.
 
 You will need to use the terminal interface. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key)
 
@@ -147,7 +140,7 @@ DKMS is used for the installation. DKMS is a system utility which will automatic
 
 It is recommended that you do not delete the driver directory after installation as the directory contains information and scripts that you may need in the future.
 
-Note: There is no need to disable Secure Mode to install this driver. If Secure Mode is properly setup on your system, this installation will support it.
+There is no need to disable Secure Mode to install this driver. If Secure Mode is properly setup on your system, this installation will support it.
 
 ### Installation Steps
 
@@ -190,7 +183,7 @@ Step 3: Install the required packages (select the option for the OS you are usin
 
     $ sudo pacman -S --noconfirm linux-headers dkms git
 ```
-Note regarding Arch and Manjaro: if you are asked to choose a provider, make sure to choose the one that corresponds to your version of the linux kernel (for example, ```linux510-headers``` for Linux kernel version 5.10) if you install the incorrect version, you'll have to uninstall it and reinstall the correct version.
+Note regarding Arch and Manjaro: if you are asked to choose a provider, make sure to choose the one that corresponds to your active version of the linux kernel (for example: ```linux510-headers``` for Linux kernel version 5.10). If you install the incorrect version of the headers, you will have to uninstall the headers and reinstall the correct version.
 
 ```
     Option for Fedora
@@ -227,7 +220,7 @@ Run a preparation script
 
     $ ./raspi64.sh
 ```
-Step 9: Run the installation script (For automated builds - for example an RPM package or an image - use _NoPrompt_ as an option)
+Step 9: Run the installation script (For automated builds, use _NoPrompt_ as an option)
 ```bash
 $ sudo ./install-driver.sh [NoPrompt]
 ```
@@ -258,6 +251,8 @@ Note: This script should be used in the following situations:
 - a fresh start with default settings is needed
 - a new version of the driver needs to be installed
 - a major operating system upgrade is going to be applied
+
+Note: This script removes everything that has been installed, included the directory that contains the downloaded source.
 
 Step 1: Open a terminal (Ctrl+Alt+T)
 
