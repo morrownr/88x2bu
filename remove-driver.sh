@@ -7,7 +7,7 @@ DRV_NAME="rtl88x2bu"
 DRV_VERSION="5.8.7.4"
 OPTIONS_FILE="88x2bu.conf"
 
-DRV_DIR="$(pwd)"
+DRV_DIR="~/src/88x2bu"
 
 if [[ $EUID -ne 0 ]]
 then

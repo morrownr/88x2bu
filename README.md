@@ -380,7 +380,7 @@ https://github.com/morrownr/USB-WiFi
 
 Question: Why do you recommend Mediatek based adapters when you maintain this repo for a Realtek driver?
 
-Answer: Many Linux users already have adapters based on Realtek chipsets. This repo is for Linux users to support their existing adapters but my STRONG recommendation is for Linux users that are looking to add, upgrade or change the wifi capability of their computer to seek out solutions based on Mediatek, Intel or Atheros chipsets and drivers. If a user is looking at a usb solution, Mediatek based adapters are the best solution. If users want a PCIe or mPCIe or other solution then Intel, Mediatek or Atheros are good solutions. Realtek based adapters are not a good solution because Realtek does not follow Linux Wireless standards. Realtek drivers are problematic in many ways. You have been WARNED. For information about usb wifi adapters:
+Answer: Many Linux users already have adapters based on Realtek chipsets. This repo is for Linux users to support their existing adapters but my STRONG recommendation is for Linux users to seek out solutions based on Mediatek, Intel or Atheros chipsets and drivers. If users are looking at a USB solution, Mediatek and Atheros based adapters are the best solution. If users want a PCIe, mPCIe, SDIO or other implementation then Intel, Mediatek or Atheros are good solutions. Realtek based USB adapters are not a good solution because Realtek does not follow Linux Wireless standards for USB WiFi adapters. Realtek drivers are problematic in many ways. You have been WARNED. For information about usb wifi adapters:
 
 https://github.com/morrownr/USB-WiFi
 
