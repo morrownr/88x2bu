@@ -238,7 +238,7 @@ Note: This script should be used in the following situations:
 - a major operating system upgrade is going to be applied
 
 Note: This script removes everything that has been installed, with the exception
-of the packages installed in Step 3, included the directory that contains the
+of the packages installed in Step 3, including the directory that contains the
 downloaded source.
 
 Step 1: Open a terminal (Ctrl+Alt+T)
@@ -351,6 +351,7 @@ these adapters at the following site:
 
 https://github.com/morrownr/USB-WiFi
 
+
 Question: What interface combinations does this driver support?
 
 Answer: None. Realtek out-of-kernel drivers, including this driver, do not
@@ -360,10 +361,18 @@ get more information and links at the following site:
 
 https://github.com/morrownr/USB-WiFi
 
+
 Question: What extended features does this driver support?
 
 Answer: None. For extended features, you need an adapter that uses Mediatek
 drivers. You can get more information and links at the following site:
+
+https://github.com/morrownr/USB-WiFi
+
+
+Question: I bought two rtl88x2bu adapters and am planning to run one of them as an AP and another as a WiFi client. How do I set that up?
+
+Answer: You can't. Realtek drivers do not support more than one adapter with the same chipset in the same computer. However, testing has shown that the Mediatek drivers do support more than one adapter with the same chipset in the same computer. I recommend adapters with the mt7612u chipset if you are looking for AC 1200+ adapters. You can get more information and links at the following site:
 
 https://github.com/morrownr/USB-WiFi
 
