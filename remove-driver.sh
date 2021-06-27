@@ -1,13 +1,11 @@
 #!/bin/bash
 
 SCRIPT_NAME="remove-driver.sh"
-SCRIPT_VERSION="20210531"
+SCRIPT_VERSION="20210626"
 
 DRV_NAME="rtl88x2bu"
 DRV_VERSION="5.8.7.4"
 OPTIONS_FILE="88x2bu.conf"
-
-DRV_DIR="~/src/88x2bu"
 
 if [[ $EUID -ne 0 ]]
 then
@@ -30,9 +28,8 @@ then
 	rm -f /etc/modprobe.d/${OPTIONS_FILE}
 	echo "Deleting source files from /usr/src/${DRV_NAME}-${DRV_VERSION}"
 	rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
-	echo "Deleting ${DRV_DIR}"
-	rm -rf ${DRV_DIR}
 	echo "The driver was removed successfully."
+	echo "You may now delete the driver directory if desired."
 else
 	echo "An error occurred. dkms remove error = ${RESULT}"
 	echo "Please report this error."
