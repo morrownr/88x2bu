@@ -2181,7 +2181,7 @@ static int sha256_compress(struct _sha256_state *md, unsigned char *buf)
 }
 
 /* Initialize the hash state */
-static void _sha256_init(struct _sha256_state *md)
+static void sha256_init(struct _sha256_state *md)
 {
 	md->curlen = 0;
 	md->length = 0;
@@ -2296,7 +2296,7 @@ static int sha256_vector(size_t num_elem, u8 *addr[], size_t *len,
 	struct _sha256_state ctx;
 	size_t i;
 
-	_sha256_init(&ctx);
+	sha256_init(&ctx);
 	for (i = 0; i < num_elem; i++)
 		if (sha256_process(&ctx, addr[i], len[i]))
 			return -1;

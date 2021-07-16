@@ -437,7 +437,7 @@ u8 rtw_cfg80211_ch_switch_notify(_adapter *adapter, u8 ch, u8 bw, u8 offset,
 
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 19, 0))
 	if (started) {
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(5, 11, 0))
+	#if (LINUX_VERSION_CODE >= KERNEL_VERSION(5, 11, 0))
 
 		/* --- cfg80211_ch_switch_started_notfiy() ---
 		 *  A new parameter, bool quiet, is added from Linux kernel v5.11,
@@ -448,9 +448,9 @@ u8 rtw_cfg80211_ch_switch_notify(_adapter *adapter, u8 ch, u8 bw, u8 offset,
 		 */
 
 		cfg80211_ch_switch_started_notify(adapter->pnetdev, &chdef, 0, false);
-#else
+	#else
 		cfg80211_ch_switch_started_notify(adapter->pnetdev, &chdef, 0);
-#endif
+	#endif
 		goto exit;
 	}
 #endif

@@ -238,8 +238,8 @@ Note: This script should be used in the following situations:
 - a major operating system upgrade is going to be applied
 
 Note: This script removes everything that has been installed, with the exception
-of the packages installed in Step 3, including the directory that contains the
-downloaded source.
+of the packages installed in Step 3 and the driver directory. The driver directory
+ can and probably should be deleted in most cases after running the script.
 
 Step 1: Open a terminal (Ctrl+Alt+T)
 
@@ -380,7 +380,7 @@ https://github.com/morrownr/USB-WiFi
 
 Question: Why do you recommend Mediatek based adapters when you maintain this repo for a Realtek driver?
 
-Answer: Many Linux users already have adapters based on Realtek chipsets. This repo is for Linux users to support their existing adapters but my STRONG recommendation is for Linux users to seek out solutions based on Mediatek, Intel or Atheros chipsets and drivers. If users are looking at a USB solution, Mediatek and Atheros based adapters are the best solution. If users want a PCIe, mPCIe, SDIO or other implementation then Intel, Mediatek or Atheros are good solutions. Realtek based USB adapters are not a good solution because Realtek does not follow Linux Wireless standards for USB WiFi adapters. Realtek drivers are problematic in many ways. You have been WARNED. For information about usb wifi adapters:
+Answer: Many Linux users already have adapters based on Realtek chipsets. This repo is for Linux users to support their existing adapters but my STRONG recommendation is for Linux users to seek out WiFi solutions based on Mediatek, Intel or Atheros chipsets and drivers. If users are looking at a USB solution, Mediatek and Atheros based adapters are the best solution. If users want a PCIe, mPCIe, SDIO or other implementation then Intel, Mediatek or Atheros are good solutions. Realtek based USB adapters are not a good solution because Realtek does not follow Linux Wireless standards for USB WiFi adapters. Realtek drivers are problematic in many ways. You have been WARNED. For information about usb wifi adapters:
 
 https://github.com/morrownr/USB-WiFi
 
