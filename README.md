@@ -42,7 +42,7 @@ A FAQ is available at the end of this document.
 ### Compatible Kernels
 
 - Kernels: 2.6.24 - 5.8 (Realtek)
-- Kernels: 5.9 - 5.12 (community support)
+- Kernels: 5.9 - 5.13 (community support)
 
 ### Tested Linux Distributions
 
@@ -50,6 +50,8 @@ A FAQ is available at the end of this document.
 - Arch Linux (kernel 5.9)
 
 - Fedora (kernel 5.11)
+
+- Kali Linux (kernel 5.10)
 
 - Linux Mint 20.1 (Linux Mint based on Ubuntu) (kernel 5.4)
 - Linux Mint 20   (Linux Mint based on Ubuntu) (kernel 5.4)
@@ -70,6 +72,7 @@ A FAQ is available at the end of this document.
 
 - [Arch Linux](https://www.archlinux.org)
 - [Fedora](https://getfedora.org)
+- [Kali Linux](https://www.kali.org/)
 - [Linux Mint](https://www.linuxmint.com)
 - [Manjaro](https://manjaro.org)
 - [Raspberry Pi OS](https://www.raspberrypi.org)
@@ -127,7 +130,7 @@ Step 2: Update the system (select the option for the OS you are using)
 ```
     Option for Debian based distributions such as Ubuntu, Linux Mint, Kali and the Raspberry Pi OS
 
-    $ sudo apt-get update
+    $ sudo apt update
 ```
 ```
     Option for Arch based distributions such as Manjaro
@@ -143,32 +146,30 @@ Step 3: Install the required packages (select the option for the OS you are usin
 ```
     Option for Raspberry Pi OS
 
-    $ sudo apt-get install -y raspberrypi-kernel-headers bc build-essential dkms git
+    $ sudo apt install -y raspberrypi-kernel-headers bc build-essential dkms git
 ```
 ```
     Option for Debian, Kali or Linux Mint Debian Edition (LMDE)
 
-    $ sudo apt-get install -y linux-headers-$(uname -r) build-essential dkms git libelf-dev
+    $ sudo apt install -y linux-headers-$(uname -r) build-essential dkms git libelf-dev
 ```
 ```
     Option for Ubuntu (all flavors) or Linux Mint
 
-    $ sudo apt-get install -y dkms git
+    $ sudo apt install -y dkms git build-essential
 ```
 ```
     Options for Arch or Manjaro
 
-    1) if using pacman
+    if using pacman
 
     $ sudo pacman -S --noconfirm linux-headers dkms git
 ```
 Note: If you are asked to choose a provider, make sure to choose the one that corresponds to your version of the linux kernel (for example, ```linux510-headers``` for Linux kernel version 5.10) if you install the incorrect version, you'll have to uninstall it and reinstall the correct version.
 ```
-    2) if using an AUR helper like paru or yay
+    if using other methods, please follow the instructions provided by those methods
 
-    $ paru -S rtl8814au-dkms-git
 ```
-Note: Make sure to uninstall any existing driver installations from other installation method. If the installation fails and its cause is related to AUR's BUILDPKG script, please address the issue first to the package maintainer at https://aur.archlinux.org/packages/rtl8814au-dkms-git/.
 
 ```
     Option for Fedora
@@ -239,7 +240,7 @@ Note: This script should be used in the following situations:
 
 Note: This script removes everything that has been installed, with the exception
 of the packages installed in Step 3 and the driver directory. The driver directory
- can and probably should be deleted in most cases after running the script.
+can and probably should be deleted in most cases after running the script.
 
 Step 1: Open a terminal (Ctrl+Alt+T)
 
@@ -377,6 +378,7 @@ Question: I bought two rtl88x2bu adapters and am planning to run one of them as 
 Answer: You can't. Realtek drivers do not support more than one adapter with the same chipset in the same computer. However, testing has shown that the Mediatek drivers do support more than one adapter with the same chipset in the same computer. I recommend adapters with the mt7612u chipset if you are looking for AC 1200+ adapters. You can get more information and links at the following site:
 
 https://github.com/morrownr/USB-WiFi
+
 
 Question: Why do you recommend Mediatek based adapters when you maintain this repo for a Realtek driver?
 
