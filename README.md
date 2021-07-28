@@ -64,6 +64,7 @@ A FAQ is available at the end of this document.
 - Raspberry Pi OS (2021-01-11) (ARM 32 bit) (kernel 5.10)
 - Raspberry Pi Desktop (x86 32 bit) (kernel 4.9)
 
+- Ubuntu 21.04 (kernel 5.11)
 - Ubuntu 20.10 (kernel 5.8)
 - Ubuntu 20.04 (kernel 5.4)
 - Ubuntu 18.04 (kernel 5.4)
@@ -80,22 +81,22 @@ A FAQ is available at the end of this document.
 
 ### Tested Hardware
 
-- [EDUP EP-AC1605GS WiFi Adapter 1300Mbps USB 3.0 High Gain Wireless Adapter](https://www.amazon.com/gp/product/B07Q56K68T) (single-state)
+- [EDUP EP-AC1605GS WiFi Adapter 1300Mbps USB 3.0 High Gain Wireless Adapter](https://www.amazon.com/gp/product/B07Q56K68T)
 
 - [FIDECO 6B21-AC1200M WiFi Adapter - AC1200 Dual Band](https://www.amazon.co.uk/gp/product/B08523KPP9)
 
-- [Cudy WU1400 AC 1300Mbps USB 3.0 WiFi Adapter](https://www.amazon.com/Cudy-WU1200-AC1200Mbps-Wireless-Compatible/dp/B07Q9KY4NT) (single-state)
+- [Cudy WU1400 AC 1300Mbps USB 3.0 WiFi Adapter](https://www.amazon.com/Cudy-WU1200-AC1200Mbps-Wireless-Compatible/dp/B07Q9KY4NT)
 
 ### Compatible Devices
 
 * ASUS AC1300 USB-AC55 B1
 * ASUS U2
-* Cudy WU1400 (single-state)
+* Cudy WU1400
 * Dlink - DWA-181
 * Dlink - DWA-182
 * Edimax EW-7822ULC
 * Edimax EW-7822UTC
-* EDUP EP-AC1605GS (single state)
+* EDUP EP-AC1605GS
 * FIDECO 6B21-AC1200M
 * Linksys WUSB6300 V2
 * NetGear A6150
