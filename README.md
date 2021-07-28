@@ -166,9 +166,12 @@ Step 3: Install the required packages (select the option for the OS you are usin
     if using pacman
 
     $ sudo pacman -S --noconfirm linux-headers dkms git
-```
-Note: If you are asked to choose a provider, make sure to choose the one that corresponds to your version of the linux kernel (for example, ```linux510-headers``` for Linux kernel version 5.10) if you install the incorrect version, you'll have to uninstall it and reinstall the correct version.
-```
+
+    Note: If you are asked to choose a provider, make sure to choose the one that
+    corresponds to your version of the linux kernel (for example, "linux510-headers"
+    for Linux kernel version 5.10) if you install the incorrect version, you'll have
+    to uninstall it and reinstall the correct version.
+
     if using other methods, please follow the instructions provided by those methods
 
 ```
@@ -207,6 +210,9 @@ Run a preparation script
     Option for 64 bit operating systems to be installed to Raspberry Pi hardware
 
     $ ./raspi64.sh
+
+    Note: I will only address issues having to do with the 64 bit version of the
+    Raspberry Pi OS once it is out of beta and is released as generlly available.
 ```
 Step 9: Run the installation script (For automated builds, use _NoPrompt_ as an option)
 ```bash
