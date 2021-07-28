@@ -97,6 +97,7 @@ A FAQ is available at the end of this document.
 * Edimax EW-7822UTC
 * EDUP EP-AC1605GS (single state)
 * FIDECO 6B21-AC1200M
+* Linksys WUSB6300 V2
 * NetGear A6150
 * TP-Link Archer T3U
 * TP-Link Archer T3U Plus

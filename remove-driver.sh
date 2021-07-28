@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_NAME="remove-driver.sh"
-SCRIPT_VERSION="20210626"
+SCRIPT_VERSION="20210725"
 
 DRV_NAME="rtl88x2bu"
 DRV_VERSION="5.8.7.4"
@@ -36,7 +36,7 @@ else
 	exit $RESULT
 fi
 
-read -p "Are you ready to reboot now? [y/n] " -n 1 -r
+read -p "Are you ready to reboot now? [y/N] " -n 1 -r
 echo    # move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
