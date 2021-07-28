@@ -53,9 +53,8 @@ A FAQ is available at the end of this document.
 
 - Kali Linux (kernel 5.10)
 
-- Linux Mint 20.1 (Linux Mint based on Ubuntu) (kernel 5.4)
+- Linux Mint 20.2 (Linux Mint based on Ubuntu) (kernel 5.4)
 - Linux Mint 20   (Linux Mint based on Ubuntu) (kernel 5.4)
-- Linux Mint 19.3 (Linux Mint based on Ubuntu) (kernel 5.4)
 
 - LMDE 4 (Linux Mint based on Debian) (kernel 4.19)
 
@@ -212,7 +211,7 @@ Run a preparation script
     $ ./raspi64.sh
 
     Note: I will only address issues having to do with the 64 bit version of the
-    Raspberry Pi OS once it is out of beta and is released as generlly available.
+    Raspberry Pi OS once it is out of beta and is released as generally available.
 ```
 Step 9: Run the installation script (For automated builds, use _NoPrompt_ as an option)
 ```bash
