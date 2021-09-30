@@ -42,31 +42,29 @@ A FAQ is available at the end of this document.
 ### Compatible Kernels
 
 - Kernels: 2.6.24 - 5.8 (Realtek)
-- Kernels: 5.9 - 5.13 (community support)
+- Kernels: 5.9 - 5.14 (community support)
 
 ### Tested Linux Distributions
 
 - Arch Linux (kernel 5.4)
-- Arch Linux (kernel 5.9)
+- Arch Linux (kernel 5.11)
 
 - Fedora (kernel 5.11)
 
 - Kali Linux (kernel 5.10)
 
-- Linux Mint 20.2 (Linux Mint based on Ubuntu) (kernel 5.4)
-- Linux Mint 20   (Linux Mint based on Ubuntu) (kernel 5.4)
+- Linux Mint 20.2 (Linux Mint based on Ubuntu) (kernel 5.4 and 5.11)
 
 - LMDE 4 (Linux Mint based on Debian) (kernel 4.19)
 
 - Manjaro 20.1 (kernel 5.9)
 
 - Raspberry Pi OS (2021-01-11) (ARM 32 bit) (kernel 5.10)
-- Raspberry Pi Desktop (x86 32 bit) (kernel 4.9)
+- Raspberry Pi Desktop (x86 32 bit) (kernel 4.19)
 
 - Ubuntu 21.04 (kernel 5.11)
 - Ubuntu 20.10 (kernel 5.8)
 - Ubuntu 20.04 (kernel 5.4)
-- Ubuntu 18.04 (kernel 5.4)
 
 ### Download Locations for Tested Linux Distributions
 
@@ -89,19 +87,15 @@ A FAQ is available at the end of this document.
 ### Compatible Devices
 
 * ASUS AC1300 USB-AC55 B1
+* ASUS AC53 Nano
 * ASUS U2
 * Cudy WU1400
-* Dlink - DWA-181
-* Dlink - DWA-182
 * Edimax EW-7822ULC
 * Edimax EW-7822UTC
 * EDUP EP-AC1605GS
 * FIDECO 6B21-AC1200M
 * Linksys WUSB6300 V2
 * NetGear A6150
-* TP-Link Archer T3U
-* TP-Link Archer T3U Plus
-* TP-Link Archer T4U V3
 * TRENDnet TEW-808UBM
 * Numerous additional products that are based on the supported chipsets
 
