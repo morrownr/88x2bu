@@ -218,7 +218,7 @@ $ sudo reboot
 
 ### Driver Options
 
-A file called `88x2bu.conf` will be installed in `/etc/modeprob.d` by default.
+A file called `88x2bu.conf` will be installed in `/etc/modprobe.d` by default.
 
 `/etc/modprobe.d/88x2bu.conf`
 
