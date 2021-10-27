@@ -16,24 +16,38 @@
 - IEEE 802.11b/g/n/ac Client mode
   * Supports wireless security for WEP, WPA TKIP and WPA2 AES PSK
   * Supports site survey scan and manual connect
-  * Supports power saving mode
+  * Supports power saving modes
 - Supported interface modes
   * IBSS
   * Managed
   * AP (see *Bridged Wireless Access Point* located in the main directory of this repo)
-  * Monitor
   * P2P-client
   * P2P-GO
-- USB mode control
 - Log level control
 - LED control
 - Power saving control
 - VHT control (allows 80 MHz channel width in AP mode)
 - SU Beamformee and MU Beamformee control
 - SU Beamformer control
+- DFS Channel support and control for AP mode
+- USB mode control
 
-A FAQ is available at the end of this document.
+Note: WPA3-SAE support is in this driver, however, for it to work with current Linux distros, you will need to download, compile and install the current master of wpa_supplicant at the following site:
 
+https://w1.fi/cgit/
+
+If there is interest, I will consider making and posting a guide. I am very busy so if anyone is interested in making a guide/checklist, I will add it to the README.
+
+Note: A FAQ is available at the end of this document.
+
+### Problem Reporting
+
+Problem reports go in ```Issues```.
+
+Problem reports should include the information obtained with the following command:
+```bash
+$ sudo uname -a && mokutil --sb-state && lsusb && rfkill list all && dkms status && iw dev
+```
 ### Compatible CPUs
 
 - x86, amd64
@@ -46,10 +60,11 @@ A FAQ is available at the end of this document.
 
 ### Tested Linux Distributions
 
-- Arch Linux (kernel 5.4)
-- Arch Linux (kernel 5.11)
+- Arch Linux (kernels 5.4 and 5.11)
 
 - Fedora (kernel 5.11)
+
+- Debian 11 (kernels 5.10 and 5.15)
 
 - Kali Linux (kernel 5.10)
 
@@ -63,12 +78,12 @@ A FAQ is available at the end of this document.
 - Raspberry Pi Desktop (x86 32 bit) (kernel 4.19)
 
 - Ubuntu 21.04 (kernel 5.11)
-- Ubuntu 20.10 (kernel 5.8)
-- Ubuntu 20.04 (kernel 5.4)
+- Ubuntu 20.xx (kernels 5.4 and 5.8)
 
 ### Download Locations for Tested Linux Distributions
 
 - [Arch Linux](https://www.archlinux.org)
+- [Debian](https://www.debian.org/)
 - [Fedora](https://getfedora.org)
 - [Kali Linux](https://www.kali.org/)
 - [Linux Mint](https://www.linuxmint.com)
@@ -103,9 +118,13 @@ Note: Please read "supported-device-IDs" for information about how to confirm th
 
 The installation instructions are for the novice user. Experienced users are welcome to alter the installation to meet their needs.
 
-Temporary internet access is required for installation. There are numerous ways to enable temporary internet access depending on your hardware and situation. [One method is to use tethering from a phone.](https://www.makeuseof.com/tag/how-to-tether-your-smartphone-in-linux) Another method to enable temporary internet access is to keep a [wifi adapter that uses an in-kernel driver](https://github.com/morrownr/USB-WiFi) in your toolkit.
+Temporary internet access is required for installation. There are numerous ways to enable temporary internet access depending on your hardware and situation. [One method is to use tethering from a phone.](https://www.makeuseof.com/tag/how-to-tether-your-smartphone-in-linux) Another method to enable temporary internet access is to keep a [WiFi adapter that uses an in-kernel driver](https://github.com/morrownr/USB-WiFi) in your toolkit.
 
-You will need to use the terminal interface. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key)
+You will need to use the terminal interface. The quick way to open a terminal: Ctrl+Alt+T (hold down on the Ctrl and Alt keys then press the T key).
+
+An alternative terminal is to use SSH (Secure Shell) from the same or from another computer, in which case you will be in a suitable terminal after logging in, but this step requires that an SSH daemon/server has already been configured. (There are lots of SSH guides available, e.g., for the [Raspberry Pi](https://www.raspberrypi.com/documentation/computers/remote-access.html#setting-up-an-ssh-server) and for [Ubuntu](https://linuxconfig.org/ubuntu-20-04-ssh-server). Do not forget [to secure the SSH server](https://www.howtogeek.com/443156/the-best-ways-to-secure-your-ssh-server/).)
+
+You will need to have sufficient access rights to use `sudo`, so that arbitrary commands can be executed as the `root` user. (If the command `sudo echo Yes` returns "Yes", with or without having to enter your password, you do have sufficient access rights.)
 
 DKMS is used for the installation. DKMS is a system utility which will automatically recompile and install this driver when a new kernel is installed. DKMS is provided by and maintained by Dell.
 
@@ -115,7 +134,7 @@ There is no need to disable Secure Mode to install this driver. If Secure Mode i
 
 ### Installation Steps
 
-Step 1: Open a terminal (Ctrl+Alt+T)
+Step 1: Open a terminal (e.g.: Ctrl+Alt+T)
 
 Step 2: Update system package information (select the option for the OS you are using)
 
@@ -164,18 +183,15 @@ Step 3: Install the required packages (select the option for the OS you are usin
     to uninstall it and reinstall the correct version.
 
     If using other methods, please follow the instructions provided by those methods.
-
 ```
-
 ```
     Option for Fedora
 
     # sudo dnf -y install git dkms kernel-devel kernel-debug-devel
 ```
 Step 4: Create a directory to hold the downloaded driver
-
 ```bash
-$ mkdir ~/src
+$ mkdir -p ~/src
 ```
 Step 5: Move to the newly created directory
 ```bash
@@ -189,7 +205,9 @@ Step 7: Move to the newly created driver directory
 ```bash
 $ cd ~/src/88x2bu
 ```
-Step 8: Warning: this step only applies if you are installing to Raspberry Pi *hardware*. You can skip this step if installing to x86 or amd64 based systems.
+Step 8: **Only for Raspberry Pi systems**
+
+Warning: This step only applies if you are installing to Raspberry Pi *hardware*. You should skip this step if installing to x86 or amd64 based systems.
 
 Run a preparation script
 ```
@@ -201,24 +219,23 @@ Run a preparation script
     Option for 64 bit operating systems to be installed to Raspberry Pi hardware
 
     $ ./raspi64.sh
-
-    Note: I will only address issues having to do with the 64 bit version of the
-    Raspberry Pi OS once it is out of beta and is released as generally available.
 ```
 Step 9: Run the installation script (For automated builds, use _NoPrompt_ as an option)
 ```bash
-$ sudo ./install-driver.sh
-```
-Step 10: Reboot
-```bash
-$ sudo reboot
+    $ sudo ./install-driver.sh
+
+    Note: If you elect to skip the reboot at the end of the installation script,
+    the driver may not be loaded immediately and the driver options will not be
+    applied. Rebooting is strongly recommended.
 ```
 
 ### Driver Options
 
 A file called `88x2bu.conf` will be installed in `/etc/modprobe.d` by default.
 
-`/etc/modprobe.d/88x2bu.conf`
+Note: Step 9 of the installation script will prompt you to edit the options before rebooting.
+
+Location: `/etc/modprobe.d/88x2bu.conf`
 
 This file will be read and applied to the driver on each system boot.
 
@@ -241,7 +258,7 @@ Note: This script removes everything that has been installed, with the exception
 of the packages installed in Step 3 and the driver directory. The driver directory
 can and probably should be deleted in most cases after running the script.
 
-Step 1: Open a terminal (Ctrl+Alt+T)
+Step 1: Open a terminal (e.g.: Ctrl+Alt+T)
 
 Step 2: Move to the driver directory
 ```bash
@@ -250,10 +267,6 @@ $ cd ~/src/88x2bu
 Step 3: Run the removal script
 ```bash
 $ sudo ./remove-driver.sh
-```
-Step 4: Reboot
-```bash
-$ sudo reboot
 ```
 ### Recommended WiFi Router/ Access Point Settings
 
@@ -269,11 +282,11 @@ Mode for 2.4 GHz: For best performance, set "N only" if you no longer use B or G
 
 Network names: Do not set the 2.4 GHz Network and the 5 GHz Network to the same name. Note: Unfortunately many routers come with both networks set to the same name. You need to be able to control which network that is in use.
 
-Channels for 5 GHz: Not all devices are capable of using DFS channels. It may be necessary to set a fixed channel in the range of 36 to 48 or 149 to 161 in order for all of your devices to work on 5 GHzg. (for US, other countries may vary)
+Channels for 5 GHz: Not all devices are capable of using DFS channels (I'm looking at you Roku.) It may be necessary to set a fixed channel in the range of 36 to 48 or 149 to 161 in order for all of your devices to work on 5 GHz. (For US, other countries may vary.)
 
-Best location for the wifi router/ access point: Near center of apartment or house, at least a couple of feet away from walls, in an elevated location. You may have to test to see what the best location is in your environment.
+Best location for the WiFi router/access point: Near center of apartment or house, at least a couple of feet away from walls, in an elevated location. You may have to test to see what the best location is in your environment.
 
-Check congestion: There are apps available for smart phones that allow you to check the congestion levels on wifi channels. The apps generally go by the name of ```WiFi Analyzer``` or something similar.
+Check congestion: There are apps available for smart phones that allow you to check the congestion levels on WiFi channels. The apps generally go by the name of ```WiFi Analyzer``` or something similar.
 
 After making and saving changes, reboot the router.
 
@@ -314,17 +327,22 @@ REGDOMAIN=US
 
 - Avoid USB 3.1 Gen 2 ports if possible as almost all currently available adapters have been tested with USB 3.1 Gen 1 (aka USB 3) and not with USB 3.1 Gen 2.
 
-- If you use an extension cable and your adapter is USB 3 capable, the cable needs to be USB 3 capable.
+- If you use an extension cable and your adapter is USB 3 capable, the cable needs to be USB 3 capable (if not, you will at best be limited to USB 2 speeds).
 
 - Some USB WiFi adapters require considerable electrical current and push the capabilities of the power available via USB port. One example is devices that use the Realtek 8814au chipset. Using a powered multiport USB extension can be a good idea in cases like this.
 
 
-### How to disable onboard WiFi on Raspberry Pi 3B, 3B+, 3A+, 4B and Zero W.
+### How to disable onboard WiFi on Raspberry Pi 3B, 3B+, 3A+, 4B and Zero W
 
 Add the following line to /boot/config.txt
 ```
 dtoverlay=disable-wifi
 ```
+
+### How to disable WiFi on most systems
+
+The `rfkill` utility can disable WiFi and Bluetooth (internal or external) on several systems, including but not limited to the Raspberry Pi.
+
 
 ### How to forget a saved WiFi network on a Raspberry Pi
 
@@ -362,7 +380,7 @@ Answer: You can't. Realtek drivers do not support more than one adapter with the
 
 Question: Why do you recommend Mediatek based adapters when you maintain this repo for a Realtek driver?
 
-Answer: Many new Linux users already have adapters based on Realtek chipsets. This repo is for Linux users to support their existing adapters but my STRONG recommendation is for Linux users to seek out WiFi solutions based on Mediatek, Intel or Atheros chipsets and drivers. If users are looking at a USB solution, Mediatek and Atheros based adapters are the best solution. Realtek based USB adapters are not a good solution because Realtek does not follow Linux Wireless standards for USB WiFi adapters. Realtek drivers are problematic in many ways. You have been WARNED. For information about usb wifi adapters:
+Answer: Many new Linux users already have adapters based on Realtek chipsets. This repo is for Linux users to support their existing adapters but my STRONG recommendation is for Linux users to seek out WiFi solutions based on Mediatek, Intel or Atheros chipsets and drivers. If users are looking at a USB solution, Mediatek and Atheros based adapters are the best solution. Realtek based USB adapters are not a good solution because Realtek does not follow Linux Wireless standards for USB WiFi adapters. Realtek drivers are problematic in many ways. You have been WARNED. For information about USB WiFi adapters:
 
 https://github.com/morrownr/USB-WiFi
 
