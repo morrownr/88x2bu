@@ -1,14 +1,12 @@
 News: A new version of this driver is now available. Testing has shown the new
-driver to be a very solid driver in managed and master modes. Please report any 
-problems you encounter.
-
-Please try this new version to see if it meets your needs:
+driver to be a very solid driver in managed and master modes You are invited to
+help test and break in the new driver:
 
 [88x2bu-20210702](https://github.com/morrownr/88x2bu-20210702)
 
-The plan is to discontinue the driver in this repo by the end of December 2021.
-This URL will then be used to provide a link to the new driver so this URL is a
-good permanent bookmark. Please transition to the new driver as you are able to do
+The plan is to discontinue this driver by the end of December 2021. This URL 
+will then be used to provide a link to the new driver so this URL is a good
+permanent bookmark. Please transition to the new driver as you are able to do
 so. Regards. Nick
 
 -----
