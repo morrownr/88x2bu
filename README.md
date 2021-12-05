@@ -25,4 +25,4 @@ Nick
 
 P.S. The purpose of this repo is to serve as a permanent link to the
 most current Linux driver for USB WiFi adapters that are based on the
-RTL8812BU and RTL8822BU Chipsets.
+RTL8812BU and RTL8822BU chipsets.
