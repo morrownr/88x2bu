@@ -6,8 +6,7 @@
 
 ### 88x2bu ( 88x2bu.ko ) :rocket:
 
-### Linux Driver for USB WiFi Adapters that are based on the RTL8812BU
-and RTL8822BU Chipsets
+### Linux Driver for USB WiFi Adapters that are based on the RTL8812BU and RTL8822BU Chipsets
 
 The location of the currently available version of the driver is as
 follows:
