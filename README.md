@@ -13,11 +13,11 @@ follows:
 
 https://github.com/morrownr/88x2bu-20210702
 
-I hope you enjoy the driver and look forward to your comments and
-suggestions.
-
 Issues, Discussions and Pull Requests are not monitored in this repo,
 please use those capabilities in the repo linked above.
+
+I hope you enjoy the driver and look forward to your comments and
+suggestions.
 
 Regards,
 
